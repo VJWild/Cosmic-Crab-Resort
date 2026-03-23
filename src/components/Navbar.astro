@@ -1,0 +1,74 @@
+---
+// Navbar.astro
+---
+
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center text-bone-white bg-transparent">
+
+    <!-- Izquierda: Logo -->
+    <div class="flex-shrink-0">
+        <a href="/" class="text-2xl font-luxury font-bold tracking-widest uppercase flex flex-col">
+            <span>Cosmic Crab</span>
+            <span class="text-[0.6rem] tracking-[0.4em] text-coral-soft font-sans font-semibold">Resort</span>
+        </a>
+    </div>
+
+    <!-- Centro: Enlaces de Navegación -->
+    <div class="hidden lg:flex gap-10 text-sm uppercase tracking-widest font-semibold">
+        <a href="/rooms" class="relative group py-2">
+            Cabins
+            <!-- Línea animada en hover -->
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/restaurant" class="relative group py-2">
+            Restaurant
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/gallery" class="relative group py-2">
+            Gallery
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/contact" class="relative group py-2">
+            Contact
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+    </div>
+
+    <!-- Derecha: Menú Móvil & Botón de Reserva (Call to Action) -->
+    <div class="flex-shrink-0 flex items-center gap-4">
+
+        <!-- Botón de Menú Hamburguesa (móvil) -->
+        <button class="lg:hidden text-bone-white hover:text-coral transition-colors" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+
+        <!-- Botón de Reservas Destacado -->
+        <a href="#" target="_blank" class="inline-block bg-coral hover:bg-red-600 text-bone-white px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
+            Reservation
+        </a>
+    </div>
+</nav>
+
+<!-- Lógica de Scroll (JS) -->
+<script>
+    // Astro ejecuta este script una vez que el HTML está listo
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+
+        // Escuchamos el evento de scroll en la ventana
+        window.addEventListener('scroll', () => {
+            if (navbar) { // Verificamos que el navbar exista
+                if (window.scrollY > 50) {
+                    // Si el usuario bajó más de 50px:
+                    // 1. Quitamos la transparencia y el padding grande
+                    navbar.classList.remove('bg-transparent', 'py-6');
+                    // 2. Añadimos fondo Azul Marino
+                    navbar.classList.add('bg-navy', 'py-4', 'shadow-2xl');
+                } else {
+                    // Si está arriba de todo, volvemos al estado inicial
+                    navbar.classList.add('bg-transparent', 'py-6');
+                    navbar.classList.remove('bg-navy', 'py-4', 'shadow-2xl');
+                }
+            }
+        });
+    });
+</script>

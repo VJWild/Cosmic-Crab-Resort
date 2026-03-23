@@ -1,0 +1,72 @@
+/* 1. Importación base de Tailwind v4 */
+@import "tailwindcss";
+
+/* 2. Tema personalizado (Nuestra paleta Luxury) */
+@theme {
+    --color-bone-white: #FCFCEB;
+    --color-navy: #2B3854;
+    --color-coral: #EF403C;
+    --color-coral-soft: #FFA4A4;
+    --color-ocean: #6C92D3;
+
+    --font-luxury: "Playfair Display", serif;
+    --font-sans: "Montserrat", sans-serif;
+}
+
+/* 3. Estilos Base */
+@layer base {
+    body {
+        background-color: var(--color-bone-white);
+        color: var(--color-navy);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-luxury);
+    }
+}
+
+/* 4. Utilidades personalizadas y Animaciones */
+@layer utilities {
+    .text-shadow-sm {
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .delay-300 {
+        animation-delay: 300ms;
+    }
+
+    .delay-500 {
+        animation-delay: 500ms;
+    }
+
+    .animate-infinite-slider {
+        width: max-content;
+        animation: infinite-slider 35s linear infinite;
+    }
+
+    .gallery-container:hover .animate-infinite-slider {
+        animation-play-state: paused;
+    }
+}
+
+/* 5. Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes infinite-slider {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+    }
