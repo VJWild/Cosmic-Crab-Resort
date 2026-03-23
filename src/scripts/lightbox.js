@@ -10,16 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = trigger.querySelector('img');
             if (img) {
                 lightboxImg.src = img.src;
-                lightbox.classList.remove('hidden');
 
-                // Retardo mínimo para que Tailwind aplique las transiciones de CSS
+
+                lightbox.classList.replace('hidden', 'flex');
+
+
                 setTimeout(() => {
                     lightbox.classList.remove('opacity-0');
                     lightboxImg.classList.remove('scale-95');
                     lightboxImg.classList.add('scale-100');
                 }, 10);
 
-                document.body.style.overflow = 'hidden'; // Bloquea el scroll del fondo
+                document.body.style.overflow = 'hidden';
             }
         });
     });
@@ -33,9 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             lightboxImg.classList.add('scale-95');
         }
 
-        // Esperamos que termine la animación (500ms) para ocultarlo del DOM
+        // Esperamos que termine la animación (500ms)
         setTimeout(() => {
-            lightbox.classList.add('hidden');
+
+            lightbox.classList.replace('flex', 'hidden');
             document.body.style.overflow = 'auto';
         }, 500);
     };
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
 
     if(lightbox) lightbox.addEventListener('click', (e) => {
-        // Solo cierra si se hace clic fuera de la foto
+        // Cierra si se hace clic fuera de la foto
         if (e.target === lightbox || e.target.parentElement === lightbox) closeLightbox();
     });
 
