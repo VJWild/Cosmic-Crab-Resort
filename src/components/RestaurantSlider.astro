@@ -1,0 +1,87 @@
+---
+// src/components/RestaurantSlider.astro
+---
+
+<!-- CONTENEDOR PRINCIPAL DEL SLIDER (Ocupa toda la pantalla) -->
+<main class="relative w-full h-screen overflow-hidden bg-navy flex" id="split-container">
+
+    <!-- ========================================== -->
+    <!-- LADO IZQUIERDO: ATLANTIS POOL & SWIM-UP BAR -->
+    <!-- ========================================== -->
+    <section id="left-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+        <!-- Imagen de fondo -->
+        <img src="public/images/photo-2-home.jpg" alt="Atlantis Bocas Mixology" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay Azul Marino para legibilidad y elegancia -->
+        <div class="absolute inset-0 bg-navy/50 transition-colors duration-500 hover:bg-navy/40"></div>
+
+        <!-- Contenido Centrado -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
+            <!-- Título que se ve al 50% -->
+            <h2 id="left-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
+                Atlantis <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">Pool & Bar</span>
+            </h2>
+
+            <!-- Detalles que aparecen al expandir el panel -->
+            <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
+                <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold mb-4">Premium Cocktails</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">Atlantis Bocas</h2>
+                <div class="w-12 h-1 bg-coral mb-6"></div>
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                    Immerse yourself in our vibrant swim-up bar. Experience world-class mixology, signature Caribbean cocktails, and a sophisticated lounge atmosphere as the sun sets over the water.
+                </p>
+                <a href="#" class="inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg shadow-coral/20">
+                    View Bar Menu
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- LADO DERECHO: COSMIC CRAB CAFE            -->
+    <!-- ========================================== -->
+    <section id="right-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+        <!-- Imagen de fondo -->
+        <img src="public/images/restaurant-home.jpg" alt="Cosmic Crab Cafe Food" class="absolute inset-0 w-full h-full object-cover">
+        <!-- Overlay oscuro para legibilidad -->
+        <div class="absolute inset-0 bg-black/40 transition-colors duration-500 hover:bg-black/30"></div>
+
+        <!-- Contenido Centrado -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
+            <!-- Título que se ve al 50% -->
+            <h2 id="right-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
+                Cosmic Crab <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">Cafe</span>
+            </h2>
+
+            <!-- Detalles que aparecen al expandir el panel -->
+            <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
+                <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold mb-4">Authentic Delicacies</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">The Cafe</h2>
+                <div class="w-12 h-1 bg-coral mb-6"></div>
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                    Taste the true essence of Bocas. Enjoy fresh, locally-sourced seafood and authentic Caribbean dishes in a relaxed, overwater setting perfect for daytime dining.
+                </p>
+                <a href="#" class="inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-bone-white hover:text-navy transition-all duration-300">
+                    View Food Menu
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- BARRA DIVISORIA ARRASTRABLE (SLIDER)       -->
+    <!-- ========================================== -->
+    <div id="slider-divider" class="absolute top-0 bottom-0 w-8 md:w-12 -ml-4 md:-ml-6 cursor-col-resize z-30 flex flex-col items-center justify-center group" style="left: 50%;">
+        <!-- Línea fina vertical -->
+        <div class="absolute top-0 bottom-0 w-[2px] bg-bone-white/30 group-hover:bg-coral transition-colors duration-300"></div>
+
+        <!-- Botón o manija central -->
+        <div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-navy/80 backdrop-blur-md border border-bone-white/20 flex items-center justify-center text-bone-white shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-110 group-hover:border-coral transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-bone-white group-hover:text-coral transition-colors"><path d="m15 18 6-6-6-6"/><path d="m9 18-6-6 6-6"/></svg>
+        </div>
+
+        <!-- Texto indicativo sutil debajo de la manija -->
+        <span class="absolute mt-24 text-[10px] uppercase tracking-widest text-bone-white/70 bg-navy/50 px-2 py-1 rounded backdrop-blur-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity">Drag</span>
+    </div>
+</main>

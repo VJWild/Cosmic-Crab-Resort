@@ -1,0 +1,23 @@
+---
+// src/pages/restaurant.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RestaurantSlider from "../components/RestaurantSlider.astro";
+---
+
+<Layout title="Dining & Bar | Cosmic Crab Resort">
+    <!-- Navbar -->
+    <Navbar />
+
+    <!-- CONTENEDOR PRINCIPAL DEL SLIDER (Ocupa toda la pantalla) -->
+    <RestaurantSlider />
+
+    <!-- Footer  -->
+    <Footer />
+
+    <!-- ========================================== -->
+    <!-- SCRIPT DE LÓGICA DEL SPLIT SCREEN          -->
+    <!-- ========================================== -->
+    <script src="../scripts/restaurantslider.js"></script>
+</Layout>
