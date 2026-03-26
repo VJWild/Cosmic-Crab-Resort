@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -25,7 +27,11 @@ const { title, description = "The Perfect Stay in Bocas del Toro" } = Astro.prop
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased selection:bg-coral-soft selection:text-navy">
-<!-- El contenido de cada página se inyectará aquí -->
+
+<Navbar />
+
 <slot />
+
+<Footer />
 </body>
 </html>
