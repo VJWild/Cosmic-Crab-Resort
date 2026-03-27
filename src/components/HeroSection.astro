@@ -1,43 +1,39 @@
 ---
 // src/components/HeroSection.astro
+import { ui } from '../i18n/ui.js';
+
+const pathname = Astro.url.pathname;
+const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+const t = ui[idiomaActual];
 ---
 
 <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-    <!-- Imagen de Fondo -->
-    <!-- Un zoom lento (hover:scale-110 y duration-[20s]) para dar efecto premium y calmado -->
-    <div
-            class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
-            style="background-image: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"
-    ></div>
+            <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
+            style="background-image: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"
+    ></div>
 
-    <!-- Overlay Azul Marino con opacidad para asegurar que el texto blanco siempre se lea -->
-    <div class="absolute inset-0 bg-navy/40"></div>
+        <div class="absolute inset-0 bg-navy/40"></div>
 
-    <!-- Gradiente en la parte superior para que el Navbar transparente se lea perfectamente -->
-    <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-navy/80 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-navy/80 to-transparent"></div>
 
-    <!-- Contenido Central -->
-    <div class="relative z-10 text-center text-bone-white px-4 max-w-5xl flex flex-col items-center mt-16">
+        <div class="relative z-10 text-center text-bone-white px-4 max-w-5xl flex flex-col items-center mt-16">
 
-        <!-- Subtítulo / Ubicación -->
-        <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-coral-soft font-semibold animate-fade-in opacity-0 text-shadow-sm">
-            Bocas del Toro, Panama
-        </p>
+                <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-coral-soft font-semibold animate-fade-in opacity-0 text-shadow-sm">
+            {t['hero.location']}
+        </p>
 
-        <!-- Título Principal (Usando la fuente Luxury definida en global.css) -->
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-luxury mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
-            The Perfect Stay <br><span class="italic font-light">in Bocas del Toro</span>
-        </h1>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-luxury mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
+            {t['hero.title']} <br><span class="italic font-light">{t['hero.subtitle']}</span>
+        </h1>
 
-        <!-- Descripción -->
-        <p class="max-w-3xl mx-auto text-lg md:text-xl font-light mb-12 animate-fade-in opacity-0 delay-500 text-bone-white/90">
-            If you are looking for a perfect holiday experience with memories to cherish you are at the right place. Let’s plan a reasonable stay for you.
-        </p>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl font-light mb-12 animate-fade-in opacity-0 delay-500 text-bone-white/90">
+            {t['hero.description']}
+        </p>
 
-        <!-- Botón para hacer scroll a la siguiente sección -->
-        <a href="#explore" class="animate-fade-in opacity-0 delay-500 inline-flex items-center gap-3 border border-bone-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-bone-white hover:text-navy transition-all duration-500">
-            Discover the Resort
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-    </div>
+                <a href="#explore" class="animate-fade-in opacity-0 delay-500 inline-flex items-center gap-3 border border-bone-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-bone-white hover:text-navy transition-all duration-500">
+            {t['hero.button']}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+    </div>
 </header>

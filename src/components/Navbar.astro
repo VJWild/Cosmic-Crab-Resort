@@ -1,103 +1,112 @@
 ---
 // src/components/Navbar.astro
+import { ui } from '../i18n/ui.js';
+
+const pathname = Astro.url.pathname;
+
+let idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+
+const t = ui[idiomaActual];
+
+const base = idiomaActual === 'es' ? '/es' : '/en';
+
+const urlCambioIdioma = idiomaActual === 'es' 
+    ? pathname.replace('/es', '/en') 
+    : pathname.replace('/en', '/es');
+
+const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
 ---
 
 <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 flex justify-between items-center text-bone-white bg-transparent">
 
-    <!-- Izquierda: Logo (z-[60] y relative para quedar sobre el menú móvil) -->
-    <div class="flex-shrink-0 relative z-[60]">
-        <a href="/" class="flex items-center gap-3 group">
-            <!-- Isotipo -->
-            <img src="/images/Coral.png" alt="Cosmic Crab Isotipo" class="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'"/>
+    <div class="flex-shrink-0 relative z-[60]">
+                <a href={base + "/"} class="flex items-center gap-3 group">
+            <img src="/images/Coral.png" alt="Cosmic Crab Isotipo" class="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'"/>
 
-            <div class="text-2xl font-luxury font-bold tracking-widest uppercase flex flex-col">
-                <span>Cosmic Crab</span>
-                <span class="text-[0.6rem] tracking-[0.4em] text-coral-soft font-sans font-semibold">Resort</span>
-            </div>
-        </a>
-    </div>
+            <div class="text-2xl font-luxury font-bold tracking-widest uppercase flex flex-col">
+                <span>Cosmic Crab</span>
+                <span class="text-[0.6rem] tracking-[0.4em] text-coral-soft font-sans font-semibold">Resort</span>
+            </div>
+        </a>
+    </div>
 
-    <!-- Centro: Enlaces de Navegación -->
-    <div class="hidden lg:flex gap-10 text-sm uppercase tracking-widest font-semibold">
-        <a href="/rooms" class="relative group py-2">
-            Cabins
-            <!-- Línea animada en hover -->
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="/restaurant" class="relative group py-2">
-            Restaurant
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="/gallery" class="relative group py-2">
-            Gallery
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a href="/contact" class="relative group py-2">
-            Contact
-            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
-        </a>
-    </div>
+    <div class="hidden lg:flex gap-10 text-sm uppercase tracking-widest font-semibold items-center">
+        <a href={base + "/rooms"} class="relative group py-2">
+            {t['nav.cabins']}
+                        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href={base + "/restaurant"} class="relative group py-2">
+            {t['nav.restaurant']}
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href={base + "/gallery"} class="relative group py-2">
+            {t['nav.gallery']}
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href={base + "/contact"} class="relative group py-2">
+            {t['nav.contact']}
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+        </a>
+    </div>
 
-    <!-- Derecha: Menú Móvil & Botón de Reserva (z-[60] para quedar sobre el overlay) -->
-    <div class="flex-shrink-0 flex items-center gap-4 relative z-[60]">
+    <div class="flex-shrink-0 flex items-center gap-4 relative z-[60]">
+        
+                <a href={urlCambioIdioma} class="hidden lg:block text-bone-white hover:text-coral transition-colors font-bold text-sm tracking-widest px-2">
+            {textoBotonIdioma}
+        </a>
 
-        <!-- Botón de Menú Hamburguesa Principal -->
-        <button id="mobile-menu-btn" class="lg:hidden text-bone-white hover:text-coral transition-colors p-2" aria-label="Abrir menú">
-            <!-- Ícono Hamburguesa -->
-            <svg id="icon-menu" class="block transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            <!-- Ícono Cerrar (X) oculto por defecto -->
-            <svg id="icon-close" class="hidden transition-transform duration-300 rotate-90" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
+        <button id="mobile-menu-btn" class="lg:hidden text-bone-white hover:text-coral transition-colors p-2" aria-label="Abrir menú">
+            <svg id="icon-menu" class="block transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg id="icon-close" class="hidden transition-transform duration-300 rotate-90" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
 
-        <!-- Botón de Reservas (Oculto en móviles muy pequeños para meterlo en el menú) -->
-        <a href="#" target="_blank" class="hidden sm:inline-block bg-coral hover:bg-red-600 text-bone-white px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
-            Reservation
-        </a>
-    </div>
+        <a href="#" target="_blank" class="hidden sm:inline-block bg-coral hover:bg-red-600 text-bone-white px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
+            {t['nav.reservation']}
+        </a>
+    </div>
 </nav>
 
-<!-- COMPACT MOBILE MENU (Dropdown Flotante) -->
 <div id="mobile-menu-overlay" class="fixed top-24 right-6 w-[calc(100%-3rem)] sm:w-80 bg-navy/90 backdrop-blur-xl border border-bone-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-[55] flex flex-col rounded-2xl opacity-0 pointer-events-none transition-opacity duration-300 overflow-hidden">
 
-    <!-- Botón interno de cerrar -->
     <div class="flex justify-end p-4 border-b border-bone-white/10">
-        <!-- Reutilizamos el clic del botón principal para cerrar usando JS inline sencillo -->
         <button onclick="document.getElementById('mobile-menu-btn').click()" class="text-bone-white/70 hover:text-coral transition-colors p-2" aria-label="Cerrar menú">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
     </div>
 
-    <!-- Enlaces del Menú -->
     <div class="flex flex-col gap-5 p-8 transform translate-y-4 transition-transform duration-500" id="mobile-menu-content">
-        <a href="/rooms" class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
-            Cabins
+        <a href={base + "/rooms"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
+            {t['nav.cabins']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
         <div class="w-full h-px bg-bone-white/10"></div>
 
-        <a href="/restaurant" class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
-            Restaurant
+        <a href={base + "/restaurant"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
+            {t['nav.restaurant']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
         <div class="w-full h-px bg-bone-white/10"></div>
 
-        <a href="/gallery" class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
-            Gallery
+        <a href={base + "/gallery"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
+            {t['nav.gallery']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
         <div class="w-full h-px bg-bone-white/10"></div>
 
-        <a href="/contact" class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
-            Contact
+        <a href={base + "/contact"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
+            {t['nav.contact']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
+        <div class="w-full h-px bg-bone-white/10"></div>
 
-        <!-- Botón de reserva exclusivo para la vista móvil del menú -->
+        <a href={urlCambioIdioma} class="mobile-link text-xl font-luxury text-coral hover:text-bone-white transition-colors flex items-center justify-between group py-2">
+            Language: {textoBotonIdioma}
+        </a>
+
         <a href="#" class="mt-4 bg-coral text-center text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold shadow-lg shadow-coral/30 sm:hidden hover:bg-red-600 transition-colors rounded-sm">
-            Reservation
+            {t['nav.reservation']}
         </a>
     </div>
 </div>
 
-<!-- Lógica del Navbar y Menú Móvil -->
 <script src="../scripts/navbar.js"></script>
