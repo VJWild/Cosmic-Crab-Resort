@@ -1,7 +1,7 @@
 // src/i18n/ui.js
 export const ui = {
     en: {
-        'nav.cabins': 'Cabins',
+        'nav.excursions': 'Excursions',
         'nav.restaurant': 'Restaurant',
         'nav.gallery': 'Gallery',
         'nav.contact': 'Contact',
@@ -39,9 +39,34 @@ export const ui = {
         'rest.right.btn': 'View Food Menu',
         // Misc
         'rest.slider.drag': 'Drag',
+
+        // Excursions Catalog
+
+
+        // Contact
+        'contact.tag': 'Get in Touch',
+        'contact.title': 'Contact Us',
+        'contact.h2': 'We are here for you',
+        'contact.desc': 'Whether you are looking to book your next getaway, have a special request, or simply want to learn more about our island paradise, our team is ready to assist you.',
+        'contact.office': 'Reception Office',
+        'contact.hours': 'Reception Hours',
+        'contact.info': 'Contact Info',
+        'contact.form.name': 'Your Name',
+        'contact.form.email': 'Your Email',
+        'contact.form.message': 'Your Message',
+        'contact.form.send': 'Send Message',
+
+        // Gallery
+        'gallery.tag': 'Visual Journey',
+        'gallery.title': 'Our Gallery',
+        'gallery.click': 'Click the center image to expand',
+        'gallery.cat.resort': 'Resort & Rooms',
+        'gallery.cat.restaurant': 'Restaurant',
+        'gallery.cat.atlantis': 'Atlantis & Pool',
+        'gallery.cat.excursions': 'Excursions',
     },
     es: {
-        'nav.cabins': 'Cabañas',
+        'nav.excursions': 'Excursiones',
         'nav.restaurant': 'Restaurante',
         'nav.gallery': 'Galería',
         'nav.contact': 'Contacto',
@@ -79,5 +104,27 @@ export const ui = {
         'rest.right.btn': 'Ver Menú de Comida',
         // Misc
         'rest.slider.drag': 'Arrastra',
+
+        // Contact
+        'contact.tag': 'Ponte en Contacto',
+        'contact.title': 'Contáctanos',
+        'contact.h2': 'Estamos aquí para ti',
+        'contact.desc': 'Ya sea que busques reservar tu próxima escapada, tengas una petición especial o simplemente quieras saber más sobre nuestro paraíso isleño, nuestro equipo está listo para asistirte.',
+        'contact.office': 'Oficina de Recepción',
+        'contact.hours': 'Horario de Recepción',
+        'contact.info': 'Información de Contacto',
+        'contact.form.name': 'Tu Nombre',
+        'contact.form.email': 'Tu Correo Electrónico',
+        'contact.form.message': 'Tu Mensaje',
+        'contact.form.send': 'Enviar Mensaje',
+
+        // Gallery
+        'gallery.tag': 'Viaje Visual',
+        'gallery.title': 'Nuestra Galería',
+        'gallery.click': 'Haz clic en la imagen central para ampliar',
+        'gallery.cat.resort': 'Resort y Habitaciones',
+        'gallery.cat.restaurant': 'Restaurante',
+        'gallery.cat.atlantis': 'Atlantis y Piscina',
+        'gallery.cat.excursions': 'Excursiones',
     }
 };

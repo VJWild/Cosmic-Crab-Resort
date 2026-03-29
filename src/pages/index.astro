@@ -3,7 +3,7 @@
 const acceptLang = Astro.request.headers.get('accept-language') || '';
 
 if (acceptLang.toLowerCase().includes('es')) {
-    return Astro.redirect('/es/');
+   return Astro.redirect('/es/');
 }
 
 ---
@@ -11,19 +11,19 @@ if (acceptLang.toLowerCase().includes('es')) {
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Redirecting...</title>
-    
-        <script is:inline>
-      if (window.location.pathname === '/' || window.location.pathname === '') {
-        if (navigator.language.startsWith('es')) {
-          window.location.replace('/es/');
-        } else {
-          window.location.replace('/en/');
-        }
-      }
-    </script>
+ <meta charset="utf-8" />
+ <title>Redirecting...</title>
+ 
+<script is:inline>
+   if (window.location.pathname === '/' || window.location.pathname === '') {
+if (navigator.language.startsWith('es')) {
+  window.location.replace('/es/');
+} else {
+  window.location.replace('/en/');
+}
+   }
+ </script>
   </head>
   <body style="background: #001220;">
-      </body>
+   </body>
 </html>
