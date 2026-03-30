@@ -7,6 +7,9 @@ const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 const t = ui[idiomaActual];
 ---
 
+<!-- Script para enviar mensaje de whatsapp -->
+ <script src="../scripts/contact-handler.js"></script>
+
 <!-- 1. MINI HERO SECTION -->
 <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
     <!-- IMAGEN -->
@@ -110,7 +113,7 @@ const t = ui[idiomaActual];
             <!-- Marco decorativo -->
             <div class="absolute inset-0 border border-navy/5 transform translate-x-3 translate-y-3 pointer-events-none hidden md:block"></div>
 
-            <form action="#" method="POST" class="flex flex-col relative z-10 pt-4">
+            <form action="#" method="POST" class="flex flex-col relative z-10 pt-4" id="contact-form">
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
                     <!-- Input Floating Label: Name -->
