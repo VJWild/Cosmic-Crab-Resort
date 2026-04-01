@@ -1,6 +1,7 @@
 ---
 // src/components/HeroSection.astro
 import { ui } from '../i18n/ui.js';
+import BookingForm from '../components/BookingForm.astro';
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
@@ -31,9 +32,7 @@ const t = ui[idiomaActual];
             {t['hero.description']}
         </p>
 
-                <a href="#explore" class="animate-fade-in opacity-0 delay-500 inline-flex items-center gap-3 border border-bone-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-bone-white hover:text-navy transition-all duration-500">
-            {t['hero.button']}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
+
+<BookingForm />
     </div>
 </header>

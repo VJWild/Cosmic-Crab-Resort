@@ -39,6 +39,10 @@ export const ui = {
         'rest.right.btn': 'View Food Menu',
         // Misc
         'rest.slider.drag': 'Drag',
+        // Widget
+        'book.checkin': 'Check-in',
+        'book.checkout': 'Check-out',
+        'book.button': 'Check Availability',
     },
     es: {
         'nav.cabins': 'Cabañas',
@@ -79,5 +83,9 @@ export const ui = {
         'rest.right.btn': 'Ver Menú de Comida',
         // Misc
         'rest.slider.drag': 'Arrastra',
+        // Widget
+        'book.checkin': 'Entrada',
+        'book.checkout': 'Salida',
+        'book.button': 'Consultar Disponibilidad',
     }
 };
