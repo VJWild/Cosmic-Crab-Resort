@@ -2,103 +2,119 @@
 // src/pages/es/index.astro
 import Layout from '../../layouts/Layout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import BookingForm from '../../components/BookingForm.astro';
 ---
 
 <Layout title="Cosmic Crab Resort | Escape de Lujo en Bocas del Toro">
 
-    <HeroSection />
+<HeroSection />
 
-    <main>
-        <section id="explore" class="py-24 px-6 md:px-12 bg-bone-white">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Bienvenidos a Cosmic Crab Resort</h2>
-                <div class="w-16 h-1 bg-coral mx-auto mb-8"></div>
-                <p class="text-navy/80 text-lg leading-relaxed max-w-3xl mx-auto">
-                    Te ayudaremos a experimentar la vida de Bocas en su verdadero sentido. Desde vivir entre los residentes hasta comer delicias auténticas, estamos seguros de que volverás a casa con recuerdos y momentos maravillosos.
+<main>
+    <section id="explore" class="py-24 px-6 md:px-12 bg-bone-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Bienvenidos a Cosmic Crab Resort</h2>
+        <div class="w-16 h-1 bg-coral mx-auto mb-8"></div>
+            <p class="text-navy/80 text-lg leading-relaxed max-w-3xl mx-auto">
+                Te ayudaremos a experimentar la vida de Bocas en su verdadero sentido. Desde vivir entre los residentes hasta comer delicias auténticas, estamos seguros de que volverás a casa con recuerdos y momentos maravillosos.
+            </p>
+        </div>
+    </section>
+
+    <BookingForm />
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones & Restaurant) -->
+    <!-- ========================================================================= -->
+    <section id="experiences" class="py-24 px-6 md:px-12 bg-bone-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="uppercase tracking-widest text-coral text-sm font-semibold mb-2">Descubre</p>
+                <h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Experiencias inolvidables</h2>
+                <div class="w-16 h-1 bg-coral mx-auto"></div>
+                <p class="text-navy/70 text-lg mt-6 max-w-2xl mx-auto">
+                    Sumérgete en el vibrante estilo de vida caribeño. Desde aventuras en las islas hasta los auténticos sabores del archipiélago.
                 </p>
             </div>
-        </section>
 
-        <section id="rooms-teaser" class="py-24 px-6 md:px-12 bg-navy text-bone-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                    <div>
-                        <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Alojamiento</p>
-                        <h2 class="text-4xl md:text-5xl font-luxury">Vida Inmersiva en la Isla</h2>
-                    </div>
-                    <a href="/es/rooms" class="mt-6 md:mt-0 inline-flex items-center gap-2 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors group">
-                        Ver Todas las Habitaciones
-                        <svg class="transform group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                </div>
+            <!-- Grid de 2 columnas verticales -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-                <div class="flex flex-col lg:flex-row bg-bone-white text-navy shadow-2xl group cursor-pointer" onclick="window.location.href='/es/rooms'">
-                    <div class="lg:w-3/5 relative h-80 md:h-96 lg:h-[32rem] overflow-hidden">
-                        <img src="/images/room-1-home.jpg" alt="Alojamiento en Cosmic Crab Resort" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2000ms] ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent lg:opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    </div>
-                    <div class="lg:w-2/5 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-coral scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                        <h3 class="text-3xl lg:text-4xl font-luxury mb-4 text-navy">Tu Puerta al Paraíso</h3>
-                        <div class="w-12 h-0.5 bg-coral mb-6"></div>
-                        <p class="text-navy/80 text-base leading-relaxed mb-8">
-                            Rodeado de belleza escénica y atractivos turísticos, te facilitamos la visita a todos los lugares hermosos con nuestro guía interno. También podemos ayudarte a organizar el transporte para un traslado más sencillo a los lugares cercanos.
+                <!-- Columna 1: Excursiones -->
+                <a href="/en/excursions" class="group relative h-[500px] md:h-[650px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+                    <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Island Excursions" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
+                    <!-- Gradiente oscuro en la base para leer el texto -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="relative z-10 p-8 md:p-12 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Aventuras</p>
+                        <h3 class="text-bone-white text-3xl md:text-4xl font-luxury mb-3">Excursiones por la Isla</h3>
+                        <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
+                        <p class="text-bone-white/80 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            Explora playas de arena blanca inmaculada, vibrantes arrecifes de coral y la belleza salvaje del archipiélago.
                         </p>
-                        <ul class="space-y-3 mb-10 text-sm text-navy/70">
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-coral"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                                Guías Locales Personalizados
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-coral"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                                Arreglos de Transporte
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-coral"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                                Servicios de Habitación Premium
-                            </li>
-                        </ul>
-                        <div class="mt-auto inline-flex items-center gap-3 text-coral uppercase tracking-widest text-sm font-bold transition-colors">
-                            Descubre Nuestras Habitaciones
-                            <svg class="transform group-hover:translate-x-2 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </a>
 
-        <section id="restaurant-teaser" class="py-24 px-6 md:px-12 bg-bone-white relative">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col lg:flex-row items-center relative">
-                    <div class="w-full lg:w-7/12 relative h-[400px] lg:h-[600px] overflow-hidden shadow-2xl z-10 group">
-                        <img src="/images/restaurant-home.jpg" alt="Café Cosmic Crab" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2000ms] ease-out">
-                    </div>
-                    <div class="w-full lg:w-6/12 relative z-20 -mt-20 lg:mt-0 lg:-ml-24 bg-navy text-bone-white p-10 md:p-16 shadow-2xl border-l-4 border-coral">
-                        <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Experiencia Gastronómica</p>
-                        <h2 class="text-4xl md:text-5xl font-luxury mb-6">Excelencia Culinaria</h2>
-                        <div class="w-16 h-0.5 bg-coral mb-8"></div>
-                        <p class="text-bone-white/80 text-lg mb-10 leading-relaxed">
-                            Deléitate con un viaje de sabores. Durante el día, disfruta de platos caribeños frescos y de origen local en el <span class="font-bold text-coral-soft">Cosmic Crab Cafe</span>. Al ponerse el sol, sumérgete en la vibrante experiencia de mixología premium de <span class="font-bold text-coral-soft">Atlantis Bocas</span>.
+                <!-- Columna 2: Cosmic Crab Cafe -->
+                <a href="/en/restaurant" class="group relative h-[500px] md:h-[650px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+                    <img src="/images/restaurant-home.jpg" alt="Cosmic Crab Cafe" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="relative z-10 p-8 md:p-12 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Gastronomía</p>
+                        <h3 class="text-bone-white text-3xl md:text-4xl font-luxury mb-3">Cosmic Crab Cafe</h3>
+                        <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
+                        <p class="text-bone-white/80 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            Deléitese con los auténticos sabores caribeños y mariscos locales en un ambiente relajado sobre el agua.
                         </p>
-                        <a href="/es/restaurant" class="group inline-flex items-center gap-3 bg-transparent border border-bone-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-bone-white hover:text-navy transition-all duration-300">
-                            Explora Nuestros Menús
-                            <svg class="transform group-hover:translate-x-2 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a>
                     </div>
-                </div>
-            </div>
-        </section>
+                </a>
 
-                <section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
-                <div>
-                    <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Viaje Visual</p>
-                    <h2 class="text-4xl md:text-5xl font-luxury">Nuestras Fotos Interiores</h2>
-                </div>
-                <a href="/es/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors">
-                    Ver Galería Completa
-                </a>
-            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
+    <!-- ========================================================================= -->
+    <section id="atlantis-teaser" class="bg-navy relative overflow-hidden">
+        <div class="flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[75vh]">
+
+            <!-- Mitad Izquierda: Imagen (Mobile top, Desktop left) -->
+            <div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full order-1 lg:order-1">
+                <img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Premium Mixology" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-navy/20"></div>
+            </div>
+
+            <!-- Mitad Derecha: Contenido y CTA -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-16 lg:p-24 order-2 lg:order-2 z-10">
+                <p class="uppercase tracking-[0.4em] text-coral-soft text-xs font-bold mb-4">Un nuevo nivel de lujo</p>
+                <h2 class="text-bone-white text-5xl md:text-6xl lg:text-7xl font-luxury mb-6 leading-tight">Atlantis<br><span class="text-coral-soft italic font-light">Bocas</span></h2>
+                <div class="w-16 h-0.5 bg-coral mb-8"></div>
+
+                <p class="text-bone-white/80 text-lg leading-relaxed mb-10 font-light max-w-xl">
+                    Eleve su experiencia caribeña en nuestro exclusivo bar y salón dentro de la piscina. Atlantis Bocas le ofrece un mundo de coctelería de primera clase, cócteles de autor y un ambiente vibrante y sofisticado, diseñado para el viajero más exigente.
+                </p>
+
+                <a href="/en/atlantis" class="inline-flex items-center gap-3 border border-coral text-coral hover:bg-coral hover:text-bone-white px-10 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 w-max shadow-[0_0_20px_rgba(239,64,60,0.15)] hover:shadow-[0_0_30px_rgba(239,64,60,0.3)]">
+                    Descubre Atlantis
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+     <section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden">
+         <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
+         <div>
+     <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Viaje Visual</p>
+         <h2 class="text-4xl md:text-5xl font-luxury">Nuestras Fotos Interiores</h2>
+         </div>
+             <a href="/es/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors">
+                 Ver Galería Completa
+             </a>
+         </div>
 
                         <div class="relative w-full overflow-hidden flex gallery-container">
                 <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
@@ -195,7 +211,7 @@ import HeroSection from '../../components/HeroSection.astro';
                     </a>
 
                     <div class="mt-12">
-                                                <a href="#" target="_blank" class="inline-block bg-coral text-bone-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-red-600 transition-all duration-300 shadow-lg shadow-coral/30 hover:shadow-2xl hover:shadow-coral/50 transform hover:-translate-y-1 hover:scale-105">
+                        <a href="https://booking-directly.com/widgets/4Q4XUrH0pGe4DGJRgz8TCg4gHEhVMa5bFX11A4AGxQQXzlPSEKZKm9M4ocs95/properties?search_stay_dates=%22checkInDate%22:%222024-09-06%22,%22checkOutDate%22:%222024-09-07%22&search_occupancies=%5B%22numberOfAdults%22:2,%22children%22:%5B%5D%5D" target="_blank" class="inline-block bg-coral text-bone-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-red-600 transition-all duration-300 shadow-lg shadow-coral/30 hover:shadow-2xl hover:shadow-coral/50 transform hover:-translate-y-1 hover:scale-105">
                             Reservar en Línea
                         </a>
                     </div>

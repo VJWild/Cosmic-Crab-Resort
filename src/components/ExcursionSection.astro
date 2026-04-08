@@ -1,0 +1,46 @@
+---
+interface Props {
+  number: string;
+  tag: string;
+  title: string;
+  description: string;
+  img: string;
+  reverse?: boolean;
+}
+
+const { number, tag, title, description, img, reverse = false } = Astro.props;
+---
+
+<section class="slider-section relative w-full h-screen flex flex-col md:flex-row overflow-hidden">
+  
+  {reverse ? (
+    <div class="w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center p-8 md:p-16 bg-navy text-bone-white z-10">
+      <div class="max-w-lg animate-[float_6s_ease-in-out_infinite]">
+        <span class="text-bone-white tracking-[0.3em] text-xs font-mono uppercase block mb-4">{number} / {tag}</span>
+        <h2 class="text-5xl md:text-7xl font-bold leading-none text-bone-white">{title}</h2>
+        <p class="mt-6 text-bone-white text-lg leading-relaxed font-light">{description}</p>
+      </div>
+    </div>
+    
+    <div class="w-full md:w-1/2 h-[50vh] md:h-screen relative overflow-hidden group">
+      <img src={img} alt={title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110 group-hover:rotate-1" />
+      <div class="absolute inset-0 opacity-0 group-hover:animate-[shine_1.5s_ease-in-out] bg-gradient-to-r from-transparent via-bone-white/20 to-transparent -translate-x-full rotate-45 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-l from-navy/70 to-transparent transition-opacity duration-700 group-hover:opacity-30"></div>
+    </div>
+  ) : (
+    <div class="w-full md:w-1/2 h-[50vh] md:h-screen relative overflow-hidden group">
+      <img src={img} alt={title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110 group-hover:rotate-1" />
+      <div class="absolute inset-0 opacity-0 group-hover:animate-[shine_1.5s_ease-in-out] bg-gradient-to-r from-transparent via-bone-white/20 to-transparent -translate-x-full rotate-45 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-navy/70 to-transparent transition-opacity duration-700 group-hover:opacity-30"></div>
+    </div>
+
+    <div class="w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center p-8 md:p-16 bg-navy text-bone-white z-10">
+      <div class="max-w-lg animate-[float_6s_ease-in-out_infinite]">
+        <span class="text-bone-white tracking-[0.3em] text-xs font-mono uppercase block mb-4">{number} / {tag}</span>
+        <h2 class="text-5xl md:text-7xl font-bold leading-none text-bone-white">{title}</h2>
+        <p class="mt-6 text-bone-white text-lg leading-relaxed font-light">{description}</p>
+      </div>
+    </div>
+  )}
+  
+</section>

@@ -1,0 +1,129 @@
+---
+// src/components/GallerySection.astro
+import { ui } from '../i18n/ui.js';
+import { galleryData } from '../data/galleryData.js'; // base de datos externa
+
+const pathname = Astro.url.pathname;
+const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+const t = ui[idiomaActual];
+
+
+const categories = [
+    { id: 'resort', name: t['gallery.cat.resort'] || 'Resort & Rooms' },
+    { id: 'restaurant', name: t['gallery.cat.restaurant'] || 'Restaurant' },
+    { id: 'atlantis', name: t['gallery.cat.atlantis'] || 'Atlantis & Pool' },
+    { id: 'excursions', name: t['gallery.cat.excursions'] || 'Excursions' }
+];
+---
+
+<!-- Estilos para el efecto de Espejo -->
+<style>
+    .reflect-below {
+        /* Reflejo debajo de la imagen */
+        -webkit-box-reflect: below 8px linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.05) 75%, rgba(255,255,255,0.2) 100%);
+    }
+</style>
+
+<!-- MINISECTION PARA GALERÍA -->
+<header class="relative h-[45vh] lg:h-[55vh] w-full flex items-center justify-center overflow-hidden border-b border-bone-white/10">
+    <div class="absolute inset-0 bg-cover bg-center transform scale-105" style="background-image: url('/images/photo-5-home.jpg');"></div>
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+
+    <div class="relative z-10 text-center text-bone-white mt-16 px-4">
+        <p class="uppercase tracking-[0.4em] text-coral-soft text-sm font-semibold mb-4 animate-fade-in opacity-0">
+            {t['gallery.tag'] || 'Visual Journey'}
+        </p>
+        <h1 class="text-5xl md:text-7xl font-luxury mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
+            {t['gallery.title'] || 'Our Gallery'}
+        </h1>
+        <div class="w-16 h-1 bg-coral mx-auto animate-fade-in opacity-0 delay-500"></div>
+    </div>
+</header>
+
+<main class="py-20 bg-navy text-bone-white overflow-hidden relative">
+
+    <!-- Luz ambiental de fondo -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-coral-soft/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+
+        <!-- PESTAÑAS PARA CAMBIAR CATEGORÍA -->
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-16 pb-4">
+            {categories.map((cat, index) => (
+                    <button
+                            class={`tab-btn uppercase tracking-widest text-xs md:text-sm font-bold transition-all duration-500 pb-2 relative group ${index === 0 ? 'text-coral' : 'text-bone-white/50 hover:text-bone-white'}`}
+                            data-target={cat.id}
+                    >
+                        {cat.name}
+                        <!-- Línea animada de pestaña -->
+                        <span class={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] transition-all duration-500 ${index === 0 ? 'w-full bg-coral' : 'w-0 bg-bone-white group-hover:w-full'}`}></span>
+                    </button>
+            ))}
+        </div>
+
+        <!-- CONTENEDORES DE LA GALERÍA 3D -->
+        <div class="relative w-full h-[550px] md:h-[750px] flex items-center justify-center">
+            {Object.entries(galleryData).map(([category, images], idx) => (
+                    <div
+                            id={`gallery-${category}`}
+                            class={`gallery-3d-container absolute inset-0 w-full h-full flex flex-col items-center justify-start pt-10 md:pt-16 transition-opacity duration-500 ease-in-out ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                            style="perspective: 1800px;"
+                    >
+
+                        <!-- Botón Anterior -->
+                        <button class="prev-btn absolute left-2 md:left-8 top-[35%] md:top-[40%] -translate-y-1/2 z-50 bg-bone-white/5 hover:bg-bone-white/20 text-bone-white p-4 md:p-5 rounded-full backdrop-blur-xl border border-bone-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+
+                        <!-- Carrusel -->
+                        <div class="relative w-[300px] md:w-[650px] h-[350px] md:h-[450px]" style="transform-style: preserve-3d;">
+                            {images.map((src, index) => (
+
+                                // Contenedor individual de slide
+                            <div class="slide-3d absolute inset-0 w-full h-full cursor-pointer will-change-transform">
+
+                                        <!-- Contenedor de la foto (Con efecto Espejo) -->
+                                        <div class="gallery-img-trigger reflect-below w-full h-full relative group rounded-2xl overflow-hidden transition-all duration-500 border border-transparent">
+
+                                            <!-- Imagen con transición de filtros profundos -->
+                                            <img src={src} alt={`${category} image ${index + 1}`} class="slide-img w-full h-full object-cover select-none transition-all duration-500 ease-out" draggable="false" />
+
+                                            <!-- Lupa indicadora -->
+                                            <div class="zoom-indicator absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden">
+                                                <div class="bg-navy/60 p-5 rounded-full text-bone-white backdrop-blur-md border border-bone-white/30 shadow-[0_0_30px_rgba(0,0,0,0.5)] transform scale-90 group-hover:scale-100 transition-transform duration-500">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                                                </div>
+                                            </div>
+
+                                            <!-- Bloqueador de clics para imágenes traseras -->
+                                            <div class="click-blocker absolute inset-0 z-20"></div>
+                                        </div>
+                                    </div>
+                            ))}
+                        </div>
+
+                        <!-- Botón Siguiente -->
+                        <button class="next-btn absolute right-2 md:right-8 top-[35%] md:top-[40%] -translate-y-1/2 z-50 bg-bone-white/5 hover:bg-bone-white/20 text-bone-white p-4 md:p-5 rounded-full backdrop-blur-xl border border-bone-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+
+                        <!-- Paginación -->
+                        <div class="absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50">
+                            {images.map((_, index) => (
+                                    <div class="pagination-dot w-2 h-2 rounded-full bg-bone-white/30 transition-all duration-500"></div>
+                            ))}
+                        </div>
+
+                    </div>
+            ))}
+        </div>
+
+        <p class="text-center text-bone-white/40 text-[10px] md:text-xs tracking-[0.3em] mt-2 uppercase font-light">
+            {t['gallery.click'] || 'Click the center image to expand'}
+        </p>
+
+    </div>
+</main>
+
+
+<script src="../scripts/gallery3d.js"></script>
