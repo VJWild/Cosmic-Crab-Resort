@@ -1,9 +1,8 @@
 ---
 // src/pages/es/index.astro
-// Importamos la plantilla maestra y los componentes creados
 import Layout from '../../layouts/Layout.astro';
 import HeroSection from '../../components/HeroSection.astro';
-
+import BookingForm from '../../components/BookingForm.astro';
 ---
 
 <Layout title="Cosmic Crab Resort | Escape de Lujo en Bocas del Toro">
@@ -20,6 +19,8 @@ import HeroSection from '../../components/HeroSection.astro';
             </p>
         </div>
     </section>
+
+    <BookingForm />
 
     <!-- ========================================================================= -->
     <!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones & Restaurant) -->
@@ -210,7 +211,7 @@ import HeroSection from '../../components/HeroSection.astro';
                     </a>
 
                     <div class="mt-12">
-                                                <a href="#" target="_blank" class="inline-block bg-coral text-bone-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-red-600 transition-all duration-300 shadow-lg shadow-coral/30 hover:shadow-2xl hover:shadow-coral/50 transform hover:-translate-y-1 hover:scale-105">
+                        <a href="https://booking-directly.com/widgets/4Q4XUrH0pGe4DGJRgz8TCg4gHEhVMa5bFX11A4AGxQQXzlPSEKZKm9M4ocs95/properties?search_stay_dates=%22checkInDate%22:%222024-09-06%22,%22checkOutDate%22:%222024-09-07%22&search_occupancies=%5B%22numberOfAdults%22:2,%22children%22:%5B%5D%5D" target="_blank" class="inline-block bg-coral text-bone-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-red-600 transition-all duration-300 shadow-lg shadow-coral/30 hover:shadow-2xl hover:shadow-coral/50 transform hover:-translate-y-1 hover:scale-105">
                             Reservar en Línea
                         </a>
                     </div>

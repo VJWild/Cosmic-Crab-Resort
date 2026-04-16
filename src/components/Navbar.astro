@@ -39,6 +39,10 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
  {t['nav.restaurant']}
  <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
 </a>
+<a href={base + "/atlantis"} class="relative group py-2">
+ {t['nav.atlantis']}
+ <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
+</a>
 <a href={base + "/gallery"} class="relative group py-2">
  {t['nav.gallery']}
  <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-coral transition-all duration-300 group-hover:w-full"></span>
@@ -60,7 +64,7 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
             <svg id="icon-close" class="hidden transition-transform duration-300 rotate-90" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
-        <a href="#" target="_blank" class="hidden sm:inline-block bg-coral hover:bg-red-600 text-bone-white px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
+        <a href="https://booking-directly.com/widgets/4Q4XUrH0pGe4DGJRgz8TCg4gHEhVMa5bFX11A4AGxQQXzlPSEKZKm9M4ocs95/properties?search_stay_dates=%22checkInDate%22:%222024-09-06%22,%22checkOutDate%22:%222024-09-07%22&search_occupancies=%5B%22numberOfAdults%22:2,%22children%22:%5B%5D%5D" target="_blank" class="hidden sm:inline-block bg-coral hover:bg-red-600 text-bone-white px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
             {t['nav.reservation']}
         </a>
     </div>
@@ -83,6 +87,12 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
 
         <a href={base + "/restaurant"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
             {t['nav.restaurant']}
+            <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <div class="w-full h-px bg-bone-white/10"></div>
+
+        <a href={base + "/atlantis"} class="mobile-link text-2xl font-luxury text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
+            {t['nav.atlantis']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
         <div class="w-full h-px bg-bone-white/10"></div>

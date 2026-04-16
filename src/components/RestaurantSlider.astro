@@ -10,63 +10,91 @@ const t = ui[idiomaActual];
 
 <main class="relative w-full h-screen overflow-hidden bg-navy flex" id="split-container">
 
-<section id="left-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
-<img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Mixology" class="absolute inset-0 w-full h-full object-cover">
-<div class="absolute inset-0 bg-navy/50 transition-colors duration-500 hover:bg-navy/40"></div>
+    <section id="left-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+        <img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Mixology" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-navy/50 transition-colors duration-500 hover:bg-navy/40"></div>
 
-<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
-<h2 id="left-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
-{t['rest.left.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.left.subtitle']}</span>
- </h2>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
+            <h2 id="left-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
+                {t['rest.left.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.left.subtitle']}</span>
+            </h2>
 
-  <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
-    <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold mb-4">{t['rest.left.tag']}</p>
-    <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.left.h2']}</h2>
-    <div class="w-12 h-1 bg-coral mb-6"></div>
-          <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
-                    {t['rest.left.desc']}
-                </p>
-                <a href="#" class="inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg shadow-coral/20">
-                    {t['rest.left.btn']}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
+            <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
+                <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold mb-4">{t['rest.left.tag']}</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.left.h2']}</h2>
+                <div class="w-12 h-1 bg-coral mb-6"></div>
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                    {t['rest.left.desc']}
+                </p>
+                <button type="button" data-menu="atlantis" class="menu-btn inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg shadow-coral/20 cursor-pointer">
+                    {t['rest.left.btn']}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
 
-                <section id="right-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
-                <img src="/images/restaurant-home.jpg" alt="Cosmic Crab Cafe Food" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/40 transition-colors duration-500 hover:bg-black/30"></div>
+    <section id="right-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+        <img src="/images/restaurant-home.jpg" alt="Cosmic Crab Cafe Food" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40 transition-colors duration-500 hover:bg-black/30"></div>
 
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
-                        <h2 id="right-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
-                {t['rest.right.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.right.subtitle']}</span>
-            </h2>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
+            <h2 id="right-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
+                {t['rest.right.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.right.subtitle']}</span>
+            </h2>
 
-                        <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
-                <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold mb-4">{t['rest.right.tag']}</p>
-                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.right.h2']}</h2>
-                <div class="w-12 h-1 bg-coral mb-6"></div>
-                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
-                    {t['rest.right.desc']}
-                </p>
-                <a href="#" class="inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-bone-white hover:text-navy transition-all duration-300">
-                    {t['rest.right.btn']}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
+            <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
+                <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold mb-4">{t['rest.right.tag']}</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.right.h2']}</h2>
+                <div class="w-12 h-1 bg-coral mb-6"></div>
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                    {t['rest.right.desc']}
+                </p>
+                <button type="button" data-menu="cafe" class="menu-btn inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-bone-white hover:text-navy transition-all duration-300 cursor-pointer">
+                    {t['rest.right.btn']}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
 
-                <div id="slider-divider" class="absolute top-0 bottom-0 w-8 md:w-12 -ml-4 md:-ml-6 cursor-col-resize z-30 flex flex-col items-center justify-center group" style="left: 50%;">
-                <div class="absolute top-0 bottom-0 w-[2px] bg-bone-white/30 group-hover:bg-coral transition-colors duration-300"></div>
+    <div id="slider-divider" class="absolute top-0 bottom-0 w-8 md:w-12 -ml-4 md:-ml-6 cursor-col-resize z-30 flex flex-col items-center justify-center group" style="left: 50%;">
+        <div class="absolute top-0 bottom-0 w-[2px] bg-bone-white/30 group-hover:bg-coral transition-colors duration-300"></div>
 
-                <div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-navy/80 backdrop-blur-md border border-bone-white/20 flex items-center justify-center text-bone-white shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-110 group-hover:border-coral transition-all duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-bone-white group-hover:text-coral transition-colors"><path d="m15 18 6-6-6-6"/><path d="m9 18-6-6 6-6"/></svg>
-        </div>
+        <div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-navy/80 backdrop-blur-md border border-bone-white/20 flex items-center justify-center text-bone-white shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-110 group-hover:border-coral transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-bone-white group-hover:text-coral transition-colors"><path d="m15 18 6-6-6-6"/><path d="m9 18-6-6 6-6"/></svg>
+        </div>
 
-                <span class="absolute mt-24 text-[10px] uppercase tracking-widest text-bone-white/70 bg-navy/50 px-2 py-1 rounded backdrop-blur-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity">{t['rest.slider.drag']}</span>
-    </div>
+        <span class="absolute mt-24 text-[10px] uppercase tracking-widest text-bone-white/70 bg-navy/50 px-2 py-1 rounded backdrop-blur-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity">{t['rest.slider.drag']}</span>
+    </div>
 </main>
 
-<script src="../scripts/restaurantSlider.js"></script>
+<!-- Menu Modal Slider -->
+<div id="menu-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <button id="close-modal" class="absolute top-6 right-6 md:top-8 md:right-8 text-bone-white hover:text-coral transition-colors z-[60] bg-navy/50 hover:bg-navy/80 p-2 md:p-3 rounded-full backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+
+    <div class="relative w-full max-w-6xl h-[85vh] md:h-[90vh] flex items-center justify-center px-4 md:px-16">
+        <!-- Prev Button -->
+        <button id="prev-slide" class="absolute left-2 md:left-4 text-bone-white hover:text-coral transition-all duration-300 bg-navy/50 hover:bg-navy/80 p-3 md:p-4 rounded-full backdrop-blur-sm z-20 hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <!-- Image Container -->
+        <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <img id="modal-image" src="" alt="Menu Image" class="max-w-full max-h-full object-contain drop-shadow-2xl transition-all duration-500 scale-95 opacity-0 rounded-lg">
+        </div>
+
+        <!-- Next Button -->
+        <button id="next-slide" class="absolute right-2 md:right-4 text-bone-white hover:text-coral transition-all duration-300 bg-navy/50 hover:bg-navy/80 p-3 md:p-4 rounded-full backdrop-blur-sm z-20 hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        
+        <!-- Pagination Indicators -->
+        <div id="modal-pagination" class="absolute bottom-4 md:bottom-0 flex gap-3 z-20 bg-navy/50 px-4 py-2 rounded-full backdrop-blur-sm">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+</div>
+

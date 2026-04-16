@@ -3,11 +3,11 @@
 
 /* 2. Tema personalizado (Nuestra paleta Luxury) */
 @theme {
-    --color-bone-white: #FCFCEB;
-    --color-navy: #2B3854;
-    --color-coral: #EF403C;
-    --color-coral-soft: #FFA4A4;
-    --color-ocean: #6C92D3;
+    --color-bone-white: #FFFDEE;
+    --color-navy: #002539;
+    --color-coral: #FF4D4D;
+    --color-coral-soft: #FF9283;
+    --color-ocean: #5CA6EA;
 
     --font-luxury: "Playfair Display", serif;
     --font-sans: "Montserrat", sans-serif;

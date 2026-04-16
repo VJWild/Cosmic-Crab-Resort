@@ -1,6 +1,7 @@
 ---
 // src/components/HeroSection.astro
 import { ui } from '../i18n/ui.js';
+import BookingForm from '../components/BookingForm.astro';
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';

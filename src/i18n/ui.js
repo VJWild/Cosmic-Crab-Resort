@@ -3,6 +3,7 @@ export const ui = {
     en: {
         'nav.excursions': 'Excursions',
         'nav.restaurant': 'Restaurant',
+        'nav.atlantis': 'Atlantis',
         'nav.gallery': 'Gallery',
         'nav.contact': 'Contact',
         'nav.reservation': 'Reservation',
@@ -39,6 +40,10 @@ export const ui = {
         'rest.right.btn': 'View Food Menu',
         // Misc
         'rest.slider.drag': 'Drag',
+        // Widget
+        'book.checkin': 'Check-in',
+        'book.checkout': 'Check-out',
+        'book.button': 'Check Availability',
 
         // Excursions Catalog
 
@@ -64,10 +69,37 @@ export const ui = {
         'gallery.cat.restaurant': 'Restaurant',
         'gallery.cat.atlantis': 'Atlantis & Pool',
         'gallery.cat.excursions': 'Excursions',
+
+        // Atlantis Page
+        'atlantis.tag': 'Premium Pool & Bar',
+        'atlantis.title': 'Atlantis Bocas',
+        'atlantis.subtitle': 'Swim-Up Bar Experience',
+        'atlantis.desc': 'Dive into luxury at our signature swim-up bar. Crafted cocktails, Caribbean ambiance, and unforgettable sunsets await.',
+        'atlantis.hero.btn': 'Explore Atlantis',
+        'atlantis.about.title': 'About Atlantis',
+        'atlantis.about.desc': 'Atlantis Bocas is our premier swim-up bar, offering an unparalleled blend of aquatic luxury and sophisticated mixology. Nestled in the heart of our resort, it provides the perfect setting for relaxation, socializing, and indulging in world-class beverages.',
+        'atlantis.features.title': 'What Makes Atlantis Special',
+        'atlantis.features.swim': 'Swim-Up Bar Access',
+        'atlantis.features.swim.desc': 'Direct access from the pool to premium cocktails',
+        'atlantis.features.cocktails': 'Signature Cocktails',
+        'atlantis.features.cocktails.desc': 'Expertly crafted Caribbean-inspired drinks',
+        'atlantis.features.sunset': 'Sunset Views',
+        'atlantis.features.sunset.desc': 'Breathtaking ocean vistas as the sun sets',
+        'atlantis.features.music': 'Live Music',
+        'atlantis.features.music.desc': 'Weekly live performances and DJ sets',
+        'atlantis.hours.title': 'Opening Hours',
+        'atlantis.hours.days': 'Thursday - Tuesday',
+        'atlantis.hours.time': '4:00 PM - 11:00 PM',
+        'atlantis.menu.title': 'Bar Menu',
+        'atlantis.menu.btn': 'View Full Menu',
+        'atlantis.cta.title': 'Experience Atlantis',
+        'atlantis.cta.desc': 'Join us for an unforgettable evening at the most exclusive swim-up bar in Bocas del Toro.',
+        'atlantis.cta.btn': 'Book Your Visit',
     },
     es: {
         'nav.excursions': 'Excursiones',
         'nav.restaurant': 'Restaurante',
+        'nav.atlantis': 'Atlantis',
         'nav.gallery': 'Galería',
         'nav.contact': 'Contacto',
         'nav.reservation': 'Reservas',
@@ -104,6 +136,10 @@ export const ui = {
         'rest.right.btn': 'Ver Menú de Comida',
         // Misc
         'rest.slider.drag': 'Arrastra',
+        // Widget
+        'book.checkin': 'Entrada',
+        'book.checkout': 'Salida',
+        'book.button': 'Consultar Disponibilidad',
 
         // Contact
         'contact.tag': 'Ponte en Contacto',
@@ -126,5 +162,31 @@ export const ui = {
         'gallery.cat.restaurant': 'Restaurante',
         'gallery.cat.atlantis': 'Atlantis y Piscina',
         'gallery.cat.excursions': 'Excursiones',
+
+        // Atlantis Page
+        'atlantis.tag': 'Piscina y Bar Premium',
+        'atlantis.title': 'Atlantis Bocas',
+        'atlantis.subtitle': 'Experiencia de Bar Acuático',
+        'atlantis.desc': 'Sumérgete en el lujo en nuestro bar acuático insignia. Cócteles artesanales, ambiente caribeño y atardeceres inolvidables te esperan.',
+        'atlantis.hero.btn': 'Explorar Atlantis',
+        'atlantis.about.title': 'Acerca de Atlantis',
+        'atlantis.about.desc': 'Atlantis Bocas es nuestro bar acuático premier, ofreciendo una combinación incomparable de lujo acuático y mixología sofisticada. Ubicado en el corazón de nuestro resort, proporciona el escenario perfecto para relajarse, socializar e indulgir en bebidas de clase mundial.',
+        'atlantis.features.title': 'Qué Hace Especial a Atlantis',
+        'atlantis.features.swim': 'Acceso al Bar Acuático',
+        'atlantis.features.swim.desc': 'Acceso directo desde la piscina a cócteles premium',
+        'atlantis.features.cocktails': 'Cócteles de Autor',
+        'atlantis.features.cocktails.desc': 'Bebidas expertamente elaboradas inspiradas en el Caribe',
+        'atlantis.features.sunset': 'Vistas al Atardecer',
+        'atlantis.features.sunset.desc': 'Vistas oceánicas impresionantes al ponerse el sol',
+        'atlantis.features.music': 'Música en Vivo',
+        'atlantis.features.music.desc': 'Actuaciones en vivo semanales y sets de DJ',
+        'atlantis.hours.title': 'Horarios de Apertura',
+        'atlantis.hours.days': 'Jueves - Martes',
+        'atlantis.hours.time': '4:00 PM - 11:00 PM',
+        'atlantis.menu.title': 'Menú del Bar',
+        'atlantis.menu.btn': 'Ver Menú Completo',
+        'atlantis.cta.title': 'Experimenta Atlantis',
+        'atlantis.cta.desc': 'Únete a nosotros para una velada inolvidable en el bar acuático más exclusivo de Bocas del Toro.',
+        'atlantis.cta.btn': 'Reserva Tu Visita',
     }
 };
