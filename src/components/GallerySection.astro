@@ -30,17 +30,20 @@ const categories = [
     <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
 
     <div class="relative z-10 text-center text-bone-white mt-16 px-4">
-        <p class="uppercase tracking-[0.4em] text-coral-soft text-sm font-semibold mb-4 animate-fade-in opacity-0">
+        <!-- Agregado font-sans -->
+        <p class="uppercase tracking-[0.4em] text-coral-soft text-sm font-semibold font-sans mb-4 animate-fade-in opacity-0">
             {t['gallery.tag'] || 'Visual Journey'}
         </p>
-        <h1 class="text-5xl md:text-7xl font-luxury mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
+        <!-- Reemplazado font-luxury por font-sans font-bold -->
+        <h1 class="text-5xl md:text-7xl font-sans font-bold mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
             {t['gallery.title'] || 'Our Gallery'}
         </h1>
         <div class="w-16 h-1 bg-coral mx-auto animate-fade-in opacity-0 delay-500"></div>
     </div>
 </header>
 
-<main class="py-20 bg-navy text-bone-white overflow-hidden relative">
+<!-- Agregado font-sans al contenedor principal -->
+<main class="py-20 bg-navy text-bone-white overflow-hidden relative font-sans">
 
     <!-- Luz ambiental de fondo -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-coral-soft/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
@@ -51,7 +54,7 @@ const categories = [
         <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-16 pb-4">
             {categories.map((cat, index) => (
                     <button
-                            class={`tab-btn uppercase tracking-widest text-xs md:text-sm font-bold transition-all duration-500 pb-2 relative group ${index === 0 ? 'text-coral' : 'text-bone-white/50 hover:text-bone-white'}`}
+                            class={`tab-btn uppercase tracking-widest text-xs md:text-sm font-bold font-sans transition-all duration-500 pb-2 relative group ${index === 0 ? 'text-coral' : 'text-bone-white/50 hover:text-bone-white'}`}
                             data-target={cat.id}
                     >
                         {cat.name}
@@ -118,7 +121,8 @@ const categories = [
             ))}
         </div>
 
-        <p class="text-center text-bone-white/40 text-[10px] md:text-xs tracking-[0.3em] mt-2 uppercase font-light">
+        <!-- Agregado font-sans explícito al texto inferior -->
+        <p class="text-center text-bone-white/40 text-[10px] md:text-xs tracking-[0.3em] mt-2 uppercase font-light font-sans">
             {t['gallery.click'] || 'Click the center image to expand'}
         </p>
 

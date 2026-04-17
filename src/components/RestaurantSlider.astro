@@ -6,95 +6,205 @@ const pathname = Astro.url.pathname;
 let idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 
 const t = ui[idiomaActual];
+const base = idiomaActual === 'es' ? '/es' : '/en';
 ---
 
-<main class="relative w-full h-screen overflow-hidden bg-navy flex" id="split-container">
+<main class="relative w-full h-screen overflow-hidden bg-navy flex font-sans" id="split-container">
 
-    <section id="left-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+    <!-- ========================================== -->
+    <!-- LADO IZQUIERDO: ATLANTIS POOL & SWIM-UP BAR -->
+    <!-- ========================================== -->
+    <section id="left-panel" class="relative h-full flex-shrink-0 z-10 cursor-pointer overflow-hidden" style="width: 50%;">
         <img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Mixology" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-navy/50 transition-colors duration-500 hover:bg-navy/40"></div>
 
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
-            <h2 id="left-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
-                {t['rest.left.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.left.subtitle']}</span>
-            </h2>
 
-            <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
-                <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold mb-4">{t['rest.left.tag']}</p>
-                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.left.h2']}</h2>
+            <!-- Título Acelerado (duration-300) y con Scale -->
+            <div id="left-title" class="flex flex-col items-center gap-5 transition-all duration-300 transform animate-fade-in opacity-0">
+                <img src="/images/Iconos/Icon 2.png" alt="Atlantis Bocas Logo" class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-xl" onerror="this.style.display='none'">
+                <h2 class="text-bone-white text-4xl md:text-6xl font-sans font-bold drop-shadow-xl whitespace-nowrap">
+                    {t['rest.left.title']} <br><span class="italic font-normal text-coral-soft text-2xl md:text-4xl">{t['rest.left.subtitle']}</span>
+                </h2>
+            </div>
+
+            <!-- Detalles (Distancia reducida a translate-y-4 para que no se cruce) -->
+            <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-4 pointer-events-none transition-all duration-500">
+                <img src="/images/Iconos/Icon 2.png" alt="Atlantis Bocas Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-xl mb-4" onerror="this.style.display='none'">
+                <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold font-sans mb-4">{t['rest.left.tag']}</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-sans font-bold mb-6">{t['rest.left.h2']}</h2>
                 <div class="w-12 h-1 bg-coral mb-6"></div>
-                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-normal font-sans">
                     {t['rest.left.desc']}
                 </p>
-                <button type="button" data-menu="atlantis" class="menu-btn inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-lg shadow-coral/20 cursor-pointer">
+                <a href="/menu-atlantis" class="menu-btn inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans transition-all duration-300 shadow-lg shadow-coral/20">
                     {t['rest.left.btn']}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="right-panel" class="relative h-full flex-shrink-0 z-10" style="width: 50%;">
+    <!-- ========================================== -->
+    <!-- LADO DERECHO: COSMIC CRAB CAFE            -->
+    <!-- ========================================== -->
+    <section id="right-panel" class="relative h-full flex-shrink-0 z-10 cursor-pointer overflow-hidden" style="width: 50%;">
         <img src="/images/restaurant-home.jpg" alt="Cosmic Crab Cafe Food" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40 transition-colors duration-500 hover:bg-black/30"></div>
 
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
-            <h2 id="right-title" class="text-bone-white text-4xl md:text-6xl font-luxury drop-shadow-xl transition-all duration-500 whitespace-nowrap">
-                {t['rest.right.title']} <br><span class="italic font-light text-coral-soft text-2xl md:text-4xl">{t['rest.right.subtitle']}</span>
-            </h2>
 
-            <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-8 pointer-events-none transition-all duration-700">
-                <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold mb-4">{t['rest.right.tag']}</p>
-                <h2 class="text-bone-white text-5xl md:text-7xl font-luxury mb-6">{t['rest.right.h2']}</h2>
+            <!-- Título Acelerado (duration-300) y con Scale -->
+            <div id="right-title" class="flex flex-col items-center gap-5 transition-all duration-300 transform animate-fade-in opacity-0">
+                <img src="/images/Iconos/Icon 4.png" alt="Cosmic Crab Cafe Logo" class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-xl" onerror="this.style.display='none'">
+                <h2 class="text-bone-white text-4xl md:text-6xl font-sans font-bold drop-shadow-xl whitespace-nowrap">
+                    {t['rest.right.title']} <br><span class="italic font-normal text-coral-soft text-2xl md:text-4xl">{t['rest.right.subtitle']}</span>
+                </h2>
+            </div>
+
+            <!-- Detalles (Distancia reducida a translate-y-4) -->
+            <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-4 pointer-events-none transition-all duration-500">
+                <img src="/images/Iconos/Icon 4.png" alt="Cosmic Crab Cafe Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-xl mb-4" onerror="this.style.display='none'">
+                <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold font-sans mb-4">{t['rest.right.tag']}</p>
+                <h2 class="text-bone-white text-5xl md:text-7xl font-sans font-bold mb-6">{t['rest.right.h2']}</h2>
                 <div class="w-12 h-1 bg-coral mb-6"></div>
-                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-light">
+                <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-normal font-sans">
                     {t['rest.right.desc']}
                 </p>
-                <button type="button" data-menu="cafe" class="menu-btn inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-bone-white hover:text-navy transition-all duration-300 cursor-pointer">
+                <a href="/menu-cafe" class="menu-btn inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans hover:bg-bone-white hover:text-navy transition-all duration-300">
                     {t['rest.right.btn']}
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- BARRA DIVISORIA ARRASTRABLE (SLIDER) -->
     <div id="slider-divider" class="absolute top-0 bottom-0 w-8 md:w-12 -ml-4 md:-ml-6 cursor-col-resize z-30 flex flex-col items-center justify-center group" style="left: 50%;">
         <div class="absolute top-0 bottom-0 w-[2px] bg-bone-white/30 group-hover:bg-coral transition-colors duration-300"></div>
-
         <div class="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-navy/80 backdrop-blur-md border border-bone-white/20 flex items-center justify-center text-bone-white shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-110 group-hover:border-coral transition-all duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-bone-white group-hover:text-coral transition-colors"><path d="m15 18 6-6-6-6"/><path d="m9 18-6-6 6-6"/></svg>
         </div>
-
-        <span class="absolute mt-24 text-[10px] uppercase tracking-widest text-bone-white/70 bg-navy/50 px-2 py-1 rounded backdrop-blur-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity">{t['rest.slider.drag']}</span>
+        <span class="absolute mt-24 text-[10px] uppercase tracking-widest text-bone-white/70 bg-navy/50 px-2 py-1 rounded backdrop-blur-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity font-sans">{t['rest.slider.drag']}</span>
     </div>
 </main>
 
-<!-- Menu Modal Slider -->
-<div id="menu-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <button id="close-modal" class="absolute top-6 right-6 md:top-8 md:right-8 text-bone-white hover:text-coral transition-colors z-[60] bg-navy/50 hover:bg-navy/80 p-2 md:p-3 rounded-full backdrop-blur-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('split-container');
+        const leftPanel = document.getElementById('left-panel');
+        const rightPanel = document.getElementById('right-panel');
+        const divider = document.getElementById('slider-divider');
 
-    <div class="relative w-full max-w-6xl h-[85vh] md:h-[90vh] flex items-center justify-center px-4 md:px-16">
-        <!-- Prev Button -->
-        <button id="prev-slide" class="absolute left-2 md:left-4 text-bone-white hover:text-coral transition-all duration-300 bg-navy/50 hover:bg-navy/80 p-3 md:p-4 rounded-full backdrop-blur-sm z-20 hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
+        const leftTitle = document.getElementById('left-title');
+        const rightTitle = document.getElementById('right-title');
+        const leftDetails = document.getElementById('left-details');
+        const rightDetails = document.getElementById('right-details');
 
-        <!-- Image Container -->
-        <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-            <img id="modal-image" src="" alt="Menu Image" class="max-w-full max-h-full object-contain drop-shadow-2xl transition-all duration-500 scale-95 opacity-0 rounded-lg">
-        </div>
+        let isDragging = false;
 
-        <!-- Next Button -->
-        <button id="next-slide" class="absolute right-2 md:right-4 text-bone-white hover:text-coral transition-all duration-300 bg-navy/50 hover:bg-navy/80 p-3 md:p-4 rounded-full backdrop-blur-sm z-20 hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-        
-        <!-- Pagination Indicators -->
-        <div id="modal-pagination" class="absolute bottom-4 md:bottom-0 flex gap-3 z-20 bg-navy/50 px-4 py-2 rounded-full backdrop-blur-sm">
-            <!-- Dynamically populated -->
-        </div>
-    </div>
-</div>
+        // Limpiar animaciones iniciales y establecer el tamaño 1:1
+        setTimeout(() => {
+            if(leftTitle) { leftTitle.classList.remove('animate-fade-in'); leftTitle.classList.add('opacity-100', 'scale-100'); }
+            if(rightTitle) { rightTitle.classList.remove('animate-fade-in'); rightTitle.classList.add('opacity-100', 'scale-100'); }
+        }, 1200);
 
+        const updatePanels = (clientX) => {
+            const rect = container.getBoundingClientRect();
+            let percentage = ((clientX - rect.left) / rect.width) * 100;
+            if (percentage < 15) percentage = 15;
+            if (percentage > 85) percentage = 85;
+
+            leftPanel.style.width = `${percentage}%`;
+            rightPanel.style.width = `${100 - percentage}%`;
+            divider.style.left = `${percentage}%`;
+
+            // =========================================================================
+            // LÓGICA DE ZONA MUERTA (Evita traslapes visuales entre Miniaturas y Detalles)
+            // =========================================================================
+
+            // 1. GESTIÓN DE MINIATURAS (Solo se ven en el centro absoluto: 40% a 60%)
+            if (percentage > 60 || percentage < 40) {
+                // Ocultar rápidamente y achicar un poco
+                leftTitle.classList.remove('opacity-100', 'scale-100');
+                leftTitle.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+
+                rightTitle.classList.remove('opacity-100', 'scale-100');
+                rightTitle.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+            } else {
+                // Mostrar en el centro
+                leftTitle.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                leftTitle.classList.add('opacity-100', 'scale-100');
+
+                rightTitle.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                rightTitle.classList.add('opacity-100', 'scale-100');
+            }
+
+            // 2. GESTIÓN DE DETALLES EXTREMOS (Solo aparecen al pasar el 65% o 35%)
+            if (percentage > 65) {
+                leftDetails.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                leftDetails.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                leftDetails.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                leftDetails.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+
+            if (percentage < 35) {
+                rightDetails.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                rightDetails.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                rightDetails.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                rightDetails.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        };
+
+        // Eventos del Mouse
+        divider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            container.style.cursor = 'col-resize';
+            document.body.style.userSelect = 'none';
+            e.preventDefault();
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updatePanels(e.clientX);
+        });
+        window.addEventListener('mouseup', () => {
+            if(isDragging) {
+                isDragging = false;
+                container.style.cursor = 'default';
+                document.body.style.userSelect = '';
+            }
+        });
+
+        // Eventos Táctiles (Smartphones)
+        divider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            document.body.style.overflow = 'hidden';
+        }, {passive: true});
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            updatePanels(e.touches[0].clientX);
+        });
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+            document.body.style.overflow = '';
+        });
+
+        // Click a un lado expande esa sección automáticamente
+        leftPanel.addEventListener('click', (e) => {
+            if(e.target.closest('.menu-btn') || isDragging) return;
+            const currentWidth = parseFloat(leftPanel.style.width || 50);
+            if (currentWidth < 65) {
+                updatePanels(container.getBoundingClientRect().width * 0.75 + container.getBoundingClientRect().left);
+            }
+        });
+        rightPanel.addEventListener('click', (e) => {
+            if(e.target.closest('.menu-btn') || isDragging) return;
+            const currentWidth = parseFloat(leftPanel.style.width || 50);
+            if (currentWidth > 35) {
+                updatePanels(container.getBoundingClientRect().width * 0.25 + container.getBoundingClientRect().left);
+            }
+        });
+    });
+</script>

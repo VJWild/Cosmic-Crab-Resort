@@ -1,0 +1,20 @@
+---
+// src/pages/menu-atlantis.astro
+import MenuViewer from '../components/MenuViewer.astro';
+
+// imagen del menu
+const images = [
+    '/images/atlantis-menu/1-1.png',
+    '/images/atlantis-menu/2.png',
+    '/images/atlantis-menu/3.png'
+];
+---
+
+<MenuViewer
+        title="Atlantis Pool & Bar Menu"
+        images={images}
+        backLink="javascript:history.back()"
+        lang="en"
+        logo="/images/Iconos/Icon 2.png"
+        cornerLogo="/images/Logotipo Negativo/Sky Blue_1Logo Negativo.png"
+/>

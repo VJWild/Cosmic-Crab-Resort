@@ -39,7 +39,7 @@ export const ui = {
         'rest.right.desc': 'Taste the true essence of Bocas. Enjoy fresh, locally-sourced seafood and authentic Caribbean dishes in a relaxed, overwater setting perfect for daytime dining.',
         'rest.right.btn': 'View Food Menu',
         // Misc
-        'rest.slider.drag': 'Drag',
+        'rest.slider.drag': 'Slide',
         // Widget
         'book.checkin': 'Check-in',
         'book.checkout': 'Check-out',
@@ -135,7 +135,7 @@ export const ui = {
         'rest.right.desc': 'Prueba la verdadera esencia de Bocas. Disfruta de mariscos frescos de origen local y platos caribeños auténticos en un entorno relajado sobre el agua, perfecto para almorzar.',
         'rest.right.btn': 'Ver Menú de Comida',
         // Misc
-        'rest.slider.drag': 'Arrastra',
+        'rest.slider.drag': 'Desliza',
         // Widget
         'book.checkin': 'Entrada',
         'book.checkout': 'Salida',

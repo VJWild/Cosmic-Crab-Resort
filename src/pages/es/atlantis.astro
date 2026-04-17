@@ -50,7 +50,7 @@ const t = ui['es'];
                         <p class="text-bone-white/60 text-xs uppercase tracking-widest font-bold">Vistas sobre el agua</p>
                     </div>
                 </div>
-                
+
                 <div class="lg:col-span-5">
                     <p class="text-ocean uppercase tracking-[0.4em] text-xs font-black mb-6">El Corazón de Bocas</p>
                     <h2 class="text-5xl md:text-6xl font-luxury text-navy mb-8 leading-[1.1]">
@@ -76,7 +76,7 @@ const t = ui['es'];
 
     <section class="py-32 px-6 bg-navy text-bone-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/3 h-full bg-ocean opacity-10 skew-x-12 translate-x-20"></div>
-        
+
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-24">
                 <h2 class="text-4xl md:text-6xl font-luxury mb-6 italic">Arte en cada <span class="text-ocean">Copa</span></h2>
@@ -141,9 +141,21 @@ const t = ui['es'];
         </div>
     </section>
 
-    <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy/95 backdrop-blur-lg opacity-0 transition-opacity duration-300 px-6 py-10">
-        <button id="close-lightbox" class="absolute top-6 right-6 bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl" aria-label="Cerrar menú ampliado">×</button>
-        <img id="lightbox-img" src="" alt="Menú ampliado" class="max-w-[90vw] max-h-[80vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-transform duration-500 scale-95">
+    <!-- LIGHTBOX CORREGIDO: Añadidos los contenedores faltantes para el Zoom -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-navy/95 backdrop-blur-lg opacity-0 transition-opacity duration-300">
+        <!-- El botón tiene un z-index más alto -->
+        <button id="close-lightbox" class="absolute top-6 right-6 z-[60] bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl" aria-label="Cerrar menú ampliado">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <!-- Contenedor flex para centrar la imagen y registrar eventos de ratón -->
+        <div id="lightbox-container" class="w-full h-full flex flex-col items-center justify-center px-6 py-10 overflow-hidden">
+            <p id="zoom-hint" class="text-bone-white/50 text-[10px] tracking-[0.3em] uppercase absolute top-10 pointer-events-none transition-opacity duration-300">
+                Haz clic para hacer Zoom
+            </p>
+            <!-- Imagen con cursores dinámicos -->
+            <img id="lightbox-img" src="" alt="Menú ampliado" class="max-w-[90vw] max-h-[80vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-transform duration-500 origin-center cursor-zoom-in">
+        </div>
     </div>
 
     <section class="relative py-48 px-6 overflow-hidden">
@@ -153,7 +165,7 @@ const t = ui['es'];
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-center text-bone-white">
-            <h2 class="text-5xl md:text-7xl font-luxury mb-8 leading-tight italic">Sumérgete en el <br><span class="text-ocean not-italic">Azul</span></h2>
+            <h2 class="text-5xl md:text-7xl font-luxury mb-8 leading-tight italic">Sumérgete en el <br><span class="text-ocean not-italic uppercase">Azul</span></h2>
             <p class="text-xl mb-12 font-light max-w-2xl mx-auto leading-relaxed text-bone-white/80">
                 {t['atlantis.cta.desc']}
             </p>
@@ -162,6 +174,9 @@ const t = ui['es'];
             </a>
         </div>
     </section>
+
+    <!-- Script para el Lightbox del Menú -->
+    <script src="../../scripts/menus.js"></script>
 
 </Layout>
 
@@ -174,4 +189,3 @@ const t = ui['es'];
         animation: slow-zoom 25s infinite alternate ease-in-out;
     }
 </style>
-

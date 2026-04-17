@@ -8,7 +8,7 @@ const t = ui[idiomaActual];
 ---
 
 <!-- Script para enviar mensaje de whatsapp -->
- <script src="../scripts/contact-handler.js"></script>
+<script src="../scripts/contact-handler.js"></script>
 
 <!-- 1. MINI HERO SECTION -->
 <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -23,15 +23,18 @@ const t = ui[idiomaActual];
 
     <!-- Contenido centrado -->
     <div class="relative z-10 text-center text-bone-white px-4 max-w-5xl flex flex-col items-center mt-16">
-        <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-coral-soft font-semibold animate-fade-in opacity-0 text-shadow-sm">
+        <!-- Agregado font-sans -->
+        <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-coral-soft font-semibold font-sans animate-fade-in opacity-0 text-shadow-sm">
             {t['contact.tag'] || 'Get in Touch'}
         </p>
 
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-luxury mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
+        <!-- Reemplazado font-luxury por font-sans font-bold -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-sans font-bold mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
             {t['contact.title'] || 'Contact Us'}
         </h1>
 
-        <p class="max-w-3xl mx-auto text-lg md:text-xl font-light mb-12 animate-fade-in opacity-0 delay-500 text-bone-white/90">
+        <!-- Agregado font-sans -->
+        <p class="max-w-3xl mx-auto text-lg md:text-xl font-light font-sans mb-12 animate-fade-in opacity-0 delay-500 text-bone-white/90">
             {t['contact.desc'] || 'Whether you are looking to book your next getaway, have a special request, or simply want to learn more about our island paradise, our team is ready to assist you.'}
         </p>
 
@@ -39,7 +42,8 @@ const t = ui[idiomaActual];
     </div>
 </header>
 
-<main class="py-24 bg-bone-white text-navy">
+<!-- Agregado font-sans al contenedor main -->
+<main class="py-24 bg-bone-white text-navy font-sans">
 
     <!-- 2. INFORMACIÓN DE CONTACTO (Distribución en Tarjetas) -->
     <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-32">
@@ -49,7 +53,8 @@ const t = ui[idiomaActual];
             <div class="w-16 h-16 rounded-full bg-navy flex items-center justify-center text-coral-soft shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <h4 class="font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.office'] || 'Reception Office'}</h4>
+            <!-- Agregado font-sans explícito para sobreescribir estilos globales de h4 -->
+            <h4 class="font-sans font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.office'] || 'Reception Office'}</h4>
             <p class="text-navy/70 leading-relaxed text-sm">
                 Cosmic Crab Resort,<br/>
                 Isla Carenero, Bocas del Toro,<br/>
@@ -62,7 +67,7 @@ const t = ui[idiomaActual];
             <div class="w-16 h-16 rounded-full bg-navy flex items-center justify-center text-coral-soft shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <h4 class="font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.hours'] || 'Reception Hours'}</h4>
+            <h4 class="font-sans font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.hours'] || 'Reception Hours'}</h4>
             <p class="text-navy/70 leading-relaxed text-sm">
                 8:30 AM - 8:00 PM<br/>
                 <span class="italic text-xs mt-2 block">Jueves a Martes / Thu-Tue</span>
@@ -74,7 +79,7 @@ const t = ui[idiomaActual];
             <div class="w-16 h-16 rounded-full bg-navy flex items-center justify-center text-coral-soft shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
-            <h4 class="font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.info'] || 'Contact Info'}</h4>
+            <h4 class="font-sans font-bold uppercase tracking-widest text-sm mb-4 text-navy">{t['contact.info'] || 'Contact Info'}</h4>
             <div class="text-navy/70 leading-relaxed text-sm flex flex-col gap-2">
                 <a href="tel:+50761999949" class="hover:text-coral transition-colors font-medium">+507 6199-9949</a>
                 <a href="mailto:Info@CosmicCrabResort.com" class="hover:text-coral transition-colors">Info@CosmicCrabResort.com</a>
@@ -86,7 +91,8 @@ const t = ui[idiomaActual];
     <!-- 3. MAPA DE GOOGLE -->
     <div class="w-full mb-32 lg:mb-48 relative">
         <div class="text-center mb-12 px-6">
-            <h3 class="text-3xl md:text-4xl font-luxury text-navy mb-4">{t['contact.map.title'] || 'Find Us in Paradise'}</h3>
+            <!-- Reemplazado font-luxury por font-sans font-bold -->
+            <h3 class="text-3xl md:text-4xl font-sans font-bold text-navy mb-4">{t['contact.map.title'] || 'Find Us in Paradise'}</h3>
             <div class="w-12 h-0.5 bg-coral mx-auto"></div>
         </div>
 
@@ -105,7 +111,8 @@ const t = ui[idiomaActual];
     <!-- 4. FORMULARIO DE ETIQUETAS FLOTANTES -->
     <div class="max-w-3xl mx-auto px-6 relative z-10">
         <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-luxury mb-4 text-navy">{t['contact.h2'] || 'Send us a message'}</h2>
+            <!-- Reemplazado font-luxury por font-sans font-bold -->
+            <h2 class="text-3xl md:text-4xl font-sans font-bold mb-4 text-navy">{t['contact.h2'] || 'Send us a message'}</h2>
             <div class="w-12 h-0.5 bg-coral mx-auto mb-6"></div>
         </div>
 
@@ -118,16 +125,16 @@ const t = ui[idiomaActual];
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
                     <!-- Input Floating Label: Name -->
                     <div class="relative z-0 w-full group">
-                        <input type="text" id="name" name="name" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors" placeholder=" " required />
-                        <label for="name" class="absolute text-sm font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
+                        <input type="text" id="name" name="name" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors font-sans" placeholder=" " required />
+                        <label for="name" class="absolute text-sm font-sans font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
                             {t['contact.form.name'] || 'Your Name'}
                         </label>
                     </div>
 
                     <!-- Input Floating Label: Email -->
                     <div class="relative z-0 w-full group">
-                        <input type="email" id="email" name="email" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors" placeholder=" " required />
-                        <label for="email" class="absolute text-sm font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
+                        <input type="email" id="email" name="email" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors font-sans" placeholder=" " required />
+                        <label for="email" class="absolute text-sm font-sans font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
                             {t['contact.form.email'] || 'Your Email'}
                         </label>
                     </div>
@@ -135,13 +142,13 @@ const t = ui[idiomaActual];
 
                 <!-- Textarea Floating Label: Message -->
                 <div class="relative z-0 w-full group mt-10">
-                    <textarea id="message" name="message" rows="4" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors resize-none" placeholder=" " required></textarea>
-                    <label for="message" class="absolute text-sm font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
+                    <textarea id="message" name="message" rows="4" class="block py-2.5 px-0 w-full text-base text-navy bg-transparent border-0 border-b-2 border-navy/20 appearance-none focus:outline-none focus:ring-0 focus:border-coral peer transition-colors resize-none font-sans" placeholder=" " required></textarea>
+                    <label for="message" class="absolute text-sm font-sans font-bold uppercase tracking-widest text-navy/50 duration-300 transform -translate-y-8 scale-75 top-3 origin-[0] z-10 pointer-events-none peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-coral">
                         {t['contact.form.message'] || 'Your Message'}
                     </label>
                 </div>
 
-                <button type="submit" class="mt-12 bg-navy hover:bg-coral text-bone-white px-10 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 shadow-xl shadow-navy/10 hover:shadow-coral/20 hover:-translate-y-1 mx-auto w-full sm:w-auto">
+                <button type="submit" class="mt-12 bg-navy hover:bg-coral text-bone-white px-10 py-5 uppercase tracking-widest text-sm font-bold font-sans transition-all duration-300 shadow-xl shadow-navy/10 hover:shadow-coral/20 hover:-translate-y-1 mx-auto w-full sm:w-auto">
                     {t['contact.form.send'] || 'Send Message'}
                 </button>
             </form>

@@ -1,0 +1,22 @@
+---
+// src/pages/menu-cafe.astro
+import MenuViewer from '../components/MenuViewer.astro';
+
+// imagen del menu
+const images = [
+    '/images/cafe-menu/5.png',
+    '/images/cafe-menu/6.png',
+    '/images/cafe-menu/7.png',
+    '/images/cafe-menu/Breakfast-1.png',
+    '/images/cafe-menu/Breakfast-2.png'
+];
+---
+
+<MenuViewer
+        title="Cosmic Crab Cafe Menu"
+        images={images}
+        backLink="javascript:history.back()"
+        lang="en"
+        logo="/images/Iconos/Icon 4.png"
+        cornerLogo="/images/Logotipo Negativo/Coral Cream_1Logo Negativo.png"
+/>
