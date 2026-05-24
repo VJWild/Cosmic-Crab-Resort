@@ -5,11 +5,12 @@ const menus = {
         '/images/atlantis-menu/3.png'
     ],
     cafe: [
-        '/images/cafe-menu/Breakfast-1.png',
-        '/images/cafe-menu/Breakfast-2.png',
-        '/images/cafe-menu/5.png',
-        '/images/cafe-menu/6.png',
-        '/images/cafe-menu/7.png'
+        '/images/cafe-menu/Breakfast-1.jpg',
+        '/images/cafe-menu/Breakfast-2.jpg',
+        '/images/cafe-menu/Breakfast-3.jpg',
+        '/images/cafe-menu/5.jpg',
+        '/images/cafe-menu/6.jpg',
+        '/images/cafe-menu/7.jpg'
     ]
 };
 

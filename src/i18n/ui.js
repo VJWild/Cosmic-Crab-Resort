@@ -70,6 +70,20 @@ export const ui = {
         'gallery.cat.atlantis': 'Atlantis & Pool',
         'gallery.cat.excursions': 'Excursions',
 
+        // Boutique
+        'boutique.tag': 'Exclusive Shopping',
+        'boutique.title': 'Boutique & Jewelry',
+        'boutique.c1.tag': 'Handcrafted',
+        'boutique.c1.title': 'Artisan Jewelry',
+        'boutique.c1.desc': 'Discover unique, handcrafted jewelry pieces made by local artisans. Featuring beautiful sea glass, pearls, and precious stones inspired by the Caribbean ocean.',
+        'boutique.c2.tag': 'Island Style',
+        'boutique.c2.title': 'Resort Wear',
+        'boutique.c2.desc': 'Elevate your island wardrobe with our curated selection of elegant resort wear, breathable linen garments, and stylish swimwear perfect for the tropical climate.',
+        'boutique.c3.tag': 'Memories',
+        'boutique.c3.title': 'Local Crafts & Souvenirs',
+        'boutique.c3.desc': 'Take a piece of Bocas del Toro home with you. Browse through our collection of authentic Panamanian crafts, organic skincare products, and beautiful keepsakes.',
+        'boutique.visit': 'Visit our Store',
+
         // Atlantis Page
         'atlantis.tag': 'Premium Pool & Bar',
         'atlantis.title': 'Atlantis Bocas',
@@ -162,6 +176,20 @@ export const ui = {
         'gallery.cat.restaurant': 'Restaurante',
         'gallery.cat.atlantis': 'Atlantis y Piscina',
         'gallery.cat.excursions': 'Excursiones',
+
+        // Boutique
+        'boutique.tag': 'Compras Exclusivas',
+        'boutique.title': 'Boutique y Joyería',
+        'boutique.c1.tag': 'Hecho a Mano',
+        'boutique.c1.title': 'Joyería Artesanal',
+        'boutique.c1.desc': 'Descubre piezas de joyería únicas y hechas a mano por artesanos locales. Con hermosos cristales de mar, perlas y piedras preciosas inspiradas en el océano Caribe.',
+        'boutique.c2.tag': 'Estilo Isleño',
+        'boutique.c2.title': 'Ropa de Resort',
+        'boutique.c2.desc': 'Eleva tu guardarropa con nuestra cuidada selección de ropa de resort elegante, prendas de lino transpirables y trajes de baño perfectos para el clima tropical.',
+        'boutique.c3.tag': 'Recuerdos',
+        'boutique.c3.title': 'Artesanía Local y Souvenirs',
+        'boutique.c3.desc': 'Lleva un pedazo de Bocas del Toro contigo. Explora nuestra colección de auténticas artesanías panameñas, productos orgánicos para la piel y hermosos recuerdos.',
+        'boutique.visit': 'Visita nuestra Tienda',
 
         // Atlantis Page
         'atlantis.tag': 'Piscina y Bar Premium',

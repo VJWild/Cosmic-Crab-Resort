@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro
+// src/pages/en/index.astro
 // Importamos la plantilla maestra y los componentes creados
 import Layout from '../../layouts/Layout.astro';
 import HeroSection from '../../components/HeroSection.astro';
@@ -17,9 +17,9 @@ import BookingForm from '../../components/BookingForm.astro';
 		<!-- INTRO SECTION -->
 		<section id="explore" class="py-24 px-6 md:px-12 bg-bone-white">
 			<div class="max-w-5xl mx-auto text-center">
-				<h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Welcome to Cosmic Crab Resort</h2>
+				<h2 class="text-navy text-4xl md:text-5xl font-sans font-bold mb-6">Welcome to Cosmic Crab Resort</h2>
 				<div class="w-16 h-1 bg-coral mx-auto mb-8"></div>
-				<p class="text-navy/80 text-lg leading-relaxed max-w-3xl mx-auto">
+				<p class="text-navy/80 text-lg leading-relaxed max-w-3xl mx-auto font-sans">
 					We will help you experience Bocas life in its true sense. From living among the residents to eating authentic delicacies you are sure to walk home with memories and wonderful moments.
 				</p>
 			</div>
@@ -28,49 +28,64 @@ import BookingForm from '../../components/BookingForm.astro';
 		<BookingForm />
 
 		<!-- ========================================================================= -->
-		<!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones & Restaurant) -->
+		<!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones, Restaurant & Boutique) -->
 		<!-- ========================================================================= -->
-		<section id="experiences" class="py-24 px-6 md:px-12 bg-bone-white">
+		<section id="experiences" class="py-24 px-6 md:px-12 bg-bone-white font-sans">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-16">
 					<p class="uppercase tracking-widest text-coral text-sm font-semibold mb-2">Discover</p>
-					<h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Unforgettable Experiences</h2>
+					<h2 class="text-navy text-4xl md:text-5xl font-sans font-bold mb-6">Unforgettable Experiences</h2>
 					<div class="w-16 h-1 bg-coral mx-auto"></div>
 					<p class="text-navy/70 text-lg mt-6 max-w-2xl mx-auto">
-						Immerse yourself in the vibrant Caribbean lifestyle. From island adventures to the authentic taste of the archipelago.
+						Immerse yourself in the vibrant Caribbean lifestyle. From island adventures to the authentic taste of the archipelago and exclusive shopping.
 					</p>
 				</div>
 
-				<!-- Grid de 2 columnas verticales -->
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+				<!-- Grid de 3 columnas verticales -->
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
 					<!-- Columna 1: Excursiones -->
-					<a href="/en/excursions" class="group relative h-[500px] md:h-[650px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+					<a href="/en/excursions" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
 						<img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Island Excursions" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
 						<!-- Gradiente oscuro en la base para leer el texto -->
 						<div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-						<div class="relative z-10 p-8 md:p-12 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+						<div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
 							<p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Adventures</p>
-							<h3 class="text-bone-white text-3xl md:text-4xl font-luxury mb-3">Island Excursions</h3>
+							<h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Island Excursions</h3>
 							<div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-							<p class="text-bone-white/80 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+							<p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
 								Explore pristine white sands, vibrant coral reefs, and the wild beauty of the archipelago.
 							</p>
 						</div>
 					</a>
 
 					<!-- Columna 2: Cosmic Crab Cafe -->
-					<a href="/en/restaurant" class="group relative h-[500px] md:h-[650px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-						<img src="/images/restaurant-home.jpg" alt="Cosmic Crab Cafe" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
+					<a href="/en/restaurant" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+						<img src="/images/restaurant-home.JPG" alt="Cosmic Crab Cafe" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
 						<div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-						<div class="relative z-10 p-8 md:p-12 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+						<div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
 							<p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Dining</p>
-							<h3 class="text-bone-white text-3xl md:text-4xl font-luxury mb-3">Cosmic Crab Cafe</h3>
+							<h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Cosmic Crab Cafe</h3>
 							<div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-							<p class="text-bone-white/80 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+							<p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
 								Savor authentic Caribbean flavors and locally-sourced seafood in a relaxed overwater setting.
+							</p>
+						</div>
+					</a>
+
+					<!-- Columna 3: NUEVA - Boutique & Joyería -->
+					<a href="/en/boutique" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+						<img src="https://images.unsplash.com/photo-1573408301185-9146fe6aa4ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Resort Boutique & Jewelry" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
+						<div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+						<div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+							<p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Shopping</p>
+							<h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Boutique & Jewelry</h3>
+							<div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
+							<p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+								Discover our exclusive collection of handcrafted jewelry, elegant resort wear, and unique souvenirs.
 							</p>
 						</div>
 					</a>
@@ -82,19 +97,17 @@ import BookingForm from '../../components/BookingForm.astro';
 		<!-- ========================================================================= -->
 		<!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
 		<!-- ========================================================================= -->
-		<section id="atlantis-teaser" class="bg-navy relative overflow-hidden">
+		<section id="atlantis-teaser" class="bg-navy relative overflow-hidden font-sans">
 			<div class="flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[75vh]">
 
-				<!-- Mitad Izquierda: Imagen (Mobile top, Desktop left) -->
 				<div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full order-1 lg:order-1">
 					<img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Premium Mixology" class="absolute inset-0 w-full h-full object-cover">
 					<div class="absolute inset-0 bg-navy/20"></div>
 				</div>
 
-				<!-- Mitad Derecha: Contenido y CTA -->
 				<div class="w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-16 lg:p-24 order-2 lg:order-2 z-10">
 					<p class="uppercase tracking-[0.4em] text-coral-soft text-xs font-bold mb-4">A New Level of Luxury</p>
-					<h2 class="text-bone-white text-5xl md:text-6xl lg:text-7xl font-luxury mb-6 leading-tight">Atlantis <br><span class="text-coral-soft italic font-light">Bocas</span></h2>
+					<h2 class="text-bone-white text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 leading-tight">Atlantis <br><span class="text-coral-soft italic font-light">Bocas</span></h2>
 					<div class="w-16 h-0.5 bg-coral mb-8"></div>
 
 					<p class="text-bone-white/80 text-lg leading-relaxed mb-10 font-light max-w-xl">
@@ -110,22 +123,20 @@ import BookingForm from '../../components/BookingForm.astro';
 			</div>
 		</section>
 
-		<!-- GALLERY TEASER (Slider Infinito - Fondo Azul Marino) -->
-		<section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden">
+		<!-- GALLERY TEASER -->
+		<section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
 			<div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
 				<div>
 					<p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Visual Journey</p>
-					<h2 class="text-4xl md:text-5xl font-luxury">Our Inside Pictures</h2>
+					<h2 class="text-4xl md:text-5xl font-sans font-bold">Our Inside Pictures</h2>
 				</div>
-				<a href="/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors">
+				<a href="/en/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
 					View Full Gallery
 				</a>
 			</div>
 
-			<!-- Contenedor del Slider Infinito -->
 			<div class="relative w-full overflow-hidden flex gallery-container">
 				<div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
-					<!-- SET DE IMÁGENES -->
 					{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
 						<div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer">
 							<img src={`/images/photo-${num}-home.${num === 4 ? 'jpeg' : 'jpg'}`} alt="Gallery Image" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110" style="transition: transform 2s ease-out, filter 0.4s ease-out;">
@@ -136,12 +147,12 @@ import BookingForm from '../../components/BookingForm.astro';
 			</div>
 		</section>
 
-		<!-- REVIEWS / TESTIMONIALS SECTION (Fondo Blanco Hueso) -->
-		<section id="testimonials" class="py-24 px-6 md:px-12 bg-bone-white">
+		<!-- REVIEWS / TESTIMONIALS SECTION -->
+		<section id="testimonials" class="py-24 px-6 md:px-12 bg-bone-white font-sans">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-16">
 					<p class="uppercase tracking-widest text-coral text-sm font-semibold mb-2">Guest Experiences</p>
-					<h2 class="text-navy text-4xl md:text-5xl font-luxury mb-6">Stories from Paradise</h2>
+					<h2 class="text-navy text-4xl md:text-5xl font-sans font-bold mb-6">Stories from Paradise</h2>
 					<div class="w-16 h-1 bg-coral mx-auto"></div>
 				</div>
 
@@ -155,9 +166,8 @@ import BookingForm from '../../components/BookingForm.astro';
 						<div class="text-coral mb-6 flex gap-1">
 							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
 						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4">"An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the peacefulness of the suites made our honeymoon unforgettable."</p>
+						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium">"An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the peacefulness of the suites made our honeymoon unforgettable."</p>
 
-						<!-- Agregado perfil del usuario con hover Lightbox -->
 						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
 							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah & James" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
 							<div>
@@ -176,7 +186,7 @@ import BookingForm from '../../components/BookingForm.astro';
 						<div class="text-coral mb-6 flex gap-1">
 							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
 						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4">"The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."</p>
+						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium">"The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."</p>
 
 						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
 							<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David Miller" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
@@ -196,7 +206,7 @@ import BookingForm from '../../components/BookingForm.astro';
 						<div class="text-coral mb-6 flex gap-1">
 							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
 						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4">"If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The overwater views are simply breathtaking."</p>
+						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium">"If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The overwater views are simply breathtaking."</p>
 
 						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
 							<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Elena Rojas" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
@@ -210,22 +220,21 @@ import BookingForm from '../../components/BookingForm.astro';
 			</div>
 		</section>
 
-		<!-- CALL TO ACTION (Reservas Directas - Fondo Azul Marino) -->
-		<section id="book-now" class="py-24 px-6 md:px-12 bg-navy text-bone-white border-b border-bone-white/10">
+		<!-- CALL TO ACTION -->
+		<section id="book-now" class="py-24 px-6 md:px-12 bg-navy text-bone-white border-b border-bone-white/10 font-sans">
 			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-4xl md:text-6xl font-luxury mb-6">Ready for Paradise?</h2>
+				<h2 class="text-4xl md:text-6xl font-sans font-bold mb-6">Ready for Paradise?</h2>
 				<p class="text-bone-white/80 text-lg md:text-xl font-light mb-10">
 					Secure your stay today and start planning the ultimate Caribbean getaway. Our concierge is ready to assist you.
 				</p>
 
 				<div class="flex flex-col items-center gap-6">
-					<span class="uppercase tracking-[0.3em] text-sm text-coral-soft">Book Your Stay Now</span>
+					<span class="uppercase tracking-[0.3em] text-sm text-coral-soft font-bold">Book Your Stay Now</span>
 					<a href="tel:+50761999949" class="text-4xl md:text-6xl font-bold text-coral hover:text-coral-soft transition-colors duration-300 drop-shadow-lg">
 						+507 - 6199 - 9949
 					</a>
 
 					<div class="mt-12">
-						<!-- Botón de Reservas (Elevación, escala y sombras fuertes) -->
 						<a href="https://booking-directly.com/widgets/4Q4XUrH0pGe4DGJRgz8TCg4gHEhVMa5bFX11A4AGxQQXzlPSEKZKm9M4ocs95/properties?search_stay_dates=%22checkInDate%22:%222024-09-06%22,%22checkOutDate%22:%222024-09-07%22&search_occupancies=%5B%22numberOfAdults%22:2,%22children%22:%5B%5D%5D" target="_blank" class="inline-block bg-coral text-bone-white px-12 py-5 uppercase tracking-widest text-sm font-bold hover:bg-red-600 transition-all duration-300 shadow-lg shadow-coral/30 hover:shadow-2xl hover:shadow-coral/50 transform hover:-translate-y-1 hover:scale-105">
 							Reserve Online
 						</a>
@@ -235,8 +244,8 @@ import BookingForm from '../../components/BookingForm.astro';
 		</section>
 	</main>
 
-	<!-- LIGHTBOX (Fotos) -->
-	<div id="lightbox" class="fixed inset-0 z-[60] bg-navy/98 backdrop-blur-lg hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
+	<!-- LIGHTBOX -->
+	<div id="lightbox" class="fixed inset-0 z-[60] bg-navy/98 backdrop-blur-lg hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 font-sans">
 		<button id="close-lightbox" class="absolute top-6 right-6 lg:top-10 lg:right-10 bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl group" aria-label="Close Gallery">
 			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 		</button>
@@ -244,18 +253,17 @@ import BookingForm from '../../components/BookingForm.astro';
 			<div class="absolute inset-0 border border-bone-white/20 transform -translate-x-3 -translate-y-3 hidden md:block pointer-events-none"></div>
 			<div class="absolute inset-0 border border-bone-white/20 transform translate-x-3 translate-y-3 hidden md:block pointer-events-none"></div>
 			<img id="lightbox-img" src="" alt="Gallery Image Expanded" class="relative z-10 max-w-[90vw] max-h-[80vh] object-contain shadow-[0_0_50px_rgba(0,0,0,0.5)] transform scale-95 transition-transform duration-700 ease-out">
-			<p class="relative z-10 mt-8 text-bone-white/60 tracking-[0.3em] uppercase text-xs lg:text-sm font-light">Cosmic Crab Resort</p>
+			<p class="relative z-10 mt-8 text-bone-white/60 tracking-[0.3em] uppercase text-xs lg:text-sm font-bold">Cosmic Crab Resort</p>
 		</div>
 	</div>
 
-	<!-- TESTIMONIAL -->
-	<div id="testimonial-modal" class="fixed inset-0 z-[60] bg-navy/98 backdrop-blur-lg hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 px-4">
+	<!-- TESTIMONIAL MODAL -->
+	<div id="testimonial-modal" class="fixed inset-0 z-[60] bg-navy/98 backdrop-blur-lg hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 px-4 font-sans">
 		<button id="close-testimonial" class="absolute top-6 right-6 lg:top-10 lg:right-10 bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl group" aria-label="Close Testimonial">
 			<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 		</button>
 
 		<div class="relative p-8 md:p-12 lg:p-16 flex flex-col items-center text-center max-w-2xl w-full bg-bone-white shadow-2xl transform scale-95 transition-transform duration-700 ease-out" id="testimonial-content">
-			<!-- Marco desfasado decorativo -->
 			<div class="absolute inset-0 border border-coral transform -translate-x-2 -translate-y-2 hidden md:block pointer-events-none"></div>
 
 			<img id="modal-user-photo" src="" alt="Guest" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover mb-6 shadow-lg">
@@ -264,7 +272,7 @@ import BookingForm from '../../components/BookingForm.astro';
 				{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
 			</div>
 
-			<p id="modal-testimonial-text" class="text-navy text-xl md:text-2xl font-luxury italic leading-relaxed mb-8">""</p>
+			<p id="modal-testimonial-text" class="text-navy text-xl md:text-2xl font-sans font-medium italic leading-relaxed mb-8">""</p>
 
 			<div class="w-12 h-0.5 bg-coral mb-6"></div>
 

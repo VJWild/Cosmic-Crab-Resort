@@ -1,0 +1,105 @@
+---
+// src/components/BoutiqueCatalog.astro
+import { ui } from '../i18n/ui.js';
+
+const pathname = Astro.url.pathname;
+const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+const t = ui[idiomaActual];
+---
+
+<!-- 1. MINI HERO SECTION (Alineado con ContactSection) -->
+<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <!-- IMAGEN (Imagen de prueba con dimensiones ajustadas) -->
+    <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
+            style="background-image: url('https://images.unsplash.com/photo-1596870230751-eb104b14d229?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"
+    ></div>
+
+    <!-- Overlay para oscurecer -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Contenido centrado -->
+    <div class="relative z-10 text-center text-bone-white px-4 max-w-5xl flex flex-col items-center mt-16">
+        <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-coral-soft font-semibold font-sans animate-fade-in opacity-0 text-shadow-sm">
+            {t['boutique.tag'] || 'Our Boutique'}
+        </p>
+
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-sans font-bold mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
+            {t['boutique.title'] || 'Curated Island Style'}
+        </h1>
+
+        <p class="max-w-3xl mx-auto text-lg md:text-xl font-light font-sans mb-12 animate-fade-in opacity-0 delay-500 text-bone-white/90">
+            {t['boutique.desc'] || 'Discover a collection of local artisan crafts, elegant resort wear, and unique souvenirs designed to bring a piece of paradise home.'}
+        </p>
+
+        <div class="w-16 h-1 bg-coral mx-auto animate-fade-in opacity-0 delay-500"></div>
+    </div>
+</header>
+
+<!-- CATÁLOGO PRINCIPAL -->
+<main class="py-24 bg-bone-white text-navy font-sans">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-24">
+
+        <!-- CATEGORÍA 1 -->
+        <article class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 group">
+            <div class="w-full lg:w-1/2 h-[450px] shadow-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a8ea4114e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Artisan Jewelry" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col items-start border-t-4 border-coral pt-8">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold mb-6 text-navy">{t['boutique.c1.title'] || 'Artisan Jewelry'}</h2>
+                <p class="text-navy/70 text-lg leading-relaxed mb-8">{t['boutique.c1.desc']}</p>
+
+                <ul class="grid grid-cols-2 gap-6 w-full text-sm font-bold uppercase tracking-widest text-navy mb-8">
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c1.f1'] || 'Local Materials'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c1.f2'] || 'Handcrafted'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c1.f3'] || 'Unique Design'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c1.f4'] || 'Ocean Inspired'}</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- CATEGORÍA 2 -->
+        <article class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 group">
+            <div class="w-full lg:w-1/2 h-[450px] shadow-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1596870230751-eb104b14d229?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Resort Wear" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col items-start border-t-4 border-coral pt-8">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold mb-6 text-navy">{t['boutique.c2.title'] || 'Resort Wear'}</h2>
+                <p class="text-navy/70 text-lg leading-relaxed mb-8">{t['boutique.c2.desc']}</p>
+
+                <ul class="grid grid-cols-2 gap-6 w-full text-sm font-bold uppercase tracking-widest text-navy mb-8">
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c2.f1'] || 'Tropical Style'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c2.f2'] || 'Premium Fabrics'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c2.f3'] || 'Elegant Fit'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c2.f4'] || 'Island Living'}</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- CATEGORÍA 3 -->
+        <article class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 group">
+            <div class="w-full lg:w-1/2 h-[450px] shadow-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Local Crafts" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col items-start border-t-4 border-coral pt-8">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold mb-6 text-navy">{t['boutique.c3.title'] || 'Local Souvenirs'}</h2>
+                <p class="text-navy/70 text-lg leading-relaxed mb-8">{t['boutique.c3.desc']}</p>
+
+                <ul class="grid grid-cols-2 gap-6 w-full text-sm font-bold uppercase tracking-widest text-navy mb-8">
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c3.f1'] || 'Authentic'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c3.f2'] || 'Handmade'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c3.f3'] || 'Sustainable'}</li>
+                    <li class="flex items-center gap-3"><span class="text-coral-soft">✓</span> {t['boutique.c3.f4'] || 'Local Art'}</li>
+                </ul>
+
+                <div class="bg-white p-6 shadow-md border-l-4 border-coral">
+                    <p class="text-sm font-bold text-navy uppercase tracking-widest">{t['boutique.location'] || 'Visit us at the main reception'}</p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</main>
