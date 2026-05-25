@@ -13,6 +13,21 @@ export const ui = {
         'hero.subtitle': 'in Bocas del Toro',
         'hero.description': 'If you are looking for a perfect holiday experience with memories to cherish you are at the right place. Let’s plan a reasonable stay for you.',
         'hero.button': 'Discover the Resort',
+
+        // Experiences Section
+        'experiences.tag': "Discover",
+        'experiences.title': "Unforgettable Experiences",
+        'experiences.description': "Immerse yourself in the vibrant Caribbean lifestyle. From island adventures to the authentic taste of the archipelago and exclusive shopping.",
+        'experiences.excursions.tag': "Adventures",
+        'experiences.excursions.title': "Island Excursions",
+        'experiences.excursions.description': "Explore pristine white sands, vibrant coral reefs, and the wild beauty of the archipelago.",
+        'experiences.cafe.tag': "Dining",
+        'experiences.cafe.title': "Cosmic Crab Cafe",
+        'experiences.cafe.description': "Savor authentic Caribbean flavors and locally-sourced seafood in a relaxed overwater setting.",
+        'experiences.boutique.tag': "Shopping",
+        'experiences.boutique.title': "Boutique & Jewelry",
+        'experiences.boutique.description': "Discover our exclusive collection of handcrafted jewelry, elegant resort wear, and unique souvenirs.",
+
         // Footer
         'footer.description': 'The ultimate destination for those seeking the extraordinary. Where luxury meets Caribbean nature.',
         'footer.visitTitle': 'Visit Us',
@@ -123,6 +138,20 @@ export const ui = {
         'hero.subtitle': 'en Bocas del Toro',
         'hero.description': 'Si estás buscando una experiencia vacacional perfecta con recuerdos para atesorar, estás en el lugar correcto. Planeemos la estancia ideal para ti.',
         'hero.button': 'Descubre el Resort',
+        // Experiences Section
+        'experiences.tag': "Descubre",
+        'experiences.title': "Experiencias Inolvidables",
+        'experiences.description': "Te ayudaremos a experimentar la vida de Bocas en su verdadero sentido. Desde vivir entre los residentes hasta comer delicias auténticas, estamos seguros de que volverás a casa con recuerdos y momentos maravillosos.",
+        'experiences.excursions.tag': "Aventuras",
+        'experiences.excursions.title': "Excursiones por la Isla",
+        'experiences.excursions.description': "Explora playas de arena blanca inmaculada, vibrantes arrecifes de coral y la belleza salvaje del archipiélago.",
+        'experiences.cafe.tag': "Gastronomía",
+        'experiences.cafe.title': "Cosmic Crab Cafe",
+        'experiences.cafe.description': "Deléitese con los auténticos sabores caribeños y mariscos locales en un ambiente relajado sobre el agua.",
+        'experiences.boutique.tag': "Compras",
+        'experiences.boutique.title': "Boutique y Joyería",
+        'experiences.boutique.description': "Descubre nuestra exclusiva colección de joyería artesanal, elegante ropa de resort y recuerdos únicos.",
+
         // Footer
         'footer.description': 'El destino definitivo para quienes buscan lo extraordinario. Donde el lujo se encuentra con la naturaleza del Caribe.',
         'footer.visitTitle': 'Visítanos',

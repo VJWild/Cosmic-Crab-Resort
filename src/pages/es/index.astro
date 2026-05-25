@@ -2,6 +2,7 @@
 // src/pages/es/index.astro
 import Layout from '../../layouts/Layout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import ExperiencesSection from '../../components/ExperiencesSection.astro'
 import BookingForm from '../../components/BookingForm.astro';
 ---
 
@@ -25,69 +26,7 @@ import BookingForm from '../../components/BookingForm.astro';
         <!-- ========================================================================= -->
         <!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones, Restaurant & Boutique) -->
         <!-- ========================================================================= -->
-        <section id="experiences" class="py-24 px-6 md:px-12 bg-bone-white font-sans">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <p class="uppercase tracking-widest text-coral text-sm font-semibold mb-2">Descubre</p>
-                    <h2 class="text-navy text-4xl md:text-5xl font-sans font-bold mb-6">Experiencias Inolvidables</h2>
-                    <div class="w-16 h-1 bg-coral mx-auto"></div>
-                    <p class="text-navy/70 text-lg mt-6 max-w-2xl mx-auto">
-                        Sumérgete en el vibrante estilo de vida caribeño. Desde aventuras en las islas hasta los auténticos sabores del archipiélago y compras exclusivas.
-                    </p>
-                </div>
-
-                <!-- Grid de 3 columnas verticales -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-                    <!-- Columna 1: Excursiones -->
-                    <a href="/es/excursions" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                        <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Island Excursions" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
-                        <!-- Gradiente oscuro en la base para leer el texto -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Aventuras</p>
-                            <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Excursiones por la Isla</h3>
-                            <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                            <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                Explora playas de arena blanca inmaculada, vibrantes arrecifes de coral y la belleza salvaje del archipiélago.
-                            </p>
-                        </div>
-                    </a>
-
-                    <!-- Columna 2: Cosmic Crab Cafe -->
-                    <a href="/es/restaurant" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                        <img src="/images/restaurant-home.JPG" alt="Cosmic Crab Cafe" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Gastronomía</p>
-                            <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Cosmic Crab Cafe</h3>
-                            <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                            <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                Deléitese con los auténticos sabores caribeños y mariscos locales en un ambiente relajado sobre el agua.
-                            </p>
-                        </div>
-                    </a>
-
-                    <!-- Columna 3: NUEVA - Boutique & Joyería -->
-                    <a href="/es/boutique" class="group relative h-[450px] md:h-[550px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe6aa4ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boutique y Joyería" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">Compras</p>
-                            <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">Boutique y Joyería</h3>
-                            <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                            <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                Descubre nuestra exclusiva colección de joyería artesanal, elegante ropa de resort y recuerdos únicos.
-                            </p>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        </section>
+        <ExperiencesSection/>
 
         <!-- ========================================================================= -->
         <!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
