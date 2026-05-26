@@ -5,6 +5,8 @@ import Layout from '../../layouts/Layout.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import BookingForm from '../../components/BookingForm.astro';
 import ExperiencesSection from '../../components/ExperiencesSection.astro';
+import AtlantisSection from '../../components/AtlantisSection.astro';
+import GalleryTeaser from '../../components/GalleryTeaser.astro';
 
 ---
 
@@ -27,64 +29,9 @@ import ExperiencesSection from '../../components/ExperiencesSection.astro';
 		</section>
 
 		<BookingForm />
-
-		<!-- ========================================================================= -->
-		<!-- SECCIÓN UNIFICADA: EXPERIENCIAS (Excursiones, Restaurant & Boutique) -->
-		<!-- ========================================================================= -->
 		<ExperiencesSection/>
-
-		<!-- ========================================================================= -->
-		<!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
-		<!-- ========================================================================= -->
-		<section id="atlantis-teaser" class="bg-navy relative overflow-hidden font-sans">
-			<div class="flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[75vh]">
-
-				<div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full order-1 lg:order-1">
-					<img src="/images/photo-2-home.jpg" alt="Atlantis Bocas Premium Mixology" class="absolute inset-0 w-full h-full object-cover">
-					<div class="absolute inset-0 bg-navy/20"></div>
-				</div>
-
-				<div class="w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-16 lg:p-24 order-2 lg:order-2 z-10">
-					<p class="uppercase tracking-[0.4em] text-coral-soft text-xs font-bold mb-4">A New Level of Luxury</p>
-					<h2 class="text-bone-white text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 leading-tight">Atlantis <br><span class="text-coral-soft italic font-light">Bocas</span></h2>
-					<div class="w-16 h-0.5 bg-coral mb-8"></div>
-
-					<p class="text-bone-white/80 text-lg leading-relaxed mb-10 font-light max-w-xl">
-						Elevate your Caribbean experience at our exclusive swim-up bar and lounge. Atlantis Bocas introduces a world of premium mixology, signature cocktails, and a vibrant yet sophisticated atmosphere designed for the discerning traveler.
-					</p>
-
-					<a href="/en/atlantis" class="inline-flex items-center gap-3 border border-coral text-coral hover:bg-coral hover:text-bone-white px-10 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 w-max shadow-[0_0_20px_rgba(239,64,60,0.15)] hover:shadow-[0_0_30px_rgba(239,64,60,0.3)]">
-						Discover Atlantis
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-					</a>
-				</div>
-
-			</div>
-		</section>
-
-		<!-- GALLERY TEASER -->
-		<section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
-			<div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
-				<div>
-					<p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">Visual Journey</p>
-					<h2 class="text-4xl md:text-5xl font-sans font-bold">Our Inside Pictures</h2>
-				</div>
-				<a href="/en/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
-					View Full Gallery
-				</a>
-			</div>
-
-			<div class="relative w-full overflow-hidden flex gallery-container">
-				<div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
-					{[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, i) => (
-						<div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer">
-							<img src={`/images/photo-${num}-home.${num === 4 ? 'jpeg' : 'jpg'}`} alt="Gallery Image" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110" style="transition: transform 2s ease-out, filter 0.4s ease-out;">
-							<div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
+		<AtlantisSection/>
+		<GalleryTeaser/>
 
 		<!-- REVIEWS / TESTIMONIALS SECTION -->
 		<section id="testimonials" class="py-24 px-6 md:px-12 bg-bone-white font-sans">

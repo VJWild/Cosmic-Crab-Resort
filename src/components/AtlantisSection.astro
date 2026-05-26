@@ -1,0 +1,42 @@
+---
+import {ui} from '../i18n/ui.js'
+import Image from "astro/components/Image.astro"
+import bocas from "../assets/images/photo-2-home.jpg"
+
+const pathname = Astro.url.pathname;
+const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+const t = ui[idiomaActual];
+---
+<!-- ========================================================================= -->
+		    <!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
+<!-- ========================================================================= -->
+<section id="atlantis-teaser" class="bg-navy relative overflow-hidden font-sans">
+    <div class="flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[75vh]">
+
+        <div class="w-full lg:w-1/2 relative min-h-100 lg:min-h-full order-1 lg:order-1">
+            <Image
+                src={bocas}
+                alt="Atlantis Bocas Premium Mixology"
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+            />
+            <div class="absolute inset-0 bg-navy/20"></div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-16 lg:p-24 order-2 lg:order-2 z-10">
+            <p class="uppercase tracking-[0.4em] text-coral-soft text-xs font-bold mb-4">{t['home.atlantis.tag']}</p>
+            <h2 class="text-bone-white text-5xl md:text-6xl lg:text-7xl font-sans font-bold mb-6 leading-tight">Atlantis<br><span class="text-coral-soft italic font-light">Bocas</span></h2>
+            <div class="w-16 h-0.5 bg-coral mb-8"></div>
+
+            <p class="text-bone-white/80 text-lg leading-relaxed mb-10 font-light max-w-xl">
+                {t['home.atlantis.description']}
+            </p>
+
+            <a href={`/${idiomaActual}/atlantis`} class="inline-flex items-center gap-3 border border-coral text-coral hover:bg-coral hover:text-bone-white px-10 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 w-max shadow-[0_0_20px_rgba(239,64,60,0.15)] hover:shadow-[0_0_30px_rgba(239,64,60,0.3)]">
+                {t['home.atlantis.button']}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+
+    </div>
+</section>

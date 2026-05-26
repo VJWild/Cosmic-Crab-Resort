@@ -1,0 +1,41 @@
+---
+import {ui} from '../i18n/ui.js'
+import Image from "astro/components/Image.astro"
+import Picture from 'astro/components/Picture.astro'
+const imageModules = import.meta.glob('/src/assets/images/photo-*-home.jpg',{eager:true})
+const homeImages = Object.values(imageModules).map((mod: any) => mod.default)
+const pathname = Astro.url.pathname;
+const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
+const t = ui[idiomaActual];
+---
+
+<section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">{t['teaser.tag']}</p>
+                    <h2 class="text-4xl md:text-5xl font-sans font-bold">{t['teaser.title']}</h2>
+                </div>
+                <a href="/es/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
+                    {t['teaser.button']}
+                </a>
+            </div>
+
+            <div class="relative w-full overflow-hidden flex gallery-container">
+                <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
+                    {
+                        homeImages.map((image) => (
+                            <div class="gallery-img-trigger relative w-70 md:w-100 h-87.5 md:h-112.5 overflow-hidden group cursor-pointer">
+                                <Image
+                                    src={image}
+                                    alt="Imagen de la Galería"
+                                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
+                                    style="transition: transform 2s ease-out, filter 0.4s ease-out;"
+                                    loading="lazy"
+                                />
+                                <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>

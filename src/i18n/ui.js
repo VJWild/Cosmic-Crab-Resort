@@ -27,7 +27,14 @@ export const ui = {
         'experiences.boutique.tag': "Shopping",
         'experiences.boutique.title': "Boutique & Jewelry",
         'experiences.boutique.description': "Discover our exclusive collection of handcrafted jewelry, elegant resort wear, and unique souvenirs.",
-
+        //Atlantis Section
+        'home.atlantis.tag' : "A New Level of Luxury",
+        'home.atlantis.description' : "Elevate your Caribbean experience at our exclusive swim-up bar and lounge. Atlantis Bocas introduces a world of premium mixology, signature cocktails, and a vibrant yet sophisticated atmosphere designed for the discerning traveler.",
+        'home.atlantis.button' : "Discover Atlantis",
+        //Gallery Teaser
+        'teaser.tag':"Visual Journey",
+        'teaser.title':"Our Inside Pictures",
+        'teaser.button':"View Full Gallery",
         // Footer
         'footer.description': 'The ultimate destination for those seeking the extraordinary. Where luxury meets Caribbean nature.',
         'footer.visitTitle': 'Visit Us',
@@ -151,7 +158,14 @@ export const ui = {
         'experiences.boutique.tag': "Compras",
         'experiences.boutique.title': "Boutique y Joyería",
         'experiences.boutique.description': "Descubre nuestra exclusiva colección de joyería artesanal, elegante ropa de resort y recuerdos únicos.",
-
+        //Atlantis Section
+        'home.atlantis.tag' : "Un Nuevo Nivel de Lujo",
+        'home.atlantis.description' : "Eleve su experiencia caribeña en nuestro exclusivo bar y salón dentro de la piscina. Atlantis Bocas le ofrece un mundo de coctelería de primera clase, cócteles de autor y un ambiente vibrante y sofisticado, diseñado para el viajero más exigente.",
+        'home.atlantis.button' : "Descubre Atlantis",
+        //Gallery Teaser
+        'teaser.tag':"Viaje Visual",
+        'teaser.title':"Nuestras Fotos Interiores",
+        'teaser.button':"Ver Galería Completa",
         // Footer
         'footer.description': 'El destino definitivo para quienes buscan lo extraordinario. Donde el lujo se encuentra con la naturaleza del Caribe.',
         'footer.visitTitle': 'Visítanos',
