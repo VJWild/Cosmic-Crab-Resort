@@ -1,23 +1,23 @@
 ---
-// src/pages/es/gallery.astro
 import Layout from '../../layouts/Layout.astro';
-
 import GallerySection from '../../components/GallerySection.astro';
-
 ---
 
 <Layout title="Viaje Visual | Cosmic Crab Resort">
-
-
     <GallerySection />
 
-    <div id="lightbox" class="fixed inset-0 z-[60] bg-navy/98 backdrop-blur-lg hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500">
-        <button id="close-lightbox" class="absolute top-6 right-6 lg:top-10 lg:right-10 bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl group" aria-label="Close Gallery">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-navy/95 backdrop-blur-md hidden flex-col items-center justify-center opacity-0 transition-all duration-500">
+
+        <button id="close-lightbox" class="absolute top-8 right-8 text-bone-white/50 hover:text-coral transition-colors p-2 z-[110]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
-        <div class="relative p-2 lg:p-4 flex flex-col items-center">
-            <img id="lightbox-img" src="" alt="Gallery Image Expanded" class="relative z-10 max-w-[90vw] max-h-[80vh] object-contain shadow-[0_0_50px_rgba(0,0,0,0.5)] transform scale-95 transition-transform duration-700 ease-out">
-            <p class="relative z-10 mt-8 text-bone-white/60 tracking-[0.3em] uppercase text-xs lg:text-sm font-light">Cosmic Crab Resort</p>
+
+        <div class="relative max-w-[95vw] max-h-[85vh] flex items-center justify-center group">
+            <img id="lightbox-img" src="" alt="Expanded View" class="max-w-full max-h-full object-contain shadow-2xl rounded-sm">
+
+            <div class="absolute -bottom-12 left-0 w-full text-center">
+                <p class="text-purple-cream font-sans uppercase tracking-[0.4em] text-[10px] font-bold">Cosmic Crab Resort — Experience</p>
+            </div>
         </div>
     </div>
 

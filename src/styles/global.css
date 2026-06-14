@@ -1,13 +1,14 @@
 /* 1. Importación base de Tailwind v4 */
 @import "tailwindcss";
 
-/* 2. Tema personalizado (Nuestra paleta Luxury) */
+/* 2. Tema personalizado (Nuestra paleta Luxury actualizada) */
 @theme {
     --color-bone-white: #FFFDEE;
     --color-navy: #002539;
-    --color-coral: #FF4D4D;
-    --color-coral-soft: #FF9283;
-    --color-ocean: #5CA6EA;
+    --color-coral: #FF4D4D;      /* Coral Intense */
+    --color-coral-soft: #FF9283;  /* Coral Cream */
+    --color-purple-cream: #8EA1ED; /* Nuevo color añadido */
+    --color-ocean: #5CA6EA;      /* Mantenemos el azul para contrastes */
 
     --font-luxury: "Playfair Display", serif;
     --font-sans: "Montserrat", sans-serif;
@@ -22,6 +23,8 @@
         overflow-x: hidden;
     }
 
+    /* Nota: Recordamos que para los títulos que queramos Montserrat,
+       usaremos la clase 'font-sans' directamente en el HTML */
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-luxury);
     }
@@ -69,4 +72,4 @@
 @keyframes infinite-slider {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-    }
+}

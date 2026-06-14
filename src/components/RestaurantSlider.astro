@@ -7,6 +7,9 @@ let idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 
 const t = ui[idiomaActual];
 const base = idiomaActual === 'es' ? '/es' : '/en';
+
+// Definimos la ruta del PDF dinámicamente según el idioma
+const menuPdfUrl = idiomaActual === 'es' ? '/MENU(1).pdf' : '/MENU.pdf';
 ---
 
 <main class="relative w-full h-screen overflow-hidden bg-navy flex font-sans" id="split-container">
@@ -20,7 +23,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
 
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
 
-            <!-- Título Acelerado (duration-300) y con Scale -->
             <div id="left-title" class="flex flex-col items-center gap-5 transition-all duration-300 transform animate-fade-in opacity-0">
                 <img src="/images/Iconos/Icon 2.png" alt="Atlantis Bocas Logo" class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-xl" onerror="this.style.display='none'">
                 <h2 class="text-bone-white text-4xl md:text-6xl font-sans font-bold drop-shadow-xl whitespace-nowrap">
@@ -28,7 +30,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
                 </h2>
             </div>
 
-            <!-- Detalles (Distancia reducida a translate-y-4 para que no se cruce) -->
             <div id="left-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-4 pointer-events-none transition-all duration-500">
                 <img src="/images/Iconos/Icon 2.png" alt="Atlantis Bocas Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-xl mb-4" onerror="this.style.display='none'">
                 <p class="uppercase tracking-[0.3em] text-coral-soft text-sm font-semibold font-sans mb-4">{t['rest.left.tag']}</p>
@@ -37,9 +38,10 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
                 <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-normal font-sans">
                     {t['rest.left.desc']}
                 </p>
-                <a href="/menu-atlantis" class="menu-btn inline-flex items-center gap-3 bg-coral hover:bg-red-600 text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans transition-all duration-300 shadow-lg shadow-coral/20">
+
+                <a href={menuPdfUrl} target="_blank" rel="noopener noreferrer" class="menu-btn inline-flex items-center gap-3 bg-coral hover:bg-coral-intense text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans transition-all duration-300 shadow-lg shadow-coral/20">
                     {t['rest.left.btn']}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
                 </a>
             </div>
         </div>
@@ -54,7 +56,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
 
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 lg:p-16">
 
-            <!-- Título Acelerado (duration-300) y con Scale -->
             <div id="right-title" class="flex flex-col items-center gap-5 transition-all duration-300 transform animate-fade-in opacity-0">
                 <img src="/images/Iconos/Icon 4.png" alt="Cosmic Crab Cafe Logo" class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-xl" onerror="this.style.display='none'">
                 <h2 class="text-bone-white text-4xl md:text-6xl font-sans font-bold drop-shadow-xl whitespace-nowrap">
@@ -62,7 +63,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
                 </h2>
             </div>
 
-            <!-- Detalles (Distancia reducida a translate-y-4) -->
             <div id="right-details" class="absolute inset-0 flex flex-col items-center justify-center p-8 lg:p-20 opacity-0 translate-y-4 pointer-events-none transition-all duration-500">
                 <img src="/images/Iconos/Icon 4.png" alt="Cosmic Crab Cafe Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-xl mb-4" onerror="this.style.display='none'">
                 <p class="uppercase tracking-[0.3em] text-coral text-sm font-semibold font-sans mb-4">{t['rest.right.tag']}</p>
@@ -71,9 +71,9 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
                 <p class="text-bone-white/90 text-base md:text-lg max-w-xl mb-10 leading-relaxed font-normal font-sans">
                     {t['rest.right.desc']}
                 </p>
-                <a href="/menu-cafe" class="menu-btn inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans hover:bg-bone-white hover:text-navy transition-all duration-300">
+
+                <a href={menuPdfUrl} target="_blank" rel="noopener noreferrer" class="menu-btn inline-flex items-center gap-3 bg-transparent border border-bone-white text-bone-white px-8 py-4 uppercase tracking-widest text-sm font-bold font-sans hover:bg-bone-white hover:text-navy transition-all duration-300">
                     {t['rest.right.btn']}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
             </div>
         </div>
@@ -103,7 +103,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
 
         let isDragging = false;
 
-        // Limpiar animaciones iniciales y establecer el tamaño 1:1
         setTimeout(() => {
             if(leftTitle) { leftTitle.classList.remove('animate-fade-in'); leftTitle.classList.add('opacity-100', 'scale-100'); }
             if(rightTitle) { rightTitle.classList.remove('animate-fade-in'); rightTitle.classList.add('opacity-100', 'scale-100'); }
@@ -119,28 +118,18 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
             rightPanel.style.width = `${100 - percentage}%`;
             divider.style.left = `${percentage}%`;
 
-            // =========================================================================
-            // LÓGICA DE ZONA MUERTA (Evita traslapes visuales entre Miniaturas y Detalles)
-            // =========================================================================
-
-            // 1. GESTIÓN DE MINIATURAS (Solo se ven en el centro absoluto: 40% a 60%)
             if (percentage > 60 || percentage < 40) {
-                // Ocultar rápidamente y achicar un poco
                 leftTitle.classList.remove('opacity-100', 'scale-100');
                 leftTitle.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-
                 rightTitle.classList.remove('opacity-100', 'scale-100');
                 rightTitle.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
             } else {
-                // Mostrar en el centro
                 leftTitle.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
                 leftTitle.classList.add('opacity-100', 'scale-100');
-
                 rightTitle.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
                 rightTitle.classList.add('opacity-100', 'scale-100');
             }
 
-            // 2. GESTIÓN DE DETALLES EXTREMOS (Solo aparecen al pasar el 65% o 35%)
             if (percentage > 65) {
                 leftDetails.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
                 leftDetails.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
@@ -158,7 +147,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
             }
         };
 
-        // Eventos del Mouse
         divider.addEventListener('mousedown', (e) => {
             isDragging = true;
             container.style.cursor = 'col-resize';
@@ -177,7 +165,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
             }
         });
 
-        // Eventos Táctiles (Smartphones)
         divider.addEventListener('touchstart', (e) => {
             isDragging = true;
             document.body.style.overflow = 'hidden';
@@ -191,7 +178,6 @@ const base = idiomaActual === 'es' ? '/es' : '/en';
             document.body.style.overflow = '';
         });
 
-        // Click a un lado expande esa sección automáticamente
         leftPanel.addEventListener('click', (e) => {
             if(e.target.closest('.menu-btn') || isDragging) return;
             const currentWidth = parseFloat(leftPanel.style.width || 50);

@@ -2,7 +2,8 @@
 import { ui } from '../i18n/ui.js';
 import Image from 'astro/components/Image.astro';
 import excursiones from '../assets/images/excursiones.jpg'
-import cafe from '../assets/images/restaurant-home.jpg'
+import cafe from '../assets/images/restaurant.jpg'
+import boutique from '../assets/images/boutique-home.jpg'
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
@@ -63,7 +64,7 @@ const t = ui[idiomaActual];
             <!-- Columna 3: NUEVA - Boutique & Joyería -->
             <a href={`/${idiomaActual}/boutique`} class="group relative h-112.5 md:h-137.5 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
                 <Image
-                    src={cafe}
+                    src={boutique}
                     alt={t['experiences.cafe.title']}
                     class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-2000 ease-out"
                     loading="lazy"

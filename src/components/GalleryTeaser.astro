@@ -1,41 +1,45 @@
 ---
-import {ui} from '../i18n/ui.js'
-import Image from "astro/components/Image.astro"
-import Picture from 'astro/components/Picture.astro'
-const imageModules = import.meta.glob('/src/assets/images/photo-*-home.jpg',{eager:true})
-const homeImages = Object.values(imageModules).map((mod: any) => mod.default)
+// src/components/GalleryTeaser.astro
+import { ui } from '../i18n/ui.js';
+
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
-const t = ui[idiomaActual];
+
+// Textos dinámicos dependiendo del idioma
+const tag = idiomaActual === 'es' ? 'Viaje Visual' : 'Visual Journey';
+const title = idiomaActual === 'es' ? 'Nuestras Fotos Interiores' : 'Our Inside Pictures';
+const btnText = idiomaActual === 'es' ? 'Ver Galería Completa' : 'View Full Gallery';
+const link = idiomaActual === 'es' ? '/es/gallery' : '/en/gallery';
+
+const images = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
 ---
 
 <section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
-                <div>
-                    <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">{t['teaser.tag']}</p>
-                    <h2 class="text-4xl md:text-5xl font-sans font-bold">{t['teaser.title']}</h2>
-                </div>
-                <a href="/es/gallery" class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
-                    {t['teaser.button']}
-                </a>
-            </div>
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
+        <div>
+            <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">{tag}</p>
+            <h2 class="text-4xl md:text-5xl font-sans font-bold">{title}</h2>
+        </div>
+        <a href={link} class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
+            {btnText}
+        </a>
+    </div>
 
-            <div class="relative w-full overflow-hidden flex gallery-container">
-                <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
-                    {
-                        homeImages.map((image) => (
-                            <div class="gallery-img-trigger relative w-70 md:w-100 h-87.5 md:h-112.5 overflow-hidden group cursor-pointer">
-                                <Image
-                                    src={image}
-                                    alt="Imagen de la Galería"
-                                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
-                                    style="transition: transform 2s ease-out, filter 0.4s ease-out;"
-                                    loading="lazy"
-                                />
-                                <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </section>
+    <div class="relative w-full overflow-hidden flex gallery-container">
+        <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
+            {images.map((num, i) => (
+                    <div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer">
+                        <img
+                                src={`/images/photo-${num}-home.jpg`}
+                                data-num={num}
+                                alt="Gallery Image"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
+                                style="transition: transform 2s ease-out, filter 0.4s ease-out;"
+                                onerror="var exts=['JPG','jpeg','webp','png','heic','HEIC']; var idx=parseInt(this.dataset.idx||0); if(idx<exts.length){this.src='/images/photo-'+this.dataset.num+'-home.'+exts[idx]; this.dataset.idx=idx+1;}"
+                        />
+                        <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                    </div>
+            ))}
+        </div>
+    </div>
+</section>

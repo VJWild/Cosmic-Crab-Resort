@@ -1,40 +1,76 @@
 ---
 // src/components/GallerySection.astro
+import { Image } from 'astro:assets';
 import { ui } from '../i18n/ui.js';
-import { galleryData } from '../data/galleryData.js'; // base de datos externa
+
+// Importación de todas las imágenes de tu galería local
+import atlantis1 from '../assets/images/atlantis1.jpg';
+import atlantis2 from '../assets/images/atlantis2.jpg';
+import atlantis3 from '../assets/images/atlantis3.jpg';
+import atlantis4 from '../assets/images/atlantis4.jpg';
+import excursions1 from '../assets/images/excursions1.jpg';
+import excursions2 from '../assets/images/excursions2.jpg';
+import excursions3 from '../assets/images/excursions3.jpg';
+import excursions4 from '../assets/images/excursions4.jpg';
+import excursions5 from '../assets/images/excursions5.jpg';
+import excursions6 from '../assets/images/excursions6.jpg';
+import pool1 from '../assets/images/pool1.jpg';
+import pool2 from '../assets/images/pool2.jpg';
+import pool3 from '../assets/images/pool3.jpg';
+import resort1 from '../assets/images/resort1.jpg';
+import restaurant1 from '../assets/images/restaurant1.jpg';
+import restaurant2 from '../assets/images/restaurant2.jpg';
+import restaurant3 from '../assets/images/restaurant3.jpg';
+import restaurant4 from '../assets/images/restaurant4.jpg';
+import restaurant5 from '../assets/images/restaurant5.jpg';
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 const t = ui[idiomaActual];
 
-
+// Pestañas de Filtrado
 const categories = [
+    { id: 'all', name: idiomaActual === 'es' ? 'Ver Todo' : 'View All' },
     { id: 'resort', name: t['gallery.cat.resort'] || 'Resort & Rooms' },
     { id: 'restaurant', name: t['gallery.cat.restaurant'] || 'Restaurant' },
     { id: 'atlantis', name: t['gallery.cat.atlantis'] || 'Atlantis & Pool' },
     { id: 'excursions', name: t['gallery.cat.excursions'] || 'Excursions' }
 ];
+
+// Estructura de datos vinculada a las categorías para el filtro
+const galleryItems = [
+    { src: resort1, cat: 'resort' },
+    { src: restaurant1, cat: 'restaurant' },
+    { src: restaurant2, cat: 'restaurant' },
+    { src: restaurant3, cat: 'restaurant' },
+    { src: restaurant4, cat: 'restaurant' },
+    { src: restaurant5, cat: 'restaurant' },
+    { src: atlantis1, cat: 'atlantis' },
+    { src: atlantis2, cat: 'atlantis' },
+    { src: atlantis3, cat: 'atlantis' },
+    { src: atlantis4, cat: 'atlantis' },
+    { src: pool1, cat: 'atlantis' }, // Piscina agrupada con Atlantis
+    { src: pool2, cat: 'atlantis' },
+    { src: pool3, cat: 'atlantis' },
+    { src: excursions1, cat: 'excursions' },
+    { src: excursions2, cat: 'excursions' },
+    { src: excursions3, cat: 'excursions' },
+    { src: excursions4, cat: 'excursions' },
+    { src: excursions5, cat: 'excursions' },
+    { src: excursions6, cat: 'excursions' }
+];
 ---
 
-<!-- Estilos para el efecto de Espejo -->
-<style>
-    .reflect-below {
-        /* Reflejo debajo de la imagen */
-        -webkit-box-reflect: below 8px linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.05) 75%, rgba(255,255,255,0.2) 100%);
-    }
-</style>
-
-<!-- MINISECTION PARA GALERÍA -->
-<header class="relative h-[45vh] lg:h-[55vh] w-full flex items-center justify-center overflow-hidden border-b border-bone-white/10">
-    <div class="absolute inset-0 bg-cover bg-center transform scale-105" style="background-image: url('/images/photo-5-home.JPG');"></div>
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
+<!-- HEADER HERO DE LA GALERÍA -->
+<header class="relative h-[60vh] w-full flex items-center justify-center overflow-hidden border-b border-bone-white/10">
+    <!-- Asumimos que photo-5-home está en public/images/ -->
+    <div class="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110" style="background-image: url('/images/photo-5-home.jpg');"></div>
+    <div class="absolute inset-0 bg-navy/60 backdrop-blur-[2px]"></div>
 
     <div class="relative z-10 text-center text-bone-white mt-16 px-4">
-        <!-- Agregado font-sans -->
         <p class="uppercase tracking-[0.4em] text-coral-soft text-sm font-semibold font-sans mb-4 animate-fade-in opacity-0">
             {t['gallery.tag'] || 'Visual Journey'}
         </p>
-        <!-- Reemplazado font-luxury por font-sans font-bold -->
         <h1 class="text-5xl md:text-7xl font-sans font-bold mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
             {t['gallery.title'] || 'Our Gallery'}
         </h1>
@@ -42,92 +78,102 @@ const categories = [
     </div>
 </header>
 
-<!-- Agregado font-sans al contenedor principal -->
-<main class="py-20 bg-navy text-bone-white overflow-hidden relative font-sans">
+<!-- CONTENEDOR PRINCIPAL DE LA CUADRÍCULA -->
+<main class="py-24 bg-navy text-bone-white relative min-h-screen font-sans">
+    <!-- Luz ambiental decorativa de fondo -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-coral-soft/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
-    <!-- Luz ambiental de fondo -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-coral-soft/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
-    <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
-
-        <!-- PESTAÑAS PARA CAMBIAR CATEGORÍA -->
-        <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-16 pb-4">
+        <!-- PESTAÑAS DE FILTRO -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
             {categories.map((cat, index) => (
                     <button
-                            class={`tab-btn uppercase tracking-widest text-xs md:text-sm font-bold font-sans transition-all duration-500 pb-2 relative group ${index === 0 ? 'text-coral' : 'text-bone-white/50 hover:text-bone-white'}`}
-                            data-target={cat.id}
+                            class={`filter-btn px-6 py-2.5 rounded-full border text-xs md:text-sm uppercase tracking-widest font-bold transition-all duration-300 ${index === 0 ? 'bg-bone-white border-bone-white text-navy' : 'border-bone-white/20 text-bone-white/60 hover:border-bone-white hover:text-bone-white'}`}
+                            data-category={cat.id}
                     >
                         {cat.name}
-                        <!-- Línea animada de pestaña -->
-                        <span class={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] transition-all duration-500 ${index === 0 ? 'w-full bg-coral' : 'w-0 bg-bone-white group-hover:w-full'}`}></span>
                     </button>
             ))}
         </div>
 
-        <!-- CONTENEDORES DE LA GALERÍA 3D -->
-        <div class="relative w-full h-[550px] md:h-[750px] flex items-center justify-center">
-            {Object.entries(galleryData).map(([category, images], idx) => (
+        <!-- CUADRÍCULA (GRID) -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {galleryItems.map((img) => (
+                <!-- Se añade gallery-img-trigger para conectar con lightbox.js -->
                     <div
-                            id={`gallery-${category}`}
-                            class={`gallery-3d-container absolute inset-0 w-full h-full flex flex-col items-center justify-start pt-10 md:pt-16 transition-opacity duration-500 ease-in-out ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
-                            style="perspective: 1800px;"
+                            class="gallery-item gallery-img-trigger relative aspect-[4/5] overflow-hidden group cursor-pointer shadow-xl rounded-sm border border-transparent hover:border-bone-white/10 transition-colors duration-500"
+                            data-cat={img.cat}
                     >
+                        <!-- Imagen Optimizada por Astro -->
+                        <Image
+                                src={img.src}
+                                alt={`Cosmic Crab ${img.cat}`}
+                                class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                        />
 
-                        <!-- Botón Anterior -->
-                        <button class="prev-btn absolute left-2 md:left-8 top-[35%] md:top-[40%] -translate-y-1/2 z-50 bg-bone-white/5 hover:bg-bone-white/20 text-bone-white p-4 md:p-5 rounded-full backdrop-blur-xl border border-bone-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
-                        </button>
-
-                        <!-- Carrusel -->
-                        <div class="relative w-[300px] md:w-[650px] h-[350px] md:h-[450px]" style="transform-style: preserve-3d;">
-                            {images.map((src, index) => (
-
-                                // Contenedor individual de slide
-                            <div class="slide-3d absolute inset-0 w-full h-full cursor-pointer will-change-transform">
-
-                                        <!-- Contenedor de la foto (Con efecto Espejo) -->
-                                        <div class="gallery-img-trigger reflect-below w-full h-full relative group rounded-2xl overflow-hidden transition-all duration-500 border border-transparent">
-
-                                            <!-- Imagen con transición de filtros profundos -->
-                                            <img src={src} alt={`${category} image ${index + 1}`} class="slide-img w-full h-full object-cover select-none transition-all duration-500 ease-out" draggable="false" />
-
-                                            <!-- Lupa indicadora -->
-                                            <div class="zoom-indicator absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden">
-                                                <div class="bg-navy/60 p-5 rounded-full text-bone-white backdrop-blur-md border border-bone-white/30 shadow-[0_0_30px_rgba(0,0,0,0.5)] transform scale-90 group-hover:scale-100 transition-transform duration-500">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-                                                </div>
-                                            </div>
-
-                                            <!-- Bloqueador de clics para imágenes traseras -->
-                                            <div class="click-blocker absolute inset-0 z-20"></div>
-                                        </div>
-                                    </div>
-                            ))}
+                        <!-- Capa de Hover Oscura con Ícono -->
+                        <div class="absolute inset-0 bg-navy/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center pointer-events-none">
+                            <div class="w-14 h-14 rounded-full bg-bone-white/10 backdrop-blur-md border border-bone-white/30 flex items-center justify-center text-bone-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 mb-3 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                            </div>
+                            <span class="text-bone-white uppercase tracking-[0.3em] text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                            {idiomaActual === 'es' ? 'Ampliar Imagen' : 'Expand Image'}
+                        </span>
                         </div>
-
-                        <!-- Botón Siguiente -->
-                        <button class="next-btn absolute right-2 md:right-8 top-[35%] md:top-[40%] -translate-y-1/2 z-50 bg-bone-white/5 hover:bg-bone-white/20 text-bone-white p-4 md:p-5 rounded-full backdrop-blur-xl border border-bone-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] group">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform duration-300"><path d="m9 18 6-6-6-6"/></svg>
-                        </button>
-
-                        <!-- Paginación -->
-                        <div class="absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50">
-                            {images.map((_, index) => (
-                                    <div class="pagination-dot w-2 h-2 rounded-full bg-bone-white/30 transition-all duration-500"></div>
-                            ))}
-                        </div>
-
                     </div>
             ))}
         </div>
 
-        <!-- Agregado font-sans explícito al texto inferior -->
-        <p class="text-center text-bone-white/40 text-[10px] md:text-xs tracking-[0.3em] mt-2 uppercase font-light font-sans">
-            {t['gallery.click'] || 'Click the center image to expand'}
-        </p>
-
     </div>
 </main>
 
+<!-- SCRIPT DE FILTRADO LOCAL -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
 
-<script src="../scripts/gallery3d.js"></script>
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+
+                // 1. Efectos visuales de las pestañas
+                buttons.forEach(b => {
+                    b.classList.remove('bg-bone-white', 'border-bone-white', 'text-navy');
+                    b.classList.add('border-bone-white/20', 'text-bone-white/60');
+                });
+                btn.classList.remove('border-bone-white/20', 'text-bone-white/60');
+                btn.classList.add('bg-bone-white', 'border-bone-white', 'text-navy');
+
+                // 2. Lógica de mostrar/ocultar fotos
+                items.forEach(item => {
+                    const itemCat = item.getAttribute('data-cat');
+                    const element = item as HTMLElement;
+
+                    if (category === 'all' || itemCat === category) {
+                        element.style.display = 'block';
+                        // Pequeño retardo para permitir que la animación CSS actúe tras quitar el display: none
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                            element.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        element.style.opacity = '0';
+                        element.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            element.style.display = 'none';
+                        }, 300); // 300ms coincide con la transición CSS
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    /* Estilo esencial para suavizar la desaparición de los items en la cuadrícula */
+    .gallery-item {
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+</style>
