@@ -23,10 +23,10 @@ export const galleryData = {
         "https://images.unsplash.com/photo-1560582861-45078880e48e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     ],
     excursions: [
-        "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1534067468160-5f21297ce201?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1518182170546-076616fdfaaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        "/images/excursiones/zapatilla.jpg",
+        "/images/excursiones/colon.png",
+        "/images/excursiones/redfrog.png",
+        "/images/excursiones/bat-cave.png",
+        "/images/excursiones/beach-combo.jpeg"
     ]
 };
