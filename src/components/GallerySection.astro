@@ -7,7 +7,7 @@ const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 const t = ui[idiomaActual];
 
-// Pestañas de categorías, agregando "Ver Todo" al inicio
+// Pestañas de categorías
 const categories = [
     { id: 'all', name: idiomaActual === 'es' ? 'Ver Todo' : 'View All' },
     { id: 'resort', name: t['gallery.cat.resort'] || 'Resort & Rooms' },
@@ -16,23 +16,33 @@ const categories = [
     { id: 'excursions', name: t['gallery.cat.excursions'] || 'Excursions' }
 ];
 
-// Aplanamos las imágenes para tenerlas todas listas en la cuadrícula
+
 const allImages = Object.entries(galleryData).flatMap(([cat, images]) =>
     images.map(src => ({ src, cat }))
 );
 ---
 
-<header class="relative h-[60vh] w-full flex items-center justify-center overflow-hidden border-b border-bone-white/10">
-    <div class="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110" style="background-image: url('/images/photo-5-home.jpg');"></div>
-    <div class="absolute inset-0 bg-navy/60 backdrop-blur-[2px]"></div>
+<!-- 1. HERO SECTION -->
+<header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <!-- IMAGEN ACTUALIZADA CON CC28.jpg -->
+    <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
+            style="background-image: url('/images/CC Fotos/CC28.jpg');"
+    ></div>
 
-    <div class="relative z-10 text-center text-bone-white mt-16 px-4">
-        <p class="uppercase tracking-[0.4em] text-purple-cream text-sm font-semibold font-sans mb-4 animate-fade-in opacity-0">
+    <!-- Overlay para oscurecer la imagen y hacer legible el texto -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Contenido centrado -->
+    <div class="relative z-10 text-center text-bone-white px-4 max-w-5xl flex flex-col items-center mt-16">
+        <p class="uppercase tracking-[0.4em] text-sm md:text-base mb-6 text-purple-cream font-semibold font-sans animate-fade-in opacity-0 text-shadow-sm">
             {t['gallery.tag'] || 'Visual Journey'}
         </p>
-        <h1 class="text-5xl md:text-7xl font-sans font-bold mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
+
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-sans font-bold mb-8 leading-tight animate-fade-in opacity-0 delay-300 text-shadow-sm">
             {t['gallery.title'] || 'Our Gallery'}
         </h1>
+
         <div class="w-16 h-1 bg-coral mx-auto animate-fade-in opacity-0 delay-500"></div>
     </div>
 </header>
@@ -81,7 +91,7 @@ const allImages = Object.entries(galleryData).flatMap(([cat, images]) =>
 </main>
 
 <script>
-    // Lógica de Filtrado Inteligente
+    // Lógica de Filtrado
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.filter-btn');
         const items = document.querySelectorAll('.gallery-item');
@@ -105,7 +115,7 @@ const allImages = Object.entries(galleryData).flatMap(([cat, images]) =>
 
                     if (category === 'all' || itemCat === category) {
                         element.style.display = 'block';
-                        // Timeout mínimo para permitir que el display:block se aplique antes de la opacidad
+
                         setTimeout(() => {
                             element.style.opacity = '1';
                             element.style.transform = 'scale(1)';
@@ -113,7 +123,7 @@ const allImages = Object.entries(galleryData).flatMap(([cat, images]) =>
                     } else {
                         element.style.opacity = '0';
                         element.style.transform = 'scale(0.95)';
-                        // Ocultar del DOM después de que termine la animación
+
                         setTimeout(() => {
                             element.style.display = 'none';
                         }, 300);

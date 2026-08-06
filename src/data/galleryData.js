@@ -21,7 +21,7 @@ import restaurant3 from '../assets/images/restaurant3.jpg';
 import restaurant4 from '../assets/images/restaurant4.jpg';
 import restaurant5 from '../assets/images/restaurant5.jpg';
 
-// Generamos dinámicamente las rutas de la carpeta "CC Fotos" para no saturar el código
+// rutas de la carpeta CC Fotos
 const ccFotosBatch = Array.from({ length: 93 }, (_, i) => `/images/CC Fotos/CC${i + 1}.jpg`);
 const extraFotos = ['/images/CC Fotos/SwansCay4.jpg', '/images/CC Fotos/SwansCay11.jpg'];
 const directorioNuevasFotos = [...ccFotosBatch, ...extraFotos];
@@ -29,32 +29,41 @@ const directorioNuevasFotos = [...ccFotosBatch, ...extraFotos];
 export const galleryData = {
     resort: [
         "/images/photo-1-home.jpg",
-        "/images/room-1-home.jpg",
-        "/images/photo-3-home.jpg",
-        "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         "/images/photo-5-home.jpg",
-        // Nuevas imágenes
-        resort1.src
+        resort1.src,
+        "/images/CC Fotos/CC15.jpg",
+        "/images/CC Fotos/CC20.jpg",
+        "/images/CC Fotos/CC31.jpg",
+        "/images/CC Fotos/CC32.jpg",
+        "/images/CC Fotos/CC34.jpg",
+        "/images/CC Fotos/CC35.jpg",
+        "/images/CC Fotos/CC36.jpg"
     ],
     restaurant: [
         "/images/restaurant-home.jpg",
-        // Nuevas imágenes
         restaurant1.src,
         restaurant2.src,
         restaurant3.src,
         restaurant4.src,
-        restaurant5.src
+        restaurant5.src,
+        "/images/CC Fotos/CC17.jpg",
+        "/images/CC Fotos/CC18.jpg",
+        "/images/CC Fotos/CC41.jpg",
+        "/images/CC Fotos/CC38.jpg",
+        "/images/CC Fotos/CC47.jpg",
+        "/images/CC Fotos/CC49.jpg",
+        "/images/CC Fotos/CC24.jpg"
     ],
     atlantis: [
-        "/images/photo-2-home.jpg",
-        // Nuevas imágenes
         atlantis1.src,
         atlantis2.src,
         atlantis3.src,
         atlantis4.src,
         pool1.src,
         pool2.src,
-        pool3.src
+        pool3.src,
+        "/images/CC Fotos/CC30.jpg",
+        "/images/CC Fotos/CC37.jpg"
     ],
     excursions: [
         "/images/excursiones/zapatilla.jpg",
@@ -62,7 +71,6 @@ export const galleryData = {
         "/images/excursiones/redfrog.png",
         "/images/excursiones/bat-cave.png",
         "/images/excursiones/beach-combo.jpeg",
-        // Nuevas imágenes
         excursions1.src,
         excursions2.src,
         excursions3.src,

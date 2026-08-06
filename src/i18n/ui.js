@@ -25,7 +25,7 @@ export const ui = {
         'experiences.cafe.title': "Cosmic Crab Cafe",
         'experiences.cafe.description': "Savor authentic Caribbean flavors and locally-sourced seafood in a relaxed overwater setting.",
         'experiences.boutique.tag': "Shopping",
-        'experiences.boutique.title': "Boutique & Jewelry",
+        'experiences.boutique.title': "Jewelry & Gift Store",
         'experiences.boutique.description': "Discover our exclusive collection of handcrafted jewelry, elegant resort wear, and unique souvenirs.",
         //Atlantis Section
         'home.atlantis.tag' : "A New Level of Luxury",
@@ -94,7 +94,7 @@ export const ui = {
 
         // Boutique
         'boutique.tag': 'Exclusive Shopping',
-        'boutique.title': 'Boutique & Jewelry',
+        'boutique.title': 'Jewelry & Gift Store',
         'boutique.c1.tag': 'Handcrafted',
         'boutique.c1.title': 'Artisan Jewelry',
         'boutique.c1.desc': 'Discover unique, handcrafted jewelry pieces made by local artisans. Featuring beautiful sea glass, pearls, and precious stones inspired by the Caribbean ocean.',
@@ -156,7 +156,7 @@ export const ui = {
         'experiences.cafe.title': "Cosmic Crab Cafe",
         'experiences.cafe.description': "Deléitese con los auténticos sabores caribeños y mariscos locales en un ambiente relajado sobre el agua.",
         'experiences.boutique.tag': "Compras",
-        'experiences.boutique.title': "Boutique y Joyería",
+        'experiences.boutique.title': "Joyería y Tienda de Regalos",
         'experiences.boutique.description': "Descubre nuestra exclusiva colección de joyería artesanal, elegante ropa de resort y recuerdos únicos.",
         //Atlantis Section
         'home.atlantis.tag' : "Un Nuevo Nivel de Lujo",
@@ -222,7 +222,7 @@ export const ui = {
 
         // Boutique
         'boutique.tag': 'Compras Exclusivas',
-        'boutique.title': 'Boutique y Joyería',
+        'boutique.title': 'Joyería y Tienda de Regalos',
         'boutique.c1.tag': 'Hecho a Mano',
         'boutique.c1.title': 'Joyería Artesanal',
         'boutique.c1.desc': 'Descubre piezas de joyería únicas y hechas a mano por artesanos locales. Con hermosos cristales de mar, perlas y piedras preciosas inspiradas en el océano Caribe.',
