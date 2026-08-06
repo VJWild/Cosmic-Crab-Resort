@@ -11,7 +11,23 @@ const title = idiomaActual === 'es' ? 'Nuestras Fotos Interiores' : 'Our Inside 
 const btnText = idiomaActual === 'es' ? 'Ver Galería Completa' : 'View Full Gallery';
 const link = idiomaActual === 'es' ? '/es/gallery' : '/en/gallery';
 
-const images = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+// Lista base de imágenes
+const baseImages = [
+    '/images/photo-1-home.jpg',
+    '/images/photo-2-home.jpg',
+    '/images/CC Fotos/CC19.jpg',
+    '/images/CC Fotos/CC25.jpg',
+    '/images/CC Fotos/CC20.jpg',
+    '/images/CC Fotos/CC24.jpg',
+    '/images/CC Fotos/CC47.jpg',
+    '/images/CC Fotos/CC35.jpg',
+    '/images/CC Fotos/CC60.jpg',
+    '/images/photo-5-home.jpg',
+    '/images/photo-6-home.jpg'
+];
+
+// Duplicamos el arreglo para que la animación infinita sea 100% fluida
+const images = [...baseImages, ...baseImages];
 ---
 
 <section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
@@ -27,17 +43,15 @@ const images = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
 
     <div class="relative w-full overflow-hidden flex gallery-container">
         <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
-            {images.map((num, i) => (
-                    <div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer">
+            {images.map((imgSrc, i) => (
+                    <div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer flex-shrink-0">
                         <img
-                                src={`/images/photo-${num}-home.jpg`}
-                                data-num={num}
+                                src={imgSrc}
                                 alt="Gallery Image"
                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
                                 style="transition: transform 2s ease-out, filter 0.4s ease-out;"
-                                onerror="var exts=['JPG','jpeg','webp','png','heic','HEIC']; var idx=parseInt(this.dataset.idx||0); if(idx<exts.length){this.src='/images/photo-'+this.dataset.num+'-home.'+exts[idx]; this.dataset.idx=idx+1;}"
                         />
-                        <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                     </div>
             ))}
         </div>

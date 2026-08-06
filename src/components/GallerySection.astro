@@ -1,34 +1,13 @@
 ---
 // src/components/GallerySection.astro
-import { Image } from 'astro:assets';
 import { ui } from '../i18n/ui.js';
-
-// Importación de todas las imágenes de tu galería local
-import atlantis1 from '../assets/images/atlantis1.jpg';
-import atlantis2 from '../assets/images/atlantis2.jpg';
-import atlantis3 from '../assets/images/atlantis3.jpg';
-import atlantis4 from '../assets/images/atlantis4.jpg';
-import excursions1 from '../assets/images/excursions1.jpg';
-import excursions2 from '../assets/images/excursions2.jpg';
-import excursions3 from '../assets/images/excursions3.jpg';
-import excursions4 from '../assets/images/excursions4.jpg';
-import excursions5 from '../assets/images/excursions5.jpg';
-import excursions6 from '../assets/images/excursions6.jpg';
-import pool1 from '../assets/images/pool1.jpg';
-import pool2 from '../assets/images/pool2.jpg';
-import pool3 from '../assets/images/pool3.jpg';
-import resort1 from '../assets/images/resort1.jpg';
-import restaurant1 from '../assets/images/restaurant1.jpg';
-import restaurant2 from '../assets/images/restaurant2.jpg';
-import restaurant3 from '../assets/images/restaurant3.jpg';
-import restaurant4 from '../assets/images/restaurant4.jpg';
-import restaurant5 from '../assets/images/restaurant5.jpg';
+import { galleryData } from '../data/galleryData.js'; // base de datos externa
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 const t = ui[idiomaActual];
 
-// Pestañas de Filtrado
+// Pestañas de categorías, agregando "Ver Todo" al inicio
 const categories = [
     { id: 'all', name: idiomaActual === 'es' ? 'Ver Todo' : 'View All' },
     { id: 'resort', name: t['gallery.cat.resort'] || 'Resort & Rooms' },
@@ -37,38 +16,18 @@ const categories = [
     { id: 'excursions', name: t['gallery.cat.excursions'] || 'Excursions' }
 ];
 
-// Estructura de datos vinculada a las categorías para el filtro
-const galleryItems = [
-    { src: resort1, cat: 'resort' },
-    { src: restaurant1, cat: 'restaurant' },
-    { src: restaurant2, cat: 'restaurant' },
-    { src: restaurant3, cat: 'restaurant' },
-    { src: restaurant4, cat: 'restaurant' },
-    { src: restaurant5, cat: 'restaurant' },
-    { src: atlantis1, cat: 'atlantis' },
-    { src: atlantis2, cat: 'atlantis' },
-    { src: atlantis3, cat: 'atlantis' },
-    { src: atlantis4, cat: 'atlantis' },
-    { src: pool1, cat: 'atlantis' }, // Piscina agrupada con Atlantis
-    { src: pool2, cat: 'atlantis' },
-    { src: pool3, cat: 'atlantis' },
-    { src: excursions1, cat: 'excursions' },
-    { src: excursions2, cat: 'excursions' },
-    { src: excursions3, cat: 'excursions' },
-    { src: excursions4, cat: 'excursions' },
-    { src: excursions5, cat: 'excursions' },
-    { src: excursions6, cat: 'excursions' }
-];
+// Aplanamos las imágenes para tenerlas todas listas en la cuadrícula
+const allImages = Object.entries(galleryData).flatMap(([cat, images]) =>
+    images.map(src => ({ src, cat }))
+);
 ---
 
-<!-- HEADER HERO DE LA GALERÍA -->
 <header class="relative h-[60vh] w-full flex items-center justify-center overflow-hidden border-b border-bone-white/10">
-    <!-- Asumimos que photo-5-home está en public/images/ -->
     <div class="absolute inset-0 bg-cover bg-center transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110" style="background-image: url('/images/photo-5-home.jpg');"></div>
     <div class="absolute inset-0 bg-navy/60 backdrop-blur-[2px]"></div>
 
     <div class="relative z-10 text-center text-bone-white mt-16 px-4">
-        <p class="uppercase tracking-[0.4em] text-coral-soft text-sm font-semibold font-sans mb-4 animate-fade-in opacity-0">
+        <p class="uppercase tracking-[0.4em] text-purple-cream text-sm font-semibold font-sans mb-4 animate-fade-in opacity-0">
             {t['gallery.tag'] || 'Visual Journey'}
         </p>
         <h1 class="text-5xl md:text-7xl font-sans font-bold mb-6 animate-fade-in opacity-0 delay-300 drop-shadow-lg">
@@ -78,18 +37,15 @@ const galleryItems = [
     </div>
 </header>
 
-<!-- CONTENEDOR PRINCIPAL DE LA CUADRÍCULA -->
-<main class="py-24 bg-navy text-bone-white relative min-h-screen font-sans">
-    <!-- Luz ambiental decorativa de fondo -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-coral-soft/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
+<main class="py-24 bg-navy text-bone-white overflow-hidden relative font-sans min-h-screen">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-purple-cream/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
     <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
 
-        <!-- PESTAÑAS DE FILTRO -->
         <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
             {categories.map((cat, index) => (
                     <button
-                            class={`filter-btn px-6 py-2.5 rounded-full border text-xs md:text-sm uppercase tracking-widest font-bold transition-all duration-300 ${index === 0 ? 'bg-bone-white border-bone-white text-navy' : 'border-bone-white/20 text-bone-white/60 hover:border-bone-white hover:text-bone-white'}`}
+                            class={`filter-btn px-6 py-2 rounded-full border text-xs md:text-sm uppercase tracking-widest font-bold transition-all duration-300 ${index === 0 ? 'bg-purple-cream border-purple-cream text-navy' : 'border-bone-white/20 text-bone-white/60 hover:border-purple-cream hover:text-purple-cream'}`}
                             data-category={cat.id}
                     >
                         {cat.name}
@@ -97,29 +53,25 @@ const galleryItems = [
             ))}
         </div>
 
-        <!-- CUADRÍCULA (GRID) -->
-        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {galleryItems.map((img) => (
-                <!-- Se añade gallery-img-trigger para conectar con lightbox.js -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {allImages.map((img, index) => (
                     <div
-                            class="gallery-item gallery-img-trigger relative aspect-[4/5] overflow-hidden group cursor-pointer shadow-xl rounded-sm border border-transparent hover:border-bone-white/10 transition-colors duration-500"
+                            class="gallery-item gallery-img-trigger relative aspect-[4/5] overflow-hidden group cursor-pointer shadow-lg rounded-sm"
                             data-cat={img.cat}
                     >
-                        <!-- Imagen Optimizada por Astro -->
-                        <Image
+                        <img
                                 src={img.src}
-                                alt={`Cosmic Crab ${img.cat}`}
-                                class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                                alt={`Gallery Image - ${img.cat}`}
+                                class="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110 grayscale-[15%] group-hover:grayscale-0"
+                                loading="lazy"
                         />
-
-                        <!-- Capa de Hover Oscura con Ícono -->
-                        <div class="absolute inset-0 bg-navy/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center pointer-events-none">
-                            <div class="w-14 h-14 rounded-full bg-bone-white/10 backdrop-blur-md border border-bone-white/30 flex items-center justify-center text-bone-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 mb-3 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center pointer-events-none">
+                            <div class="w-14 h-14 rounded-full bg-navy/50 backdrop-blur-md border border-bone-white/30 flex items-center justify-center text-bone-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 mb-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
                             </div>
                             <span class="text-bone-white uppercase tracking-[0.3em] text-[10px] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
-                            {idiomaActual === 'es' ? 'Ampliar Imagen' : 'Expand Image'}
-                        </span>
+                                {idiomaActual === 'es' ? 'Ampliar Imagen' : 'Expand Image'}
+                            </span>
                         </div>
                     </div>
             ))}
@@ -128,8 +80,8 @@ const galleryItems = [
     </div>
 </main>
 
-<!-- SCRIPT DE FILTRADO LOCAL -->
 <script>
+    // Lógica de Filtrado Inteligente
     document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.filter-btn');
         const items = document.querySelectorAll('.gallery-item');
@@ -138,22 +90,22 @@ const galleryItems = [
             btn.addEventListener('click', () => {
                 const category = btn.getAttribute('data-category');
 
-                // 1. Efectos visuales de las pestañas
+                // 1. Cambiar los estilos del botón activo
                 buttons.forEach(b => {
-                    b.classList.remove('bg-bone-white', 'border-bone-white', 'text-navy');
+                    b.classList.remove('bg-purple-cream', 'border-purple-cream', 'text-navy');
                     b.classList.add('border-bone-white/20', 'text-bone-white/60');
                 });
                 btn.classList.remove('border-bone-white/20', 'text-bone-white/60');
-                btn.classList.add('bg-bone-white', 'border-bone-white', 'text-navy');
+                btn.classList.add('bg-purple-cream', 'border-purple-cream', 'text-navy');
 
-                // 2. Lógica de mostrar/ocultar fotos
+                // 2. Filtrar las imágenes con transición suave
                 items.forEach(item => {
                     const itemCat = item.getAttribute('data-cat');
                     const element = item as HTMLElement;
 
                     if (category === 'all' || itemCat === category) {
                         element.style.display = 'block';
-                        // Pequeño retardo para permitir que la animación CSS actúe tras quitar el display: none
+                        // Timeout mínimo para permitir que el display:block se aplique antes de la opacidad
                         setTimeout(() => {
                             element.style.opacity = '1';
                             element.style.transform = 'scale(1)';
@@ -161,9 +113,10 @@ const galleryItems = [
                     } else {
                         element.style.opacity = '0';
                         element.style.transform = 'scale(0.95)';
+                        // Ocultar del DOM después de que termine la animación
                         setTimeout(() => {
                             element.style.display = 'none';
-                        }, 300); // 300ms coincide con la transición CSS
+                        }, 300);
                     }
                 });
             });
@@ -172,7 +125,6 @@ const galleryItems = [
 </script>
 
 <style>
-    /* Estilo esencial para suavizar la desaparición de los items en la cuadrícula */
     .gallery-item {
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }

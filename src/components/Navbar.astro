@@ -20,12 +20,10 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
     <div class="flex-shrink-0 relative z-[60]">
         <a href={base + "/"} class="flex items-center gap-3 group">
             <img src="/images/Coral.png" alt="Cosmic Crab Isotipo" class="w-10 h-10 md:w-12 md:h-12 object-contain transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'"/>
-            <!-- Tagline -->
             <img src="/images/Tagline/Off White Tagline.png" alt="Cosmic Crab Resort" class="h-8 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90" onerror="this.style.display='none'"/>
         </a>
     </div>
 
-    <!-- Agregamos explícitamente font-sans y font-bold para asegurar Montserrat en Desktop -->
     <div class="hidden lg:flex gap-10 text-sm uppercase tracking-widest font-bold font-sans items-center">
         <a href={base + "/excursions"} class="relative group py-2">
             {t['nav.excursions']}
@@ -50,7 +48,6 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
     </div>
 
     <div class="flex-shrink-0 flex items-center gap-4 relative z-[60]">
-        <!-- Añadimos font-sans al selector de idiomas -->
         <a href={urlCambioIdioma} class="hidden lg:block text-bone-white hover:text-coral transition-colors font-bold font-sans text-sm tracking-widest px-2">
             {textoBotonIdioma}
         </a>
@@ -60,7 +57,6 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
             <svg id="icon-close" class="hidden transition-transform duration-300 rotate-90" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
-        <!-- Añadimos font-sans al botón de reserva desktop -->
         <a href="#" target="_blank" class="hidden sm:inline-block bg-coral hover:bg-bone-white text-bone-white hover:text-coral px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold font-sans transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
             {t['nav.reservation']}
         </a>
@@ -75,7 +71,6 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
     </div>
 
     <div class="flex flex-col gap-5 p-8 transform translate-y-4 transition-transform duration-500" id="mobile-menu-content">
-        <!-- Reemplazamos font-luxury por font-sans, ajustamos a text-lg, uppercase, y tracking-widest en todo el menú móvil -->
         <a href={base + "/excursions"} class="mobile-link text-lg font-sans font-bold uppercase tracking-widest text-bone-white hover:text-coral transition-colors flex items-center justify-between group">
             {t['nav.excursions']}
             <svg class="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all text-coral" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -106,7 +101,6 @@ const textoBotonIdioma = idiomaActual === 'es' ? '🇺🇸 EN' : '🇪🇸 ES';
         </a>
         <div class="w-full h-px bg-bone-white/10"></div>
 
-        <!-- Opción de cambio de idioma en móvil con Montserrat -->
         <a href={urlCambioIdioma} class="mobile-link text-sm font-sans font-bold uppercase tracking-widest text-coral hover:text-bone-white transition-colors flex items-center justify-between group py-2">
             Language: {textoBotonIdioma}
         </a>

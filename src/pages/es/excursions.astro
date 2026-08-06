@@ -3,54 +3,95 @@ import Layout from '../../layouts/Layout.astro';
 import ExcursionSection from '../../components/ExcursionSection.astro';
 ---
 
-<Layout title="Excursiones Prohibidas | Cosmic Crab Resort">
+<Layout title="Excursiones | Cosmic Crab Resort">
   <main id="slider-main" class="bg-navy text-bone-white h-screen w-full relative overflow-hidden">
     
-    <nav class="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-50">
-      <button id="prev-btn" class="text-bone-white/40 hover:text-ocean transition-colors duration-300 hover:-translate-y-1 disabled:opacity-10" aria-label="Anterior">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-        </svg>
-      </button>
-
-      <div class="flex flex-col gap-4">
-        <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="0"></button>
-        <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="1"></button>
-        <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="2"></button>
-      </div>
-
-      <button id="next-btn" class="text-bone-white/40 hover:text-ocean transition-colors duration-300 hover:translate-y-1 disabled:opacity-10" aria-label="Siguiente">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </button>
+    <nav class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 md:gap-5 z-50">
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="0"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="1"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="2"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="3"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="4"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="5"></button>
+      <button class="nav-dot w-2 h-2 rounded-full bg-bone-white/20 transition-all duration-500 hover:scale-150" data-index="6"></button>
     </nav>
+
+    <div class="fixed left-4 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-50">
+      <button id="prev-btn" class="p-3 border border-bone-white/20 rounded-full hover:bg-ocean hover:border-ocean transition-all duration-300 group disabled:opacity-0 disabled:cursor-not-allowed" aria-label="Anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-y-1 transition-transform"><path d="m18 15-6-6-6 6"/></svg>
+      </button>
+      
+      <button id="next-btn" class="p-3 border border-bone-white/20 rounded-full hover:bg-ocean hover:border-ocean transition-all duration-300 group disabled:opacity-0 disabled:cursor-not-allowed" aria-label="Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
 
     <div id="slider-wrapper" class="w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.87,0,0.13,1)]">
       
       <ExcursionSection 
-        number="01"
-        tag="TRAVESÍAS"
-        title="Expediciones Privadas"
-        description="Navegue por los santuarios de coral y cayos desiertos a bordo de nuestras embarcaciones premium. Una inmersión total en el azul turquesa de Bocas."
-        img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+        number="01" tag="PARQUE MARINO"
+        title="Zapatilla Adventure"
+        description="Descubra el Parque Nacional Marino Bastimentos, haga snorkel en aguas cristalinas y explore la isla más virgen de Bocas: Cayo Zapatilla."
+        img="/images/excursiones/zapatilla.jpg"
+        price="$50" duration="7-8 Hrs (Full Day)"
+        highlights={["Cayo Zapatilla & Avistamiento de delfines", "Snorkel en los mejores arrecifes", "Vuelo submarino con tabla Anfibia", "Almuerzo caribeño en Cayo Coral (no inc.)"]}
       />
 
       <ExcursionSection 
-        number="02"
-        tag="AVENTURA"
-        title="Safari en la Selva"
-        description="Senderos indomables y fauna exótica. Explore la biodiversidad de Isla Carenero y descubra los secretos que guarda la espesura tropical."
-        img="https://images.unsplash.com/photo-1551632811-561732d1e306"
+        number="02" tag="ISLA PRINCIPAL"
+        title="Colon Expedition"
+        description="¡Descubra las bellezas de la isla principal de Bocas del Toro! Piscinas naturales, Isla Pájaros y la famosa Playa Estrella."
+        img="/images/excursiones/colon.png"
+        price="$45" duration="Medio Día"
+        highlights={["Playa Estrella y Bocas del Drago", "Visita a Blue Lagoon e Isla Pájaros", "Snorkel en los arrecifes de Isla Colón"]}
         reverse={true}
       />
 
       <ExcursionSection 
-        number="03"
-        tag="CULTURA"
-        title="Esencia Isleña"
-        description="Conecte con el alma del archipiélago. Desde talleres de cacao ancestral hasta los ritmos calipso que definen la vida sobre el agua."
-        img="https://images.unsplash.com/photo-1469474968028-56623f02e42e"
+        number="03" tag="FAUNA & PLAYA"
+        title="Red Frog Discovery"
+        description="Descubra una de las playas más famosas de Centroamérica en Isla Bastimentos, hogar de la icónica rana roja."
+        img="/images/excursiones/redfrog.png"
+        price="$35" duration="7 Hrs"
+        highlights={["Caminata corta en la selva", "Perezosos y delfines en su hábitat natural", "Vuelo submarino con tabla Anfibia"]}
+      />
+
+      <ExcursionSection 
+        number="04" tag="AVENTURA"
+        title="Bat Cave Tour"
+        description="Salga de su zona de confort. Ingrese a una espectacular cueva en la selva y experimente una verdadera emoción natural."
+        img="/images/excursiones/bat-cave.png"
+        price="$35 (+ $20 Entrada)" duration="4.5 Hrs"
+        highlights={["Navegue en un cayuco indígena por los manglares", "Vea Bocas del Toro desde un ángulo diferente", "Ideal para días lluviosos"]}
+        reverse={true}
+      />
+
+      <ExcursionSection 
+        number="05" tag="RELAX"
+        title="Combo Playa"
+        description="Red Frog Beach y Playa Estrella en un solo día. ¡El Hollywood de Bocas! Un día perfecto para relajarse y llenarse de vitamina del mar."
+        img="/images/excursiones/beach-combo.jpeg"
+        price="$35 (+ $5 Entrada)" duration="5 Hrs"
+        highlights={["Doble paraíso: arena blanca y aguas mansas", "Juego de voleibol y equipo de snorkel", "Encuentre la famosa rana roja y estrellas de mar"]}
+      />
+
+      <ExcursionSection 
+        number="06" tag="MAGIA NOCTURNA"
+        title="Bioluminiscencia"
+        description="Cuando llega la noche, sucede la magia. Observa miles de microorganismos que brillan en la oscuridad creando una experiencia visual única."
+        img="/images/excursiones/bioluminescence.png"
+        price="$35" duration="2 Hrs (Noche: 7:30 PM)"
+        highlights={["Viaje en bote a lugares secretos", "Vea al menos 2 tipos de bioluminiscencia", "Cada movimiento en el agua produce luz"]}
+        reverse={true}
+      />
+
+      <ExcursionSection 
+        number="07" tag="INMERSIÓN TOTAL"
+        title="Big Tour Salt Creek"
+        description="¡Todo el espíritu de Bocas del Toro en 1 Tour! Vida silvestre, océano, selva, playas secretas y una visita a una comunidad indígena."
+        img="/images/excursiones/salt-creek.jpg"
+        price="$65" duration="8 Hrs"
+        highlights={["Gran almuerzo indígena incluido", "Sea parte de un pueblo indígena por un momento", "Playas secretas donde solo estaremos nosotros"]}
       />
 
     </div>
@@ -59,6 +100,19 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
 
 <script>
   import { initSliderLogic } from '../../scripts/scrollLogic.js';
-  document.addEventListener('astro:page-load', initSliderLogic);
+  document.addEventListener('astro:page-load', () => { initSliderLogic(); });
   initSliderLogic();
 </script>
+
+<style is:global>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  @keyframes shine {
+    from { transform: translateX(-100%) rotate(45deg); opacity: 1; }
+    to { transform: translateX(200%) rotate(45deg); opacity: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+</style>

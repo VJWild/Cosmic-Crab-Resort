@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../i18n/ui.js';
 
 const t = ui['es'];
+const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
 ---
 
 <Layout title="Atlantis Bocas | Experiencia Ocean Premium">
@@ -39,21 +40,21 @@ const t = ui['es'];
         </div>
     </section>
 
-    <section id="experiencia" class="py-32 px-6 bg-bone-white overflow-hidden">
+    <section id="experiencia" class="py-32 px-6 bg-bone-white overflow-hidden text-navy">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-12 gap-16 items-center">
                 <div class="lg:col-span-7 relative group">
                     <div class="absolute -inset-4 border-2 border-ocean opacity-20 translate-x-8 translate-y-8 transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4"></div>
-                    <img src="/images/room-1-home.JPG" alt="Concepto Atlantis" class="relative z-10 w-full h-[600px] object-cover shadow-2xl">
-                    <div class="absolute -bottom-10 -left-10 bg-navy p-10 hidden md:block z-20 border-l-4 border-ocean">
+                    <img src="/images/room-1-home.jpg" alt="Concepto Atlantis" class="relative z-10 w-full h-[600px] object-cover shadow-2xl">
+                    <div class="absolute -bottom-10 -left-10 bg-navy p-10 hidden md:block z-20 border-l-4 border-ocean text-bone-white">
                         <p class="text-ocean font-luxury text-4xl mb-2">Exclusivo</p>
-                        <p class="text-bone-white/60 text-xs uppercase tracking-widest font-bold">Vistas sobre el agua</p>
+                        <p class="text-bone-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">Vistas sobre el agua</p>
                     </div>
                 </div>
 
                 <div class="lg:col-span-5">
                     <p class="text-ocean uppercase tracking-[0.4em] text-xs font-black mb-6">El Corazón de Bocas</p>
-                    <h2 class="text-5xl md:text-6xl font-luxury text-navy mb-8 leading-[1.1]">
+                    <h2 class="text-5xl md:text-6xl font-luxury mb-8 leading-[1.1]">
                         {t['atlantis.about.title']}
                     </h2>
                     <p class="text-navy/70 text-lg leading-relaxed mb-10 font-light">
@@ -61,11 +62,11 @@ const t = ui['es'];
                     </p>
                     <div class="grid grid-cols-2 gap-8 border-t border-navy/10 pt-10">
                         <div>
-                            <h4 class="text-navy font-bold text-sm uppercase mb-2">Ubicación</h4>
+                            <h4 class="font-bold text-sm uppercase mb-2">Ubicación</h4>
                             <p class="text-navy/60 text-sm">Muelle privado sobre el Mar Caribe.</p>
                         </div>
                         <div>
-                            <h4 class="text-navy font-bold text-sm uppercase mb-2">Vibe</h4>
+                            <h4 class="font-bold text-sm uppercase mb-2">Vibe</h4>
                             <p class="text-navy/60 text-sm">Lujo relajado y mixología de autor.</p>
                         </div>
                     </div>
@@ -79,37 +80,38 @@ const t = ui['es'];
 
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-24">
-                <h2 class="text-4xl md:text-6xl font-luxury mb-6 italic">Arte en cada <span class="text-ocean">Copa</span></h2>
+                <h2 class="text-4xl md:text-6xl font-luxury mb-6 italic text-bone-white uppercase">Arte en cada <span class="text-ocean italic">Copa</span></h2>
                 <div class="w-24 h-1 bg-coral mx-auto mb-8"></div>
-                <p class="text-bone-white/70 text-lg font-light">Nuestros bartenders no solo preparan tragos; crean homenajes líquidos a la biodiversidad de Panamá.</p>
+                <p class="text-bone-white/70 text-lg font-light tracking-wide italic">Nuestros bartenders no solo preparan tragos; crean homenajes líquidos a la vida vibrante de Panamá.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="border border-bone-white/10 p-8 hover:border-ocean transition-colors duration-500 group">
                     <span class="text-ocean font-luxury text-5xl block mb-6 opacity-40 group-hover:opacity-100 transition-opacity">01</span>
                     <h3 class="text-xl font-bold uppercase tracking-widest mb-4">Ingredientes Locales</h3>
-                    <p class="text-bone-white/60 text-sm leading-relaxed">Frutas frescas de la isla, especias recolectadas a mano y destilados premium de la región.</p>
+                    <p class="text-bone-white/60 text-sm leading-relaxed tracking-wider">Frutas frescas de la isla, especias recolectadas a mano y destilados premium de la región.</p>
                 </div>
                 <div class="border border-bone-white/10 p-8 hover:border-ocean transition-colors duration-500 group">
                     <span class="text-ocean font-luxury text-5xl block mb-6 opacity-40 group-hover:opacity-100 transition-opacity">02</span>
                     <h3 class="text-xl font-bold uppercase tracking-widest mb-4">Swim-up Experience</h3>
-                    <p class="text-bone-white/60 text-sm leading-relaxed">Disfruta de tu cóctel sin salir de la piscina en nuestras sillas sumergidas bajo el agua.</p>
+                    <p class="text-bone-white/60 text-sm leading-relaxed tracking-wider">Disfruta de tu cóctel sin salir de la piscina en nuestras sillas sumergidas bajo el agua.</p>
                 </div>
                 <div class="border border-bone-white/10 p-8 hover:border-ocean transition-colors duration-500 group">
                     <span class="text-ocean font-luxury text-5xl block mb-6 opacity-40 group-hover:opacity-100 transition-opacity">03</span>
                     <h3 class="text-xl font-bold uppercase tracking-widest mb-4">Ritual del Atardecer</h3>
-                    <p class="text-bone-white/60 text-sm leading-relaxed">Cada tarde celebramos la "Hora Dorada" con una selección especial de spritz y beats electrónicos suaves.</p>
+                    <p class="text-bone-white/60 text-sm leading-relaxed tracking-wider">Cada tarde celebramos la "Hora Dorada" con una selección especial de spritz y beats electrónicos suaves.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="menu" class="py-32 px-6 bg-bone-white">
+    <!-- SECCIÓN DE MENÚ NUEVA (Reemplaza las imágenes 1-1, 2, 3) -->
+    <section id="menu" class="py-32 px-6 bg-bone-white text-navy">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-navy/10 pb-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-navy/10 pb-12">
                 <div>
-                    <h2 class="text-5xl md:text-6xl font-luxury text-navy">{t['atlantis.menu.title']}</h2>
-                    <p class="text-ocean uppercase tracking-[0.3em] font-black text-xs mt-4">Curaduría Gastronómica</p>
+                    <h2 class="text-5xl md:text-6xl font-luxury">{t['atlantis.menu.title']}</h2>
+                    <p class="text-ocean uppercase tracking-[0.4em] font-black text-xs mt-4">Excelencia Culinaria</p>
                 </div>
                 <div class="text-right mt-8 md:mt-0">
                     <p class="text-navy/40 font-bold mb-1 uppercase text-[10px] tracking-[0.2em]">{t['atlantis.hours.title']}</p>
@@ -118,45 +120,25 @@ const t = ui['es'];
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="group cursor-pointer overflow-hidden relative shadow-2xl rounded-sm" onclick="openMenu(0)">
-                    <img src="/images/atlantis-menu/1-1.png" alt="Menú 1" class="w-full h-auto transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-ocean/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="bg-bone-white text-navy px-6 py-3 text-xs font-bold uppercase tracking-widest">Ampliar Página 1</span>
-                    </div>
-                </div>
-                <div class="group cursor-pointer overflow-hidden relative shadow-2xl rounded-sm" onclick="openMenu(1)">
-                    <img src="/images/atlantis-menu/2.png" alt="Menú 2" class="w-full h-auto transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-ocean/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="bg-bone-white text-navy px-6 py-3 text-xs font-bold uppercase tracking-widest">Ampliar Página 2</span>
-                    </div>
-                </div>
-                <div class="group cursor-pointer overflow-hidden relative shadow-2xl rounded-sm" onclick="openMenu(2)">
-                    <img src="/images/atlantis-menu/3.png" alt="Menú 3" class="w-full h-auto transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-ocean/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="bg-bone-white text-navy px-6 py-3 text-xs font-bold uppercase tracking-widest">Ampliar Página 3</span>
-                    </div>
+            <!-- PREVIEW DEL MENÚ Y ENLACE AL PDF -->
+            <div class="relative w-full h-[450px] overflow-hidden shadow-2xl group mt-8">
+                <img src="/images/atlantis.JPG" alt="Atlantis Mixology Preview" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1500ms] ease-out">
+                <div class="absolute inset-0 bg-navy/60 backdrop-blur-[2px] transition-colors duration-500 group-hover:bg-navy/50"></div>
+
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                    <img src="/images/Iconos/Icon 2.png" alt="Atlantis Logo" class="w-16 h-16 object-contain mb-6 opacity-80" onerror="this.style.display='none'">
+                    <h3 class="text-bone-white text-4xl md:text-5xl font-luxury mb-8 drop-shadow-lg">
+                        Descubre Nuestros Sabores
+                    </h3>
+
+                    <!-- Botón abre el PDF en una nueva pestaña -->
+                    <a href={menuPdfUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block bg-coral hover:bg-bone-white text-bone-white hover:text-coral px-6 py-3 lg:px-8 lg:py-4 text-xs lg:text-sm uppercase tracking-widest font-bold font-sans transition-all duration-300 shadow-lg shadow-coral/20 hover:shadow-coral/40">
+                        Ver Menú Completo
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- LIGHTBOX CORREGIDO: Añadidos los contenedores faltantes para el Zoom -->
-    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-navy/95 backdrop-blur-lg opacity-0 transition-opacity duration-300">
-        <!-- El botón tiene un z-index más alto -->
-        <button id="close-lightbox" class="absolute top-6 right-6 z-[60] bg-bone-white/10 hover:bg-coral text-bone-white p-4 rounded-full border border-bone-white/10 hover:border-coral transition-all duration-300 hover:rotate-90 shadow-xl" aria-label="Cerrar menú ampliado">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-
-        <!-- Contenedor flex para centrar la imagen y registrar eventos de ratón -->
-        <div id="lightbox-container" class="w-full h-full flex flex-col items-center justify-center px-6 py-10 overflow-hidden">
-            <p id="zoom-hint" class="text-bone-white/50 text-[10px] tracking-[0.3em] uppercase absolute top-10 pointer-events-none transition-opacity duration-300">
-                Haz clic para hacer Zoom
-            </p>
-            <!-- Imagen con cursores dinámicos -->
-            <img id="lightbox-img" src="" alt="Menú ampliado" class="max-w-[90vw] max-h-[80vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-transform duration-500 origin-center cursor-zoom-in">
-        </div>
-    </div>
 
     <section class="relative py-48 px-6 overflow-hidden">
         <div class="absolute inset-0 bg-navy">
@@ -165,7 +147,7 @@ const t = ui['es'];
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-center text-bone-white">
-            <h2 class="text-5xl md:text-7xl font-luxury mb-8 leading-tight italic">Sumérgete en el <br><span class="text-ocean not-italic uppercase">Azul</span></h2>
+            <h2 class="text-5xl md:text-7xl font-luxury mb-8 leading-tight italic">Sumérgete en el <br><span class="text-ocean not-italic uppercase">Azul del Mar</span></h2>
             <p class="text-xl mb-12 font-light max-w-2xl mx-auto leading-relaxed text-bone-white/80">
                 {t['atlantis.cta.desc']}
             </p>
@@ -174,10 +156,6 @@ const t = ui['es'];
             </a>
         </div>
     </section>
-
-    <!-- Script para el Lightbox del Menú -->
-    <script src="../../scripts/menus.js"></script>
-
 </Layout>
 
 <style>

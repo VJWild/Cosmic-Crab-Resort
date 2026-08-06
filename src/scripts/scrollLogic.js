@@ -1,92 +1,122 @@
 export function initSliderLogic() {
-    const mainContainer = document.getElementById('slider-main');
-    const wrapper = document.getElementById('slider-wrapper');
-    const sections = document.querySelectorAll('.slider-section');
-    const dots = document.querySelectorAll('.nav-dot');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+  const mainSection = document.getElementById('slider-main');
+  const wrapper = document.getElementById('slider-wrapper');
+  const dots = document.querySelectorAll('.nav-dot');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
 
-    if (!wrapper || !mainContainer) return;
+  if (!wrapper || !mainSection) return;
 
-    let currentIndex = 0;
-    const totalSections = sections.length;
-    let isAnimating = false;
+  let currentIndex = 0;
+  const totalSlides = dots.length;
+  let isAnimating = false;
 
-    const goToSection = (index) => {
-        if (index < 0 || index >= totalSections || isAnimating) return;
-        
-        isAnimating = true;
-        currentIndex = index;
+  const updateSlider = () => {
+    // Mantiene tu animación original
+    wrapper.style.transform = `translateY(-${currentIndex * 100}vh)`;
 
-        wrapper.style.transform = `translateY(-${currentIndex * 100}vh)`;
-        updateControls();
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex === totalSlides - 1;
 
-        setTimeout(() => {
-            isAnimating = false;
-        }, 1000);
-    };
-
-    const updateControls = () => {
-        if (prevBtn) prevBtn.disabled = currentIndex === 0;
-        if (nextBtn) nextBtn.disabled = currentIndex === totalSections - 1;
-
-        dots.forEach((dot, i) => {
-            if (i === currentIndex) {
-                dot.classList.add('bg-bone-white', 'scale-150');
-                dot.classList.remove('bg-bone-white/20');
-            } else {
-                dot.classList.remove('bg-bone-white', 'scale-150');
-                dot.classList.add('bg-bone-white/20');
-            }
-        });
-    };
-
-    if (prevBtn) prevBtn.addEventListener('click', () => goToSection(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goToSection(currentIndex + 1));
-
-    dots.forEach((dot) => {
-        dot.addEventListener('click', (e) => {
-            const targetIndex = parseInt(e.target.getAttribute('data-index'));
-            goToSection(targetIndex);
-        });
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('bg-bone-white', 'scale-150');
+        dot.classList.remove('bg-bone-white/20');
+      } else {
+        dot.classList.remove('bg-bone-white', 'scale-150');
+        dot.classList.add('bg-bone-white/20');
+      }
     });
+  };
 
-    // Control de scroll inteligente
-    window.addEventListener('wheel', (e) => {
-        // Obtenemos la posición exacta del contenedor principal en la pantalla
-        const rect = mainContainer.getBoundingClientRect();
-        
-        // Verificamos si el slider está fijado en la parte superior de la pantalla
-        // (Usamos Math.abs < 5 para tener un margen de error con decimales de píxeles)
-        const isAtTop = Math.abs(rect.top) < 5;
+  // Eventos de botones
+  if (prevBtn) prevBtn.addEventListener('click', () => { if (currentIndex > 0 && !isAnimating) { currentIndex--; updateSlider(); }});
+  if (nextBtn) nextBtn.addEventListener('click', () => { if (currentIndex < totalSlides - 1 && !isAnimating) { currentIndex++; updateSlider(); }});
 
-        // Si el usuario ya bajó por la página y el slider no está en la cima visual, dejamos que haga scroll normal
-        if (!isAtTop) return;
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      if(isAnimating) return;
+      currentIndex = parseInt(e.target.getAttribute('data-index'));
+      updateSlider();
+    });
+  });
 
-        // Si el slider está animándose, bloqueamos el scroll para evitar saltos locos
-        if (isAnimating) {
-            e.preventDefault();
-            return;
-        }
+  // MAGIA PARA PC: Controlar la rueda del ratón
+  mainSection.addEventListener('wheel', (e) => {
+    const isScrollingDown = e.deltaY > 0;
+    const isScrollingUp = e.deltaY < 0;
 
-        const isScrollingDown = e.deltaY > 0;
-        const isScrollingUp = e.deltaY < 0;
+    // Permitir scroll normal solo si estamos en la primera (y subimos) o en la última (y bajamos)
+    if (isScrollingDown && currentIndex === totalSlides - 1) return;
+    if (isScrollingUp && currentIndex === 0) return;
 
-        if (isScrollingDown) {
-            // Bajando: Si NO estamos en la última sección, bloqueamos scroll nativo y pasamos de slide
-            if (currentIndex < totalSections - 1) {
-                e.preventDefault(); 
-                goToSection(currentIndex + 1);
-            }
-            // Si es el último, no bloqueamos y la página bajará naturalmente
-        } else if (isScrollingUp) {
-            // Subiendo: Si NO estamos en la primera sección, bloqueamos scroll nativo y subimos de slide
-            if (currentIndex > 0) {
-                e.preventDefault();
-                goToSection(currentIndex - 1);
-            }
-        }
-    }, { passive: false }); 
+    // ¡BLOQUEAR EL SCROLL DE LA PÁGINA!
+    e.preventDefault();
 
-    updateControls();
+    if (isAnimating) return;
+
+    // Asegurar que la pantalla esté centrada en el slider
+    const rect = mainSection.getBoundingClientRect();
+    if (Math.abs(rect.top) > 10) {
+        mainSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (isScrollingDown && currentIndex < totalSlides - 1) {
+        currentIndex++;
+        isAnimating = true;
+        updateSlider();
+        setTimeout(() => { isAnimating = false; }, 1200); // Coincide con la duración CSS
+    } else if (isScrollingUp && currentIndex > 0) {
+        currentIndex--;
+        isAnimating = true;
+        updateSlider();
+        setTimeout(() => { isAnimating = false; }, 1200);
+    }
+  }, { passive: false }); // <-- CRÍTICO PARA PODER BLOQUEAR EL SCROLL
+
+  // MAGIA PARA MÓVILES: Controlar el deslizamiento táctil
+  let touchStartY = 0;
+  mainSection.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  mainSection.addEventListener('touchmove', (e) => {
+      const touchEndY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      
+      const isScrollingDown = deltaY > 0;
+      const isScrollingUp = deltaY < 0;
+
+      if (isScrollingDown && currentIndex === totalSlides - 1) return;
+      if (isScrollingUp && currentIndex === 0) return;
+
+      if(Math.abs(deltaY) > 20) e.preventDefault(); // Bloquear scroll en móvil
+  }, { passive: false });
+
+  mainSection.addEventListener('touchend', (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+
+      if (isAnimating || Math.abs(deltaY) < 50) return;
+
+      const isScrollingDown = deltaY > 0;
+      const isScrollingUp = deltaY < 0;
+
+      if (isScrollingDown && currentIndex === totalSlides - 1) return;
+      if (isScrollingUp && currentIndex === 0) return;
+
+      if (isScrollingDown && currentIndex < totalSlides - 1) {
+          currentIndex++;
+          isAnimating = true;
+          updateSlider();
+          setTimeout(() => { isAnimating = false; }, 1200);
+      } else if (isScrollingUp && currentIndex > 0) {
+          currentIndex--;
+          isAnimating = true;
+          updateSlider();
+          setTimeout(() => { isAnimating = false; }, 1200);
+      }
+  });
+
+  updateSlider();
 }
