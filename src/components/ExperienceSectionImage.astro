@@ -1,0 +1,35 @@
+---
+import Picture from "astro/components/Picture.astro";
+import Image from "astro/components/Image.astro"
+import type { ImageMetadata } from "astro";
+
+export interface Props {
+    href: string;
+    src: ImageMetadata;
+    tag: string;
+    title: string;
+    description: string
+}
+
+const { href, src, tag, title, description } = Astro.props
+---
+
+<a href={href} class="group relative h-112.5 md:h-137.5 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
+    <Picture
+        class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-2000 ease-out"
+        src={src}
+        alt={title}
+        formats={['avif', 'webp']} 
+        widths={[480, 768, 1024, 1920]} 
+        sizes="(max-width: 768px) 100vw, 1024px"
+        loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+    <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+        <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">{tag}</p>
+        <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">{title}</h3>
+        <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
+        <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{description}</p>
+    </div>
+</a>

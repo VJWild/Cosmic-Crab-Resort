@@ -1,6 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ExcursionSection from '../../components/ExcursionSection.astro';
+import zapatilla from '../../assets/images/excursiones/zapatilla.jpg';
+import colon from '../../assets/images/excursiones/colon.png';
+import redfrog from '../../assets/images/excursiones/redfrog.png';
+import batCave from '../../assets/images/excursiones/bat-cave.png';
+import beachCombo from '../../assets/images/excursiones/beach-combo.jpeg';
+import bioluminescence from '../../assets/images/excursiones/bioluminescence.png';
+import saltCreek from '../../assets/images/excursiones/salt-creek.jpg';
 ---
 
 <Layout title="Excursions | Cosmic Crab Resort">
@@ -32,7 +39,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="01" tag="MARINE PARK"
         title="Zapatilla Adventure"
         description="Discover the National Marine Park Bastimentos, go snorkeling in crystal clear waters, and explore the untouched Cayo Zapatilla."
-        img="/images/excursiones/zapatilla.jpg"
+        img={zapatilla}
         price="$50" duration="7-8 Hrs (Full Day)"
         highlights={["Cayo Zapatilla & Spot the dolphins", "Snorkeling in the best coral reefs", "Fly underwater with Anfibia Board", "Caribbean lunch in Cayo Coral (not inc.)"]}
       />
@@ -41,7 +48,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="02" tag="MAIN ISLAND"
         title="Colon Expedition"
         description="Discover the beauties of Bocas del Toro's main island! Natural pools, Bird Island, and the famous Starfish beach."
-        img="/images/excursiones/colon.png"
+        img={colon}
         price="$45" duration="Half Day"
         highlights={["Starfish Beach and Bocas del Drago", "Visit Blue Lagoon and Bird Island", "Snorkeling at Isla Colon's best coral reefs"]}
         reverse={true}
@@ -51,7 +58,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="03" tag="WILDLIFE"
         title="Red Frog Discovery"
         description="Discover one of the most famous beaches in Central America at Bastimentos Island, home of the iconic red frog."
-        img="/images/excursiones/redfrog.png"
+        img={redfrog}
         price="$35" duration="7 Hrs"
         highlights={["Short hike in the jungle", "Sloths and dolphins in their natural habitat", "Fly underwater with the Anfibia board"]}
       />
@@ -60,7 +67,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="04" tag="ADVENTURE"
         title="Bat Cave Tour"
         description="Step out of your comfort zone. Enter a spectacular cave in the jungle and experience a real natural thrill."
-        img="/images/excursiones/bat-cave.png"
+        img={batCave}
         price="$35 (+ $20 Entry)" duration="4.5 Hrs"
         highlights={["Ride an indigenous cayuco through the mangrove", "See Bocas del Toro from a different angle", "Perfect activity on a rainy day!"]}
         reverse={true}
@@ -70,7 +77,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="05" tag="RELAX"
         title="Beach Combo"
         description="Red Frog Beach and Starfish Beach in a single day. The Hollywood of Bocas! A perfect day to relax and get vitamin sea."
-        img="/images/excursiones/beach-combo.jpeg"
+        img={beachCombo}
         price="$35 (+ $5 Entry)" duration="5 Hrs"
         highlights={["Double paradise: white sand and calm waters", "Volleyball game and snorkel equipment included", "Spot the famous red frog and beautiful starfish"]}
       />
@@ -79,7 +86,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="06" tag="NIGHT MAGIC"
         title="Bioluminescence"
         description="When the night comes, magic happens. Watch thousands of micro-organisms glow in the dark, producing a one-of-a-kind visual experience."
-        img="/images/excursiones/bioluminescence.png"
+        img={bioluminescence}
         price="$35" duration="2 Hrs (Night: 7:30 PM)"
         highlights={["Small boat trip to secret spots", "See at least 2 different types of bioluminescence", "Every movement in the water produces light"]}
         reverse={true}
@@ -89,7 +96,7 @@ import ExcursionSection from '../../components/ExcursionSection.astro';
         number="07" tag="FULL IMMERSION"
         title="Big Tour Salt Creek"
         description="All the spirit of Bocas del Toro in 1 Tour! Experience wildlife, the ocean, the jungle, secret beaches, and an indigenous community."
-        img="/images/excursiones/salt-creek.jpg"
+        img={saltCreek}
         price="$65" duration="8 Hrs"
         highlights={["Great indigenous-made lunch included", "Be part of an indigenous village for a moment", "Amazing secret beaches just for us"]}
       />

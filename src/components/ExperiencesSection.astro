@@ -1,8 +1,10 @@
 ---
 import { ui } from '../i18n/ui.js';
 import Image from 'astro/components/Image.astro';
+import ExperienceSectionImage from './ExperienceSectionImage.astro';
 import excursiones from '../assets/images/excursiones.jpg'
 import cafe from '../assets/images/restaurant.jpg'
+import boutique from '../assets/images/CC Fotos/CC16.jpg'
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
@@ -24,59 +26,31 @@ const t = ui[idiomaActual];
         <div id="image-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8 opacity-0 transition-opacity duration-500">
 
             <!-- Columna 1: Excursiones -->
-            <a href={`/${idiomaActual}/excursions`} class="group relative h-112.5 md:h-137.5 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                <Image
-                        src={excursiones}
-                        alt={t['experiences.excursions.title']}
-                        class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-2000 ease-out"
-                        loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">{t['experiences.excursions.tag']}</p>
-                    <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">{t['experiences.excursions.title']}</h3>
-                    <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                    <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{t['experiences.excursions.description']}</p>
-                </div>
-            </a>
+            <ExperienceSectionImage
+                href={`/${idiomaActual}/excursions`}
+                src={excursiones}
+                tag={t['experiences.excursions.tag']}
+                description={t['experiences.excursions.description']}
+                title={t['experiences.excursions.title']}
+            />
 
             <!-- Columna 2: Cosmic Crab Cafe -->
-            <a href={`/${idiomaActual}/restaurant`} class="group relative h-112.5 md:h-137.5 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                <img
-                        src="/images/CC Fotos/CC42.jpg"
-                        alt={t['experiences.cafe.title']}
-                        class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-2000 ease-out"
-                        loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">{t['experiences.cafe.tag']}</p>
-                    <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">{t['experiences.cafe.title']}</h3>
-                    <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                    <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{t['experiences.cafe.description']}</p>
-                </div>
-            </a>
+            <ExperienceSectionImage
+                href={`/${idiomaActual}/restaurant`}
+                src={cafe}
+                tag={t['experiences.cafe.tag']}
+                description={t['experiences.cafe.description']}
+                title={t['experiences.cafe.title']}
+            />
 
             <!-- Columna 3: - Boutique & Joyería -->
-            <a href={`/${idiomaActual}/boutique`} class="group relative h-112.5 md:h-137.5 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex items-end">
-                <img
-                        src="/images/CC Fotos/CC16.jpg"
-                        alt={t['experiences.boutique.title']}
-                        class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-2000 ease-out"
-                        loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div class="relative z-10 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <p class="text-coral-soft uppercase tracking-widest text-xs font-bold mb-2">{t['experiences.boutique.tag']}</p>
-                    <h3 class="text-bone-white text-3xl font-sans font-bold mb-3">{t['experiences.boutique.title']}</h3>
-                    <div class="w-8 h-0.5 bg-coral mb-4 group-hover:w-16 transition-all duration-500"></div>
-                    <p class="text-bone-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{t['experiences.boutique.description']}</p>
-                </div>
-            </a>
-
+            <ExperienceSectionImage
+                href={`/${idiomaActual}/boutique`}
+                src={boutique}
+                tag={t['experiences.boutique.tag']}
+                description={t['experiences.boutique.description']}
+                title={t['experiences.boutique.title']}
+            />
         </div>
     </div>
 </section>

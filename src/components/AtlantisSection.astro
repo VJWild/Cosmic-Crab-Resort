@@ -1,9 +1,12 @@
 ---
 import {ui} from '../i18n/ui.js'
+import Picture from 'astro/components/Picture.astro';
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
 const t = ui[idiomaActual];
+import imagen from '../assets/images/CC Fotos/CC27.jpg'
+
 ---
 <!-- ========================================================================= -->
 <!-- SECCIÓN DEDICADA: ATLANTIS BOCAS & SWIM-UP BAR -->
@@ -12,11 +15,14 @@ const t = ui[idiomaActual];
     <div class="flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[75vh]">
 
         <div class="w-full lg:w-1/2 relative min-h-100 lg:min-h-full order-1 lg:order-1">
-            <img
-                    src="/images/CC Fotos/CC27.jpg"
-                    alt="Atlantis Bocas Premium Mixology"
-                    class="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
+            <Picture
+                class="absolute inset-0 w-full h-full object-cover"
+                src={imagen}
+                alt="Atlantis Bocas Premium Mixology"
+                formats={['avif', 'webp']} 
+                widths={[480, 768, 1024, 1920]} 
+                sizes="(max-width: 768px) 100vw, 1024px"
+                loading="lazy"
             />
             <div class="absolute inset-0 bg-navy/20"></div>
         </div>

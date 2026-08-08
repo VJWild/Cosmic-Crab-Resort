@@ -1,29 +1,38 @@
 ---
 // src/components/GalleryTeaser.astro
 import { ui } from '../i18n/ui.js';
+import Picture from 'astro/components/Picture.astro';
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
-
-// Textos dinámicos dependiendo del idioma
-const tag = idiomaActual === 'es' ? 'Viaje Visual' : 'Visual Journey';
-const title = idiomaActual === 'es' ? 'Nuestras Fotos Interiores' : 'Our Inside Pictures';
-const btnText = idiomaActual === 'es' ? 'Ver Galería Completa' : 'View Full Gallery';
-const link = idiomaActual === 'es' ? '/es/gallery' : '/en/gallery';
+const t = ui[idiomaActual];
 
 // Lista base de imágenes
+import image1 from "../assets/images/photo-1-home.jpg";
+import image2 from "../assets/images/photo-2-home.jpg";
+import image3 from "../assets/images/CC Fotos/CC19.jpg";
+import image4 from "../assets/images/CC Fotos/CC25.jpg";
+import image5 from "../assets/images/CC Fotos/CC20.jpg";
+import image6 from "../assets/images/CC Fotos/CC24.jpg";
+import image7 from "../assets/images/CC Fotos/CC47.jpg";
+import image8 from "../assets/images/CC Fotos/CC35.jpg";
+import image9 from "../assets/images/CC Fotos/CC60.jpg";
+import image10 from "../assets/images/photo-5-home.jpg";
+import image11 from "../assets/images/photo-6-home.jpg";
+
+
 const baseImages = [
-    '/images/photo-1-home.jpg',
-    '/images/photo-2-home.jpg',
-    '/images/CC Fotos/CC19.jpg',
-    '/images/CC Fotos/CC25.jpg',
-    '/images/CC Fotos/CC20.jpg',
-    '/images/CC Fotos/CC24.jpg',
-    '/images/CC Fotos/CC47.jpg',
-    '/images/CC Fotos/CC35.jpg',
-    '/images/CC Fotos/CC60.jpg',
-    '/images/photo-5-home.jpg',
-    '/images/photo-6-home.jpg'
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
 ];
 
 // Duplicamos el arreglo para que la animación infinita sea 100% fluida
@@ -33,11 +42,11 @@ const images = [...baseImages, ...baseImages];
 <section id="gallery-teaser" class="py-24 bg-navy text-bone-white overflow-hidden font-sans">
     <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
         <div>
-            <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">{tag}</p>
-            <h2 class="text-4xl md:text-5xl font-sans font-bold">{title}</h2>
+            <p class="uppercase tracking-widest text-coral-soft text-sm font-semibold mb-2">{t["teaser.tag"]}</p>
+            <h2 class="text-4xl md:text-5xl font-sans font-bold">{t["teaser.title"]}</h2>
         </div>
-        <a href={link} class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
-            {btnText}
+        <a href={`/${idiomaActual}/gallery`} class="mt-6 md:mt-0 uppercase tracking-widest text-sm border-b border-bone-white pb-1 hover:text-coral hover:border-coral transition-colors font-bold">
+            {t["teaser.button"]}
         </a>
     </div>
 
@@ -45,11 +54,15 @@ const images = [...baseImages, ...baseImages];
         <div class="flex whitespace-nowrap animate-infinite-slider gap-4 px-2">
             {images.map((imgSrc, i) => (
                     <div class="gallery-img-trigger relative w-[280px] md:w-[400px] h-[350px] md:h-[450px] overflow-hidden group cursor-pointer flex-shrink-0">
-                        <img
-                                src={imgSrc}
-                                alt="Gallery Image"
-                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
-                                style="transition: transform 2s ease-out, filter 0.4s ease-out;"
+                        <Picture
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-110"
+                            src={imgSrc}
+                            alt="Gallery Image"
+                            formats={['avif', 'webp']} 
+                            widths={[480, 768, 1024, 1920]} 
+                            sizes="(max-width: 768px) 100vw, 1024px"
+                            loading="lazy"
+                            style="transition: transform 2s ease-out, filter 0.4s ease-out;"
                         />
                         <div class="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                     </div>

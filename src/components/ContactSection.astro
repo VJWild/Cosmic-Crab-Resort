@@ -1,6 +1,8 @@
 ---
 // src/components/ContactSection.astro
 import { ui } from '../i18n/ui.js';
+import Picture from 'astro/components/Picture.astro';
+import cc39 from '../assets/images/CC Fotos/CC39.jpg'
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
@@ -13,10 +15,16 @@ const t = ui[idiomaActual];
 <!-- 1. MINI HERO SECTION -->
 <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
     <!-- IMAGEN -->
-    <div
-            class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
-            style="background-image: url('/images/CC Fotos/CC39.jpg');"
-    ></div>
+     <Picture
+        src={cc39}
+        alt="Hero Contact"
+        formats={['avif', 'webp']} 
+        widths={[480, 768, 1024, 1920]} 
+        sizes="(max-width: 768px) 100vw, 1024px"
+        loading="eager"
+        fetchpriority="high"
+        class="absolute inset-0 w-full h-full object-cover transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110 z-0"
+    />
 
     <!-- Overlay para oscurecer la imagen y hacer legible el texto -->
     <div class="absolute inset-0 bg-black/40"></div>

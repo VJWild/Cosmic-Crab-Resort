@@ -2,6 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../i18n/ui.js';
 
+import Picture from 'astro/components/Picture.astro';
+import Image from 'astro/components/Image.astro';
+
+
+import AtlantisBocas from "../../assets/images/photo-3-home.jpg";
+import ConceptoAtlantis from "../../assets/images/room-1-home.jpg";
+import AtlantisMixology from "../../assets/images/atlantis.jpg";
+import atlantisLogo from "../../assets/images/Iconos/Icon 2.png";
+import Vibe from "../../assets/images/photo-2-home.jpg";
+
 const t = ui['es'];
 const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
 ---
@@ -10,7 +20,15 @@ const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
 
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-navy">
         <div class="absolute inset-0">
-            <img src="/images/photo-3-home.jpg" alt="Atlantis Bocas" class="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60">
+            <Picture
+                class="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
+                src={AtlantisBocas}
+                alt="Atlantis Bocas"
+                formats={['avif', 'webp']} 
+                widths={[480, 768, 1024, 1920]} 
+                sizes="(max-width: 768px) 100vw, 1024px"
+                loading="eager"
+            />
             <div class="absolute inset-0 bg-gradient-to-b from-navy/20 via-ocean/40 to-navy"></div>
         </div>
 
@@ -45,7 +63,15 @@ const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
             <div class="grid lg:grid-cols-12 gap-16 items-center">
                 <div class="lg:col-span-7 relative group">
                     <div class="absolute -inset-4 border-2 border-ocean opacity-20 translate-x-8 translate-y-8 transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4"></div>
-                    <img src="/images/room-1-home.jpg" alt="Concepto Atlantis" class="relative z-10 w-full h-[600px] object-cover shadow-2xl">
+                    <Picture
+                        class="relative z-10 w-full h-[600px] object-cover shadow-2xl"
+                        src={ConceptoAtlantis}
+                        alt="Concepto Atlantis"
+                        formats={['avif', 'webp']} 
+                        widths={[480, 768, 1024, 1920]} 
+                        sizes="(max-width: 768px) 100vw, 1024px"
+                        loading="lazy"
+                    />
                     <div class="absolute -bottom-10 -left-10 bg-navy p-10 hidden md:block z-20 border-l-4 border-ocean text-bone-white">
                         <p class="text-ocean font-luxury text-4xl mb-2">Exclusivo</p>
                         <p class="text-bone-white/60 text-[10px] uppercase tracking-[0.3em] font-bold">Vistas sobre el agua</p>
@@ -122,11 +148,25 @@ const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
 
             <!-- PREVIEW DEL MENÚ Y ENLACE AL PDF -->
             <div class="relative w-full h-[450px] overflow-hidden shadow-2xl group mt-8">
-                <img src="/images/atlantis.JPG" alt="Atlantis Mixology Preview" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1500ms] ease-out">
+                <Picture
+                    class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+                    src={AtlantisMixology}
+                    alt="Atlantis Mixology Preview"
+                    formats={['avif', 'webp']} 
+                    widths={[480, 768, 1024, 1920]} 
+                    sizes="(max-width: 768px) 100vw, 1024px"
+                    loading="lazy"
+                />
                 <div class="absolute inset-0 bg-navy/60 backdrop-blur-[2px] transition-colors duration-500 group-hover:bg-navy/50"></div>
 
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                    <img src="/images/Iconos/Icon 2.png" alt="Atlantis Logo" class="w-16 h-16 object-contain mb-6 opacity-80" onerror="this.style.display='none'">
+                    <Image
+                        class="w-16 h-16 object-contain mb-6 opacity-80"
+                        src={atlantisLogo}
+                        alt="Atlantis Logo"
+                        onerror="this.style.display='none'"
+                        loading="lazy"
+                    />
                     <h3 class="text-bone-white text-4xl md:text-5xl font-luxury mb-8 drop-shadow-lg">
                         Descubre Nuestros Sabores
                     </h3>
@@ -142,7 +182,15 @@ const menuPdfUrl = '/MENU(1).pdf'; // PDF en Español
 
     <section class="relative py-48 px-6 overflow-hidden">
         <div class="absolute inset-0 bg-navy">
-            <img src="/images/photo-2-home.jpg" alt="Vibe" class="w-full h-full object-cover opacity-20">
+            <Picture
+                class="w-full h-full object-cover opacity-20"
+                src={Vibe}
+                alt="Vibe"
+                formats={['avif', 'webp']} 
+                widths={[480, 768, 1024, 1920]} 
+                sizes="(max-width: 768px) 100vw, 1024px"
+                loading="lazy"
+            />
             <div class="absolute inset-0 bg-gradient-to-r from-navy via-ocean/30 to-navy"></div>
         </div>
 
