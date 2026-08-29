@@ -82,6 +82,7 @@ export const ui = {
         'contact.form.email': 'Your Email',
         'contact.form.message': 'Your Message',
         'contact.form.send': 'Send Message',
+        'contact.map.title': 'Find Us in Paradise',
 
         // Gallery
         'gallery.tag': 'Visual Journey',
@@ -210,6 +211,7 @@ export const ui = {
         'contact.form.email': 'Tu Correo Electrónico',
         'contact.form.message': 'Tu Mensaje',
         'contact.form.send': 'Enviar Mensaje',
+        'contact.map.title': 'Encuéntranos en el Paraíso',
 
         // Gallery
         'gallery.tag': 'Viaje Visual',

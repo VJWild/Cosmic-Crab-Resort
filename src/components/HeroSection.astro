@@ -1,6 +1,9 @@
 ---
 // src/components/HeroSection.astro
 import { ui } from '../i18n/ui.js';
+import { Picture } from 'astro:assets';
+import Hero from '../assets/images/Hero.jpeg'
+
 
 const pathname = Astro.url.pathname;
 const idiomaActual: keyof typeof ui = pathname.startsWith('/es') ? 'es' : 'en';
@@ -13,7 +16,7 @@ const t = ui[idiomaActual];
      - autoplay, loop, muted, playsinline: Son OBLIGATORIOS para que funcione solo en móviles.
      - poster: Una imagen estática que se muestra en la fracción de segundo antes de que cargue el video.
  -->
- <video
+ <!-- <video
      autoplay
      loop
      muted
@@ -23,12 +26,21 @@ const t = ui[idiomaActual];
      class="absolute inset-0 w-full h-full object-cover z-0"
      poster="/images/photo-5-home.jpg"
  >
-    <!-- RUTA DEL VIDEO -->
+    
     <source src="/videos/resort-presentation.webm" type='video/webm; codecs="vp9, opus"'/>
     <source src="/videos/resort-presentation.mp4" type="video/mp4" />
     Tu navegador no soporta videos HTML5.
- </video>
-
+ </video> -->
+ <Picture
+        src={Hero}
+        alt="Hero"
+        formats={['avif', 'webp']} 
+        widths={[480, 768, 1024, 1920]} 
+        sizes="(max-width: 768px) 100vw, 1024px"
+        loading="eager"
+        fetchpriority="high"
+        class="absolute inset-0 w-full h-full object-cover transform scale-105 transition-transform duration-[20s] ease-out hover:scale-110 z-0"
+    />
  <!-- Overlay Azul Marino -->
  <div class="absolute inset-0 bg-navy/40 z-0"></div>
 

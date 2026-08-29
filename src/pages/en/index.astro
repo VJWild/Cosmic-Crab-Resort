@@ -7,6 +7,9 @@ import BookingForm from '../../components/BookingForm.astro';
 import ExperiencesSection from '../../components/ExperiencesSection.astro';
 import AtlantisSection from '../../components/AtlantisSection.astro';
 import GalleryTeaser from '../../components/GalleryTeaser.astro';
+import TestimonialTrigger from '../../components/TestimonialTrigger.astro';
+
+import { testimonalsDataEn } from '../../data/testimonialsDataEn';
 
 ---
 
@@ -48,218 +51,19 @@ import GalleryTeaser from '../../components/GalleryTeaser.astro';
 				<!-- Animación de 50s para lectura cómoda -->
 				<div class="flex whitespace-nowrap animate-infinite-slider gap-8 px-4" style="animation-duration: 50s;">
 
-					<!-- ========================================== -->
-					<!-- BLOQUE 1 DE TARJETAS (6 Testimonios)       -->
-					<!-- ========================================== -->
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Sarah & James" data-location="New York, USA"
-						 data-text="An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the tranquility of the suites made our honeymoon unforgettable."
-						 data-photo="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the tranquility of the suites made our honeymoon unforgettable."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah & James" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Sarah & James</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">New York, USA</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Carlos & Valentina" data-location="Bogotá, Colombia"
-						 data-text="A perfect getaway. The Caribbean food at the restaurant and the relaxed atmosphere exceeded all our expectations. We will be back!"
-						 data-photo="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"A perfect getaway. The Caribbean food at the restaurant and the relaxed atmosphere exceeded all our expectations. We will be back!"</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Carlos & Valentina" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Carlos & Valentina</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Bogotá, Colombia</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="David Miller" data-location="London, UK"
-						 data-text="The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."
-						 data-photo="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David Miller" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">David Miller</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">London, UK</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Emily Chen" data-location="Toronto, Canada"
-						 data-text="We fell in love with the resort's vibe. The excursions to Zapatilla Cay were incredible, and the service in the boutique was extremely warm and special."
-						 data-photo="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"We fell in love with the resort's vibe. The excursions to Zapatilla Cay were incredible, and the service in the boutique was extremely warm and special."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emily Chen" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Emily Chen</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Toronto, Canada</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Elena Rojas" data-location="Madrid, Spain"
-						 data-text="If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The over-the-water views are simply breathtaking."
-						 data-photo="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The over-the-water views are simply breathtaking."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Elena Rojas" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Elena Rojas</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Madrid, Spain</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Mateo Ruiz" data-location="Buenos Aires, Argentina"
-						 data-text="The staff's treatment was exceptional. Enjoying a great cocktail at the pool bar as the sun went down was the most relaxing moment of the whole trip."
-						 data-photo="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"The staff's treatment was exceptional. Enjoying a great cocktail at the pool bar as the sun went down was the most relaxing moment of the whole trip."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Mateo Ruiz" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Mateo Ruiz</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Buenos Aires, Argentina</span>
-							</div>
-						</div>
-					</div>
-
-					<!-- ========================================== -->
-					<!-- BLOQUE 2 DUPLICADO (Para el Loop Infinito) -->
-					<!-- ========================================== -->
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Sarah & James" data-location="New York, USA"
-						 data-text="An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the tranquility of the suites made our honeymoon unforgettable."
-						 data-photo="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"An absolute dream! The attention to detail, the incredible mixology at Atlantis Bocas, and the tranquility of the suites made our honeymoon unforgettable."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah & James" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Sarah & James</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">New York, USA</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Carlos & Valentina" data-location="Bogotá, Colombia"
-						 data-text="A perfect getaway. The Caribbean food at the restaurant and the relaxed atmosphere exceeded all our expectations. We will be back!"
-						 data-photo="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"A perfect getaway. The Caribbean food at the restaurant and the relaxed atmosphere exceeded all our expectations. We will be back!"</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Carlos & Valentina" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Carlos & Valentina</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Bogotá, Colombia</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="David Miller" data-location="London, UK"
-						 data-text="The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."
-						 data-photo="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"The staff guided us to the best spots in Bocas. Coming back to the Cosmic Crab Cafe for dinner after a long day of exploring was the highlight of our trip."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="David Miller" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">David Miller</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">London, UK</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Emily Chen" data-location="Toronto, Canada"
-						 data-text="We fell in love with the resort's vibe. The excursions to Zapatilla Cay were incredible, and the service in the boutique was extremely warm and special."
-						 data-photo="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"We fell in love with the resort's vibe. The excursions to Zapatilla Cay were incredible, and the service in the boutique was extremely warm and special."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emily Chen" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Emily Chen</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Toronto, Canada</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Elena Rojas" data-location="Madrid, Spain"
-						 data-text="If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The over-the-water views are simply breathtaking."
-						 data-photo="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"If you want to experience the true essence of the Caribbean with a touch of luxury, this is the place. The over-the-water views are simply breathtaking."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Elena Rojas" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Elena Rojas</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Madrid, Spain</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-[400px] flex-shrink-0 flex flex-col whitespace-normal"
-						 data-name="Mateo Ruiz" data-location="Buenos Aires, Argentina"
-						 data-text="The staff's treatment was exceptional. Enjoying a great cocktail at the pool bar as the sun went down was the most relaxing moment of the whole trip."
-						 data-photo="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80">
-						<div class="text-coral mb-6 flex gap-1">
-							{[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
-						</div>
-						<p class="text-navy/80 italic mb-8 line-clamp-4 font-medium flex-grow">"The staff's treatment was exceptional. Enjoying a great cocktail at the pool bar as the sun went down was the most relaxing moment of the whole trip."</p>
-						<div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
-							<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Mateo Ruiz" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-							<div>
-								<h4 class="text-navy font-bold uppercase tracking-widest text-xs">Mateo Ruiz</h4>
-								<span class="text-navy/50 text-[10px] uppercase tracking-wider">Buenos Aires, Argentina</span>
-							</div>
-						</div>
-					</div>
-
+					<!-- ================================================== -->
+                    <!-- BLOQUES DE TARJETAS (6 Testimonios Duplicados) -->
+                    <!-- ================================================== -->
+					{
+                        testimonalsDataEn.map(({name,location,text,src}) => (
+                            <TestimonialTrigger
+                                name={name}
+                                location={location}
+                                text={text}
+                                src={src}
+                            />
+                        ))
+                    }
 				</div>
 			</div>
 		</section>

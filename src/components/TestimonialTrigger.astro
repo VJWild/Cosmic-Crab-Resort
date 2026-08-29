@@ -1,0 +1,34 @@
+---
+export interface Props{
+    name: string,
+    location: string,
+    text: string,
+    src: string
+}
+
+const {name, location, text, src} = Astro.props;
+---
+
+<div 
+    class="testimonial-trigger bg-white p-8 md:p-10 shadow-xl border-t-4 border-coral relative cursor-pointer group hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 w-[320px] md:w-100 shrink-0 flex flex-col whitespace-normal"
+    data-name={name} 
+    data-location={location}   
+    data-text={text}
+    data-photo={src}
+>
+    <div class="text-coral mb-6 flex gap-1">
+        {[...Array(5)].map(() => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+    </div>
+    <p class="text-navy/80 italic mb-8 line-clamp-4 font-medium grow">{text}</p>
+    <div class="flex items-center gap-4 mt-auto border-t border-navy/10 pt-6">
+        <img 
+            src={src} 
+            alt={name} 
+            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+        >
+        <div>
+            <h4 class="text-navy font-bold uppercase tracking-widest text-xs">{name}</h4>
+            <span class="text-navy/50 text-[10px] uppercase tracking-wider">{location}</span>
+        </div>
+    </div>
+</div>
