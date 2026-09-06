@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Transición de Icono Hamburguesa a "X"
             iconMenu.classList.replace('block', 'hidden');
-            iconClose.classList.replace('hidden', 'block');
-            setTimeout(() => iconClose.classList.remove('rotate-90'), 50); // Giro suave
+            // iconClose.classList.replace('hidden', 'block');
+            // setTimeout(() => iconClose.classList.remove('rotate-90'), 50); // Giro suave
 
             // Bloquear Scroll del sitio web
             document.body.style.overflow = 'hidden';
@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
             content.classList.add('translate-y-8');
 
             // Transición de Icono "X" a Hamburguesa
-            iconClose.classList.add('rotate-90');
+            // iconClose.classList.add('rotate-90');
             setTimeout(() => {
-                iconClose.classList.replace('block', 'hidden');
+                // iconClose.classList.replace('block', 'hidden');
                 iconMenu.classList.replace('hidden', 'block');
-            }, 300);
+            }, 100);
 
             // Desbloquear Scroll del sitio web
             document.body.style.overflow = 'auto';
